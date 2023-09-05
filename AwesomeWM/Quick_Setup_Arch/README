@@ -1,0 +1,22 @@
+This file contains information about how to run the script as well as what's different in the Awesome configuration file. 
+
+IMPORTANT! This script expects AwesomeWM to be already installed! 
+For the best success rate, do an archinstall with the awesome desktop profile and for network configuration, choose NetworkManager.
+
+What is being installed:
+
+- zsh 
+- zsh-syntax-highlightings, zsh-autosuggestions and find-the-command for the zsh
+- Firefox as the Internet Browser
+- VLC as the Media Player
+- Thunar as the File Manager
+- Mousepad as the GUI Text Editor
+- flameshot as the Screenshot Utility
+- Paru as the AUR helper
+- archlinux-wallpaper for a basic set of wallpapers
+- lxappearance as a way to set themes
+- Nordic as the Theme (needs to be manually set)
+- Papirus as the Icon Theme (also needs to be manually set)
+- JetBrains Mono Nerd Font
+
+Have fun!
