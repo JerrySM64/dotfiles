@@ -1,21 +1,21 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./mounts.nix
-      ./dev-pkgs.nix
-      ./gaming.nix
-      ./awesomewm.nix
-      # ./hyprland.nix
-      # ./kde.nix
-      # ./qtile.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./mounts.nix
+    ./dev-pkgs.nix
+    ./gaming.nix
+    ./awesomewm.nix
+    # ./hyprland.nix
+    # ./kde.nix
+    # ./qtile.nix
+  ];
 
   # Bootloader, Kernel, Params and modules
   boot = {
@@ -26,12 +26,12 @@
 
     #Disable swraid to get rid of the warning
     swraid.enable = false;
-  
-    kernelPackages = pkgs.linuxPackages_zen; 
-    kernelParams = [ "amd-iommu=on" ];
+
+    kernelPackages = pkgs.linuxPackages_zen;
+    kernelParams = ["amd-iommu=on"];
     blacklistedKernelModules = [
-    #  "radeon"
-    #  "amdgpu"
+      #  "radeon"
+      #  "amdgpu"
       "nouveau"
       "nvidia"
       "nvidiafb"
@@ -42,10 +42,10 @@
   };
 
   # Hostname
-  networking.hostName = "Green-Demon"; 
+  networking.hostName = "Green-Demon";
 
   # Wireless support via wpa_supplicant
-  # networking.wireless.enable = true; 
+  # networking.wireless.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -102,7 +102,7 @@
 
   # Enable dconf
   programs.dconf.enable = true;
-  
+
   # QEMU/KVM, VirtualBox & Podman
   virtualisation = {
     libvirtd = {
@@ -110,7 +110,7 @@
       qemu = {
         swtpm.enable = true;
         ovmf.enable = true;
-	runAsRoot = true;
+        runAsRoot = true;
       };
       onBoot = "ignore";
       onShutdown = "shutdown";
@@ -133,7 +133,7 @@
   # Environment Variables
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
-    LIBVIRT_DEFAULT_URI = [ "qemu:///system" ];
+    LIBVIRT_DEFAULT_URI = ["qemu:///system"];
   };
 
   # Enable sound with pipewire.
@@ -165,23 +165,23 @@
       Jerry = {
         isNormalUser = true;
         description = "Jerry";
-        extraGroups = [ "networkmanager" "wheel" "libvirt" "kvm" ];
+        extraGroups = ["networkmanager" "wheel" "libvirt" "kvm"];
         shell = pkgs.zsh;
         packages = with pkgs; [
         ];
       };
-    };  
+    };
 
     groups = {
       libvirtd = {
-        members = [ "root" "Jerry" ];
+        members = ["root" "Jerry"];
       };
-    };    
+    };
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -264,5 +264,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
