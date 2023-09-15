@@ -1,3 +1,7 @@
+# IMPORTANT: Qtile doesn't currently work on unstable! I did some attempts to try to get around the 
+#            issues, but haven't been successful. Keep in mind, that this file may need some work to
+#            actually be useful!
+
 { config, pkgs, lib, ...}:
 
 {
