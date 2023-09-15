@@ -14,6 +14,7 @@
       ./awesomewm.nix
       # ./hyprland.nix
       # ./kde.nix
+      # ./qtile.nix
     ];
 
   # Bootloader, Kernel, Params and modules
@@ -22,17 +23,21 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+
+    #Disable swraid to get rid of the warning
+    swraid.enable = false;
   
-    kernelPackages = pkgs.linuxPackages_latest;  
+    kernelPackages = pkgs.linuxPackages_zen; 
+    kernelParams = [ "amd-iommu=on" ];
     blacklistedKernelModules = [
     #  "radeon"
     #  "amdgpu"
-    #  "nouveau"
-    #  "nvidia"
-    #  "nvidiafb"
-    #  "nvidia_drm"
-    #  "nvidia_uvm"
-    #  "nvidia_modeset"
+      "nouveau"
+      "nvidia"
+      "nvidiafb"
+      "nvidia_drm"
+      "nvidia_uvm"
+      "nvidia_modeset"
     ];
   };
 
@@ -70,16 +75,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system and KDE Plasma.
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "amdgpu" ];
-    displayManager.sddm = {
-      enable = true;
-    };
-    desktopManager.plasma5.enable = true;
-  };
-  
   # NVIDIA Driver
   #  services.xserver.videoDrivers = [ "nvidia" ];
   #  hardware.opengl.enable = true;
@@ -165,19 +160,24 @@
   programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users = {
-    Jerry = {
-      isNormalUser = true;
-      description = "Jerry";
-      extraGroups = [ "networkmanager" "wheel" "libvirt" "kvm" ];
-      shell = pkgs.zsh;
-      packages = with pkgs; [
-      ];
-    };
-  };
+  users = {
+    users = {
+      Jerry = {
+        isNormalUser = true;
+        description = "Jerry";
+        extraGroups = [ "networkmanager" "wheel" "libvirt" "kvm" ];
+        shell = pkgs.zsh;
+        packages = with pkgs; [
+        ];
+      };
+    };  
 
-  # Add the user to the libvirtd group
-  users.groups.libvirtd.members = [ "root" "Jerry" ];
+    groups = {
+      libvirtd = {
+        members = [ "root" "Jerry" ];
+      };
+    };    
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -195,12 +195,13 @@
     distrobox
     dolphin-emu
     evince
-    exa
+    eza
     firefox-wayland
     gimp
     htop
     inkscape
     libreoffice
+    lite-xl
     neofetch
     neovim
     ntfs3g
@@ -265,4 +266,3 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
-
