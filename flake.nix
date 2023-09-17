@@ -64,8 +64,9 @@
         };
     in {
       # update with `nix flake update`
-      # rebuild with `nixos-rebuild switch --flake .#green-demon`
+      # rebuild with `nixos-rebuild switch --flake .#<INSERT HOST HERE>`
       green-demon = mkHost "green-demon";
+      denkblock = mkHost "denkblock";
     };
   };
 }
