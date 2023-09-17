@@ -59,7 +59,7 @@
     printing = {
       enable = true;
       # Add drivers for HP printer support
-      driver = with pkgs; [
+      drivers = with pkgs; [
         hplip
       ];
     };
