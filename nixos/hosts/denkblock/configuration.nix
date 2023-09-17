@@ -1,0 +1,3 @@
+# denkblock specific config
+{...}: {
+}
