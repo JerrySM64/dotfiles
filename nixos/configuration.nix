@@ -6,56 +6,24 @@
   pkgs,
   ...
 }: {
-  imports = [
-    # Include the results of the hardware scan.
-    ./mounts.nix
-    ./dev-pkgs.nix
-    ./gaming.nix
-    ./awesomewm.nix
-    # ./hyprland.nix
-    # ./kde.nix
-    # ./qtile.nix
-  ];
-
+  
   # Bootloader, Kernel, Params and modules
   boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-
-    #Disable swraid to get rid of the warning
+    # Disable swraid to get rid of the warning
     swraid.enable = false;
-
-    kernelPackages = pkgs.linuxPackages_zen;
-    kernelParams = ["amd-iommu=on"];
-    blacklistedKernelModules = [
-      #  "radeon"
-      #  "amdgpu"
-      "nouveau"
-      "nvidia"
-      "nvidiafb"
-      "nvidia_drm"
-      "nvidia_uvm"
-      "nvidia_modeset"
-    ];
   };
 
-  # Hostname
-  networking.hostName = "Green-Demon";
+  networking = {
+    # Wireless support via wpa_supplicant
+    # networking.wireless.enable = true;
 
-  # Wireless support via wpa_supplicant
-  # networking.wireless.enable = true;
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Enable Bluetooth support
-  hardware.bluetooth.enable = true;
+    # Enable networking
+    networkmanager.enable = true;
+  };  
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -75,16 +43,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # NVIDIA Driver
-  #  services.xserver.videoDrivers = [ "nvidia" ];
-  #  hardware.opengl.enable = true;
-  #  hardware.nvidia = {
-  #    package = config.boot.kernelPackages.nvidiaPackages.latest;
-  #    modesetting = {
-  #      enable = true;
-  #    };
-  #  };
-
   # Configure keymap in X11
   services.xserver = {
     layout = "de";
@@ -103,37 +61,9 @@
   # Enable dconf
   programs.dconf.enable = true;
 
-  # QEMU/KVM, VirtualBox & Podman
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        swtpm.enable = true;
-        ovmf.enable = true;
-        runAsRoot = true;
-      };
-      onBoot = "ignore";
-      onShutdown = "shutdown";
-    };
-
-    # virtualbox.host = {
-    #   enable = true;
-    #   enableExtensionPack = true;
-    # };
-
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings = {
-        dns_enabled = true;
-      };
-    };
-  };
-
   # Environment Variables
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
-    LIBVIRT_DEFAULT_URI = ["qemu:///system"];
   };
 
   # Enable sound with pipewire.
@@ -146,7 +76,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    jack.enable = true;
+    # jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -165,16 +95,10 @@
       Jerry = {
         isNormalUser = true;
         description = "Jerry";
-        extraGroups = ["networkmanager" "wheel" "libvirt" "kvm"];
+        extraGroups = ["networkmanager" "wheel"];
         shell = pkgs.zsh;
         packages = with pkgs; [
         ];
-      };
-    };
-
-    groups = {
-      libvirtd = {
-        members = ["root" "Jerry"];
       };
     };
   };
@@ -185,39 +109,28 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    ardour
-    blender
     brave
     btop
     cider
     conky
     discord
-    distrobox
-    dolphin-emu
     evince
     eza
     firefox-wayland
-    gimp
     htop
-    inkscape
     libreoffice
     lite-xl
     neofetch
     neovim
     ntfs3g
-    nvtop
     onlyoffice-bin
-    openboardview
+    pciutils
     pfetch
-    qjackctl
     starship
     tdesktop
-    thunderbird
     unzip
-    virt-manager
     vlc
     wget
-    win-virtio
     xdg-user-dirs
     zsh-autosuggestions
     zsh-syntax-highlighting
