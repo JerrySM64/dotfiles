@@ -45,8 +45,10 @@
   networking = {
     # Specify hostname
     hostName = "Green-Demon";
+  };
 
-    # Enable Bluetooth support
+  # Enable hardware support
+  hardware = {
     bluetooth.enable = true;
   };
   
