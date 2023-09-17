@@ -25,6 +25,8 @@
       efi.canTouchEfiVariables = true;
     };
 
+    kernelPackages = pkgs.linuxPackages_zen;
+
     # Add Green Demon's kernel parameters
     kernelParams = ["amd-iommu=on"];
 
