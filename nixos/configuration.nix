@@ -86,6 +86,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable the flake command
+  nix.extraOptions = "experimental-features = nix-command flakes";
+
   # Enable Z-Shell
   programs.zsh.enable = true;
 
