@@ -9,6 +9,9 @@
   
   # Bootloader, Kernel, Params and modules
   boot = {
+    # Specify kernel modules that are being loaded on all devices
+    kernelModules = ["zram"];
+
     # Disable swraid to get rid of the warning
     swraid.enable = false;
   };
@@ -106,8 +109,21 @@
     };
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # nixpkg config and options
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+
+  # Enable Swap on ZRAM
+  zramSwap = {
+    enable = true;
+    # Set the limit to 64 GiB
+    memoryMax = 68719476736;
+  };
+
+  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
