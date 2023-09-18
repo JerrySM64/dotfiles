@@ -89,8 +89,24 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Enable the flake command
-  nix.extraOptions = "experimental-features = nix-command flakes";
+  # Settings for the Nix package manager
+  nix = {
+    # Enable the flake command
+    extraOptions = "experimental-features = nix-command flakes";
+
+    # Enable the binary cache
+    settings = {
+      substituters = [
+        "http://binarycache.example.com"
+	"https://nix-community.cachix.org"
+	"https://cache.nixos.org"
+      ];
+      trusted-public-keys = [
+        "binarycache.example.com-1:dsafdafDFW123fdasfa123124FADSAD"
+	"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+    };
+  };
 
   # Enable Z-Shell
   programs.zsh.enable = true;
@@ -119,8 +135,8 @@
   # Enable Swap on ZRAM
   zramSwap = {
     enable = true;
-    # Set the limit to 64 GiB
-    memoryMax = 68719476736;
+    # Set the limit to double the RAM
+    memoryPercent = 200;
   };
 
   
