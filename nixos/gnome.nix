@@ -20,10 +20,10 @@
         desktopManager.gnome = {
           enable = true;
         };
-
-        # Enable the fwupd service
-        fwupd.enable = true;
       };
+
+      # Enable the fwupd service
+      fwupd.enable = true;
     };
 
     # XDG Desktop Portal
