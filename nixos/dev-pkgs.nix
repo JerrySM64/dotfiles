@@ -14,7 +14,6 @@
       gh
       gitFull
       gnat13
-      kate
       nix-prefetch-scripts
       pkg-config
       python311Full
