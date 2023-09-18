@@ -46,6 +46,7 @@
 
       # Packages specific to GNOME
       systemPackages = with pkgs; [
+        gnome.gnome-tweaks
         gnomeExtensions.appindicator
         gnomeExtensions.blur-my-shell
         gnomeExtensions.dash-to-dock
@@ -53,6 +54,7 @@
         gnomeExtensions.removable-drive-menu
         gnomeExtensions.vitals
         gnome-extension-manager
+        yaru-theme
       ];
     };
   };
