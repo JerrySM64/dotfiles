@@ -10,8 +10,8 @@
     ../../mounts.nix
     ../../dev-pkgs.nix
     ../../gaming.nix
-    ../../awesomewm.nix
-    # ../../gnome.nix
+    # ../../awesomewm.nix
+    ../../gnome.nix
     # ../../hyprland.nix
     # ../../kde.nix
     # ../../qtile.nix
