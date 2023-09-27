@@ -153,6 +153,7 @@
     htop
     libreoffice
     lite-xl
+    lm_sensors
     neofetch
     neovim
     ntfs3g

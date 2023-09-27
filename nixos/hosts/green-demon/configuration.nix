@@ -82,8 +82,8 @@
       # Extra QEMU options
       qemu = {
         swtpm.enable = true;
-	ovmf.enable = true;
-	runAsRoot = true;
+	      ovmf.enable = true;
+	      runAsRoot = true;
       };
 
       # Specify behavior on boot and shutdown
@@ -131,6 +131,7 @@
       distrobox
       gimp
       inkscape
+      libratbag
       nvtop
       openboardview
       qjackctl
