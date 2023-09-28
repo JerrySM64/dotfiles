@@ -18,11 +18,11 @@
 
   networking = {
     # Wireless support via wpa_supplicant
-    # networking.wireless.enable = true;
+    # wireless.enable = true;
 
     # Configure network proxy if necessary
-    # networking.proxy.default = "http://user:password@proxy:port/";
-    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    # proxy.default = "http://user:password@proxy:port/";
+    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
     networkmanager.enable = true;
@@ -152,7 +152,6 @@
     firefox-wayland
     htop
     libreoffice
-    lite-xl
     lm_sensors
     neofetch
     neovim

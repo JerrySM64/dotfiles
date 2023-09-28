@@ -67,6 +67,7 @@
       # rebuild with `nixos-rebuild switch --flake .#<INSERT HOST HERE>`
       green-demon = mkHost "green-demon";
       denkblock = mkHost "denkblock";
+      ideenblock = mkHost "ideenblock";
     };
   };
 }

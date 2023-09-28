@@ -14,6 +14,7 @@
       gh
       gitFull
       gnat13
+      godot_4
       nix-prefetch-scripts
       pkg-config
       python311Full
