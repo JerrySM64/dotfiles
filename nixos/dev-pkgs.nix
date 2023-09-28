@@ -14,6 +14,7 @@
       gh
       gitFull
       gnat13
+      gnome.ghex
       godot_4
       nix-prefetch-scripts
       pkg-config
