@@ -17,7 +17,7 @@
 
     # Increase the vm.max_map_count 
     kernel = {
-      sysctl = {"vm.max_map_count" = 2147483642 ; "vm.swappiness" = 5};
+      sysctl = {"vm.max_map_count" = 2147483642 ; "vm.swappiness" = 5; };
     };
   };
 
