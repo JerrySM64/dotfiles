@@ -14,6 +14,11 @@
 
     # Disable swraid to get rid of the warning
     swraid.enable = false;
+
+    # Increase the vm.max_map_count 
+    kernel = {
+      sysctl = {"vm.max_map_count" = 2147483642 ; "vm.swappiness" = 5};
+    };
   };
 
   networking = {

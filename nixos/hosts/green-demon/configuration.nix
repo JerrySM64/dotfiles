@@ -28,7 +28,7 @@
     kernelPackages = pkgs.linuxPackages_zen;
 
     # Add Green Demon's kernel parameters
-    kernelParams = ["amd-iommu=on"];
+    kernelParams = ["pcie_acs_override=downstream,multifunction"];
 
     # Specify the kernel modules to blacklist
     blacklistedKernelModules = [
@@ -39,7 +39,7 @@
       "nvidia_drm"
       "nvidia_modeset"
       "nvidia_uvm"
-      # "radeon"
+      "radeon"
     ];
   };
 
@@ -121,7 +121,7 @@
     
     # Environment variables
     sessionVariables = {
-      LIBVIRT_DEFAULT_URI = ["qemu://system"];
+      LIBVIRT_DEFAULT_URI = ["qemu:///system"];
     };
 
     # Packages specific to Green Demon
