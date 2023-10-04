@@ -27,7 +27,7 @@
 
     "/boot" = {
       device = "/dev/disk/by-label/BOOT";
-      fstype = "vfat";
+      fsType = "vfat";
     };
   };
 
