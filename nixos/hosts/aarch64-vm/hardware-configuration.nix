@@ -38,6 +38,6 @@
   };
 
   nixpkgs = {
-    hostPlatform = lib.mkDefault "aarch64-linux"
+    hostPlatform = lib.mkDefault "aarch64-linux";
   };
 }
