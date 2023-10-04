@@ -24,15 +24,6 @@
     hostName = "aarch64-vm";
   };
 
-  # User account related things specific to aarch64-vm
-  users = {
-    users = {
-      jerry = {
-        extraGroups = [];
-      };
-    };
-  };
-
   # Environment related things specific to aarch64-vm
   environment = {
     
