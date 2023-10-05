@@ -68,7 +68,7 @@
       aarch64-vm = mkHost "aarch64-vm";
       denkblock = mkHost "denkblock";
       green-demon = mkHost "green-demon";
-      hurricane = "hurricane";
+      hurricane = mkHost "hurricane";
       ideenblock = mkHost "ideenblock";
     };
   };
