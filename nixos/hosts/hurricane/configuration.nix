@@ -27,7 +27,7 @@
 
     kernelPackages = pkgs.linuxPackages_zen;
 
-    # Add Green Demon's kernel parameters
+    # Add Harmless Hurricane's kernel parameters
     kernelParams = ["pcie_acs_override=downstream,multifunction"];
   };
 
@@ -102,7 +102,7 @@
     };
   };
 
-  # User account related things specific to Green Demon
+  # User account related things specific to Harmless Hurricane
   users = {
     users = {
       Jerry = {
@@ -117,7 +117,7 @@
     };
   };
 
-  # Environment related things specific to Green Demon
+  # Environment related things specific to Harmless Hurricane
   environment = {
     
     # Environment variables
@@ -125,7 +125,7 @@
       LIBVIRT_DEFAULT_URI = ["qemu:///system"];
     };
 
-    # Packages specific to Green Demon
+    # Packages specific to Harmless Hurricane
     systemPackages = with pkgs; [
       blender
       distrobox
