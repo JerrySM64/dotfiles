@@ -8,9 +8,6 @@
       xserver = {
         enable = true;
 
-        # Tell X11 which driver to use
-        videoDrivers = ["amdgpu"];
-
         # Enable the GDM Display Manager
         displayManager.gdm = {
           enable = true; 
@@ -53,7 +50,6 @@
         gnomeExtensions.just-perfection
         gnomeExtensions.removable-drive-menu
         gnomeExtensions.vitals
-        gnome-extension-manager
         yaru-theme
       ];
     };

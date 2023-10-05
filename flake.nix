@@ -65,10 +65,11 @@
     in {
       # update with `nix flake update`
       # rebuild with `nixos-rebuild switch --flake .#<INSERT HOST HERE>`
-      green-demon = mkHost "green-demon";
-      denkblock = mkHost "denkblock";
-      ideenblock = mkHost "ideenblock";
       aarch64-vm = mkHost "aarch64-vm";
+      denkblock = mkHost "denkblock";
+      green-demon = mkHost "green-demon";
+      harmless-hurricane = "harmless-hurricane";
+      ideenblock = mkHost "ideenblock";
     };
   };
 }
