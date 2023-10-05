@@ -69,7 +69,7 @@
 
     # X11 settings specific to the harmless hurricane
     xserver = {
-      videoDrivers = [nvidia];
+      videoDrivers = ["nvidia"];
     };
   };
 
