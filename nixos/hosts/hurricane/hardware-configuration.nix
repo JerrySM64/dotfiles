@@ -21,13 +21,12 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-partlabel/NixOS";
-      fsType = "btrfs";
-      options = ["subvol=@"];
+      device = "/dev/disk/by-label/NixOS";
+      fsType = "xfs";
     };
 
     "/boot" = {
-      device = "/dev/disk/by-partlabel/BOOT";
+      device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
     };
   };
