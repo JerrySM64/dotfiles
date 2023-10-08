@@ -1,6 +1,4 @@
-# IMPORTANT: Qtile doesn't currently work on unstable! I did some attempts to try to get around the 
-#            issues, but haven't been successful. Keep in mind, that this file may need some work to
-#            actually be useful!
+# File for the Qtile Window Manager
 
 { config, pkgs, lib, ...}:
 
@@ -21,7 +19,6 @@
 	      # Enable the Awesome Window Manager
 	      windowManager.qtile = {
           enable = true;
-	        package = pkgs.stable.qtile;
         };
 
 	      # X11 configuration
