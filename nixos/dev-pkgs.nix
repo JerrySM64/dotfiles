@@ -2,7 +2,19 @@
 
   config = {
     
-    programs.adb.enable = true;
+    programs = {
+      adb = {
+        enable = true;
+      };
+
+      direnv = {
+        enable = true;
+        
+        nix-direnv = {
+          enable = true;
+        };
+      };
+    };
     
     users.users = {
       Jerry = {
