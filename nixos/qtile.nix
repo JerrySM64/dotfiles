@@ -6,20 +6,11 @@
 
 {
   config = {
-
-    nixpkgs.config = {
-      packageOverrides = pkgs: {
-        stable = import <stable> {
-	  config = config.nixpkgs.config;
-	};
-      };
-    };  
-
     services = {
       xserver = {
         enable = true;
 
-	# Enable the SDDM Display Manager
+	      # Enable the SDDM Display Manager
         displayManager = {
           sddm = {
             enable = true;
@@ -27,37 +18,37 @@
           defaultSession = "none+qtile";
         };
         
-	# Enable the Awesome Window Manager
-	windowManager.qtile = {
+	      # Enable the Awesome Window Manager
+	      windowManager.qtile = {
           enable = true;
-	  package = pkgs.stable.qtile;
+	        package = pkgs.stable.qtile;
         };
 
-	# X11 configuration
-	## Tell X11 which driver to use
-	videoDrivers = [ "amdgpu" ];
-	exportConfiguration = true;
-	config = lib.mkAfter ''
-	  Section "Device"
-	    Identifier "Device-amdgpu[0]"
-	    Driver "amdgpu"
-	    Option "VariableRefresh" "true"
-	    Option "AsyncFlipSecondaries" "true"
-	  EndSection
+	      # X11 configuration
+	      ## Tell X11 which driver to use
+	      videoDrivers = [ "amdgpu" ];
+	      exportConfiguration = true;
+	      config = lib.mkAfter ''
+	        Section "Device"
+	          Identifier "Device-amdgpu[0]"
+	          Driver "amdgpu"
+	          Option "VariableRefresh" "true"
+	          Option "AsyncFlipSecondaries" "true"
+	        EndSection
 
-	  Section "Screen"
-	    Identifier "Screen-amdgpu-[0]
-	    Device "Device-amdgpu[0]"
-	    Option "VariableRefresh" "true"
-	    Option "AsyncFlipSecondaries" "true"
-	  EndSection
-	'';
+	        Section "Screen"
+	          Identifier "Screen-amdgpu-[0]
+	          Device "Device-amdgpu[0]"
+	          Option "VariableRefresh" "true"
+	          Option "AsyncFlipSecondaries" "true"
+	        EndSection
+	      '';
       };
 
       # GVFS Support
       gvfs = {
         enable = true;
-	package = lib.mkForce pkgs.gnome.gvfs;
+	      package = lib.mkForce pkgs.gnome.gvfs;
       };
     };
 
@@ -95,6 +86,7 @@
       ffmpegthumbnailer
       flameshot
       galculator
+      imagemagick
       kitty
       libsForQt5.qt5.qtgraphicaleffects
       libsForQt5.sddm-kcm
