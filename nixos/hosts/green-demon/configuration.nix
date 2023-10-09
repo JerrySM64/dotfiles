@@ -46,7 +46,7 @@
   # Hostname, networking and bluetooth
   networking = {
     # Specify hostname
-    hostName = "Crash-Demon";
+    hostName = "Green-Demon";
   };
 
   # Enable hardware support
