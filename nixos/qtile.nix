@@ -1,6 +1,6 @@
 # File for the Qtile Window Manager
 
-{ config, pkgs, lib, ...}:
+{ config, pkgs, lib, python3Packages, ...}:
 
 {
   config = {
@@ -16,9 +16,13 @@
           defaultSession = "none+qtile";
         };
         
-	      # Enable the Awesome Window Manager
+	      # Enable the Qtile Window Manager
 	      windowManager.qtile = {
-          enable = true;
+          	enable = true;
+		extraPackages = python3Packages: with python3Packages; [
+		  qtile-extras
+		  dbus-python
+		];  
         };
 
 	      # X11 configuration
@@ -79,6 +83,7 @@
     # Qtile-specific packages
     environment.systemPackages = with pkgs; [
       bibata-cursors
+      feh
       ffmpeg
       ffmpegthumbnailer
       flameshot
@@ -90,7 +95,7 @@
       lxappearance
       networkmanagerapplet
       nordic
-      pa_applet
+      # pa_applet
       papirus-icon-theme
       pavucontrol
       picom
@@ -98,7 +103,6 @@
       pulsemixer
       python310Packages.cairocffi
       python311Packages.mpd2
-      pywal
       qgnomeplatform
       qgnomeplatform-qt6
       rofi
