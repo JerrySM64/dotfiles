@@ -64,8 +64,8 @@
       libsForQt5.qt5.qtgraphicaleffects
       libsForQt5.sddm-kcm
       kitty
-      lxappearance
       nordic
+      nwg-look
       pamixer
       papirus-icon-theme
       pavucontrol
@@ -75,7 +75,7 @@
       swaylock-effects
       sway-contrib.grimshot
       viewnior
-      waybar-hyprland
+      waybar
       wlogout
       wl-clipboard
       wofi
