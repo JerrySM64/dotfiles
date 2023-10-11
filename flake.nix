@@ -2,13 +2,18 @@
   description = "Dotfiles and configuration files for NixOS";
 
   inputs = {
-    # change to github:nixos/nixpkgs/nixos-23.05 for unstable
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # List of repos:
+    # nixpkgs          -> Upstream
+    # nixpkgs-unstable -> NixOS Unstable channel (Recommended if you plan to use GNOME)
+    # nixpkgs-stable   -> NixOS Stable channel (Currently Version 23.05)
+    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    #  inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
