@@ -13,16 +13,16 @@
           sddm = {
             enable = true;
           };
-          defaultSession = "none+qtile";
         };
         
 	      # Enable the Qtile Window Manager
 	      windowManager.qtile = {
-          	enable = true;
-		extraPackages = python3Packages: with python3Packages; [
-		  qtile-extras
-		  dbus-python
-		];  
+          enable = true;
+          backend = "wayland";
+		      extraPackages = python3Packages: with python3Packages; [
+		        qtile-extras
+		        dbus-python
+		      ];  
         };
 
 	      # X11 configuration
