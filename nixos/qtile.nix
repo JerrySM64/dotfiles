@@ -83,6 +83,7 @@
     # Qtile-specific packages
     environment.systemPackages = with pkgs; [
       bibata-cursors
+      dunst
       feh
       ffmpeg
       ffmpegthumbnailer
