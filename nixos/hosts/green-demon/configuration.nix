@@ -13,9 +13,9 @@
   #  ../../awesomewm.nix
   #  ../../gnome.nix
   #  ../../hyprland.nix
-  #  ../../kde.nix
+    ../../kde.nix
     ../../obs.nix
-    ../../qtile.nix
+  #  ../../qtile.nix
   ];
 
   # Bootloader has to be done per machine, since the ThinkPad doesn't 
