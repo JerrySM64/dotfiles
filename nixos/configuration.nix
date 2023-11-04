@@ -98,17 +98,6 @@
   nix = {
     # Enable the flake command
     extraOptions = "experimental-features = nix-command flakes";
-
-    # Enable the binary cache
-    settings = {
-      substituters = [
-        "https://nix-community.cachix.org"
-	      "https://cache.nixos.org"
-      ];
-      trusted-public-keys = [
-	      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-    };
   };
 
   # Enable Z-Shell
@@ -141,8 +130,6 @@
     # Set the limit to double the RAM
     memoryPercent = 200;
   };
-
-  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
