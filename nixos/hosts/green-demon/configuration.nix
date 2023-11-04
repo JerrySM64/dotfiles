@@ -11,9 +11,9 @@
     ../../dev-pkgs.nix
     ../../gaming.nix
   #  ../../awesomewm.nix
-  #  ../../gnome.nix
+    ../../gnome.nix
   #  ../../hyprland.nix
-    ../../kde.nix
+  #  ../../kde.nix
     ../../obs.nix
   #  ../../qtile.nix
   ];
