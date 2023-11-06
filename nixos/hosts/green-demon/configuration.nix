@@ -89,10 +89,7 @@
 
 	      ovmf = {
           enable = true;
-          package = (pkgs.OVMFFull.override {
-            secureBoot = true;
-            tpmSupport = true;
-          });
+          packages = [pkgs.OVMFFull.fd];
         };
       };
 
