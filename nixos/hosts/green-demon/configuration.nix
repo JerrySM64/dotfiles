@@ -82,9 +82,17 @@
       
       # Extra QEMU options
       qemu = {
-        swtpm.enable = true;
-	      ovmf.enable = true;
 	      runAsRoot = true;
+        swtpm = {
+          enable = true;
+        };
+
+	      ovmf = {
+          enable = true;
+          packages = with pkgs; [
+            OVMFFull
+          ];
+        };
       };
 
       # Specify behavior on boot and shutdown
