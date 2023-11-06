@@ -12,11 +12,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.3.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
+    lanzaboote,
     ...
   }: {
     nixosConfigurations = let
@@ -31,6 +37,27 @@
           };
 
           modules = [
+            lanzaboote.nixosModules.lanzaboote
+
+            ({ pkgs, lib, ... }: {
+              
+              environment.systemPackages = with pkgs; [
+                sbctl
+              ];
+              
+              boot = {
+                loader = {
+                  systemd-boot = {
+                    enable = lib.mkForce false;
+                  };
+                };
+
+                lanzaboote = {
+                  enable = true;
+                  pkiBundle = "/etc/secureboot";
+                };
+              };  
+            })
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
