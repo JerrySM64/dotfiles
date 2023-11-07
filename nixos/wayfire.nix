@@ -1,20 +1,26 @@
 { config, pkgs, inputs, system, security, ... }: {
   config = {
-    services.xserver = {
-      enable = true;
-      videoDrivers = [ "amdgpu" ];
-      displayManager.sddm = {
+    services = {
+      xserver = {
         enable = true;
-        #theme = "${(pkgs.fetchFromGitHub {
-        #  owner = "Kangie";
-        #  repo = "sddm-sugar-candy";
-        #  rev = "a1fae5159c8f7e44f0d8de124b14bae583edb5b8";
-        #  sha256 = "p2d7I0UBP63baW/q9MexYJQcqSmZ0L5rkwK3n66gmqM=";
-        #})}";
+        videoDrivers = [ "amdgpu" ];
+        displayManager.sddm = {
+          enable = true;
+          #theme = "${(pkgs.fetchFromGitHub {
+          #  owner = "Kangie";
+          #  repo = "sddm-sugar-candy";
+          #  rev = "a1fae5159c8f7e44f0d8de124b14bae583edb5b8";
+          #  sha256 = "p2d7I0UBP63baW/q9MexYJQcqSmZ0L5rkwK3n66gmqM=";
+          #})}";
+        };
+        layout = "de";
+        xkbVariant = "";
       };
-      layout = "de";
-      xkbVariant = "";
-    };
+
+      dbus = {
+        enable = true;
+      };
+    };  
 
     # Wayfire joins the battle!
     programs.wayfire = {
@@ -48,9 +54,19 @@
       portal = {
         enable = true;
         extraPortals = with pkgs; [
-          xdg-desktop-portal-wlr
           xdg-desktop-portal-gtk
+          xdg-desktop-portal-kde
+          xdg-desktop-portal-wlr
         ];
+        wlr = {
+          enable = true;
+          settings = {
+            screencast = {
+              chooser_type = "simple";
+              chooser_cmd = "${pkgs.slurp}/bin/slurp -f%o -or";
+            };
+          };
+        };
       };
     };
 
