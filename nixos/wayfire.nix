@@ -48,7 +48,7 @@
       portal = {
         enable = true;
         extraPortals = with pkgs; [
-          xdg-desktop-portal-wlroots
+          xdg-desktop-portal-wlr
           xdg-desktop-portal-gtk
         ];
       };
