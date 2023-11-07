@@ -11,12 +11,12 @@
     ../../dev-pkgs.nix
     ../../gaming.nix
   #  ../../awesomewm.nix
-  #  ../../gnome.nix
+    ../../gnome.nix
   #  ../../hyprland.nix
   #  ../../kde.nix
     ../../obs.nix
   #  ../../qtile.nix
-    ../../wayfire.nix
+  #  ../../wayfire.nix
   ];
 
   # Bootloader has to be done per machine, since the ThinkPad doesn't 
