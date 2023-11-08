@@ -18,6 +18,7 @@
       retroarch
       superTuxKart
       winePackages.stableFull
+      wipeout-rewrite
     ];
   };
 }
