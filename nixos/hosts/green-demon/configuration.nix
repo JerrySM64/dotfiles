@@ -136,11 +136,12 @@
     systemPackages = with pkgs; [
       ardour
       blender
+      brasero
       distrobox
       gimp
       inkscape
       libratbag
-      nvtop
+      mpv
       openboardview
       qjackctl
       virt-manager
