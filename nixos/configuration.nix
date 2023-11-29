@@ -143,6 +143,7 @@
     eza
     firefox-wayland
     htop
+    kitty
     libreoffice
     lm_sensors
     neofetch
