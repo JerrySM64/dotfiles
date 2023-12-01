@@ -31,7 +31,7 @@
       nix-prefetch-scripts
       pkg-config
       python311Full
-      vscode
+      vscodium
     ];
   };
 }
