@@ -4,9 +4,9 @@
   inputs = {
     # List of repos:
     # nixpkgs -> NixOS Unstable channel
-    # nixpkgs-stable   -> NixOS Stable channel (Currently Version 23.05)
+    # nixpkgs-stable   -> NixOS Stable channel (Currently Version 23.11)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
