@@ -8,11 +8,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -58,31 +53,6 @@
                 };
               };  
             })
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.${user} = {
-                  imports = [
-                    # common home-manager configuration
-                    ./nixos/home.nix
-                    # host specific home-manager configuration
-                    ./nixos/hosts/${host}/home.nix
-                  ];
-
-                  home = {
-                    username = user;
-                    homeDirectory = "/home/${user}";
-                    # do not change this value
-                    stateVersion = "23.05";
-                  };
-
-                  # Let Home Manager install and manage itself.
-                  programs.home-manager.enable = true;
-                };
-              };
-            }
             # common configuration
             ./nixos/configuration.nix
             # host specific configuration

@@ -1,3 +1,0 @@
-# shared home-manager config
-{...}: {
-}
