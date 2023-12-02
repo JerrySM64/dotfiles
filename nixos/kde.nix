@@ -36,6 +36,7 @@
     environment.systemPackages = with pkgs; [
       kate
       kcalc
+      kcharselect
       kdenlive
       libsForQt5.kwallet-pam
       pciutils
