@@ -1,5 +1,6 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }: 
 
+{
   config = {
     # Steam has it's issues
     programs.steam = {

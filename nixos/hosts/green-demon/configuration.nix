@@ -1,10 +1,7 @@
 # green-demon specific config
-{
-  config, 
-  pkgs, 
-  ...
-}: {
-  
+{ config, pkgs, ... }: 
+
+{  
   # Imports specific to Green Demon
   imports = [
     ../../mounts.nix

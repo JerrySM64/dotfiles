@@ -2,7 +2,9 @@
 # HUGE shoutout to him/her for letting me base my file off of his/her one!
 # Be sure to check him/her out: https://github.com/iynaix
 
-{ config, pkgs, inputs, system, security, ... }: {
+{ config, pkgs, inputs, system, security, ... }: 
+  
+{
   config = {
     services.xserver = {
       enable = true;

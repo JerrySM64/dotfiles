@@ -1,10 +1,7 @@
 # Configuration specific to the harmless hurricane
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: 
 
+{
   # Imports specific to the harmless hurricane
   imports = [
     ../../mounts.nix

@@ -1,9 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: 
 
+{
   # Imports specific to aarch64-vm
   imports = [
     ../../gnome.nix

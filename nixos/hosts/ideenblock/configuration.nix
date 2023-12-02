@@ -1,10 +1,6 @@
 # configuration.nix specific to ideenblock
 
-{
-  config, 
-  pkgs, 
-  ...
-}:
+{ config, pkgs, ... }:
 
 {
   imports = [

@@ -1,4 +1,6 @@
-{ config, pkgs, inputs, system, security, ... }: {
+{ config, pkgs, inputs, system, security, ... }: 
+
+{
   config = {
     services = {
       xserver = {
