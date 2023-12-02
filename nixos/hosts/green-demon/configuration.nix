@@ -72,6 +72,11 @@
     pipewire = {
       jack.enable = true;
     };
+
+    # Enable Cockpit
+    cockpit = {
+      enable = true;
+    };
   };
 
   # QEMU/KVM & Podman
