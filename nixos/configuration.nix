@@ -172,6 +172,7 @@
     proggyfonts
     jetbrains-mono
     nerdfonts
+    vegur
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
