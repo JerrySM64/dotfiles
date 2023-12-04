@@ -142,6 +142,7 @@
       distrobox
       gimp
       inkscape
+      krita
       libratbag
       mpv
       openboardview
