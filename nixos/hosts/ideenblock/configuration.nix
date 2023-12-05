@@ -68,7 +68,7 @@
   # User account related things specific to Green Demon
   users = {
     users = {
-      jerry = {
+      Jerry = {
         extraGroups = [];
       };
     };
