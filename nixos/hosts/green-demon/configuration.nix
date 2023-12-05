@@ -101,6 +101,12 @@
       onShutdown = "shutdown";
     };
 
+    # Specify screen resolution for the VMs
+    resolution = {
+      x = 1920;
+      y = 1080;
+    };
+
     # Podman for containers
     podman = {
       enable = true;
@@ -147,6 +153,7 @@
       mpv
       openboardview
       qjackctl
+      vesktop
       virt-manager
       win-virtio
     ];
