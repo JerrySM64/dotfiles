@@ -17,12 +17,12 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/f46b56ba-940c-4a08-ac51-f44b31d90dbb";
+      device = "/dev/disk/by-label/NixOS";
       fsType = "xfs";
     };
 
     "/boot" = {
-        device = "/dev/disk/by-uuid/813F-34E9";
+        device = "/dev/disk/by-label/BOOT";
         fsType = "vfat";
     };
   };
