@@ -82,7 +82,4 @@
       
     ];
   };
-
-  # Do not change this value under any circumstance!
-  system.stateVersion = "23.05";
 }
