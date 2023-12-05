@@ -9,7 +9,6 @@
     services = {
       xserver = {
         enable = true;
-        videoDrivers = [ "amdgpu" ];
         displayManager.sddm = {
           enable = true;
         #  defaultSession = "plasmawayland";
