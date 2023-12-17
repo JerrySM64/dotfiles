@@ -9,8 +9,8 @@
     ../../gaming.nix
   #  ../../awesomewm.nix
   #  ../../gnome.nix
-  #  ../../hyprland.nix
-    ../../kde.nix
+    ../../hyprland.nix
+  #  ../../kde.nix
     ../../obs.nix
   #  ../../qtile.nix
   #  ../../wayfire.nix
@@ -99,12 +99,6 @@
       # Specify behavior on boot and shutdown
       onBoot = "ignore";
       onShutdown = "shutdown";
-    };
-
-    # Specify screen resolution for the VMs
-    resolution = {
-      x = 1920;
-      y = 1080;
     };
 
     # Podman for containers
