@@ -1,5 +1,5 @@
 # Home Manager specific for Green Demon
-{ pkgs, config, lib, isNixOS, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   home = {
@@ -8,10 +8,10 @@
       gnome.dconf-editor
     ];
 
-    pointerCursor = lib.mkIf isNixOS {
-      package = pkgs.bibata-extra-cursors;
-      name = "Bibata-Modern";
-      size = 28;
+    pointerCursor = {
+      package = pkgs.simp1e-cursors;
+      name = "Simp1e-Catppuccin-Mocha";
+      size = 24;
       gtk.enable = true;
       x11.enable = true;
     };
@@ -20,14 +20,18 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Nordic-dark";
-      package = pkgs.nordic;
+      name = "Catppuccin-Mocha-Compact-Blue-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["blue"];
+        variant = "mocha";
+        size = "compact";
+      };
     };
     iconTheme = {
-      name = "Papirus-dark";
+      name = "Papirus";
       package = pkgs.papirus-icon-theme;
     };
-    gtk2configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     gtk3 = {
       extraConfig = {
         gtk-application-prefer-dark-theme = 1;
@@ -38,5 +42,10 @@
         gtk-application-prefer-dark-theme = 1;
       };
     };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
   };
 }
