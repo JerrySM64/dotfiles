@@ -6,19 +6,25 @@
   
 {
   config = {
-    services.xserver = {
-      enable = true;
-      displayManager.sddm = {
+    services = {
+      xserver = {
         enable = true;
-      #  theme = "${(pkgs.fetchFromGitHub {
-      #    owner = "Kangie";
-      #    repo = "sddm-sugar-candy";
-      #    rev = "a1fae5159c8f7e44f0d8de124b14bae583edb5b8";
-      #    sha256 = "p2d7I0UBP63baW/q9MexYJQcqSmZ0L5rkwK3n66gmqM=";
-      #  })}";
+        displayManager.sddm = {
+          enable = true;
+        #  theme = "${(pkgs.fetchFromGitHub {
+        #    owner = "Kangie";
+        #    repo = "sddm-sugar-candy";
+        #    rev = "a1fae5159c8f7e44f0d8de124b14bae583edb5b8";
+        #    sha256 = "p2d7I0UBP63baW/q9MexYJQcqSmZ0L5rkwK3n66gmqM=";
+        #  })}";
+        };
+        layout = "de";
+        xkbVariant = "";
       };
-      layout = "de";
-      xkbVariant = "";
+
+      gvfs = {
+        enable = true;
+      };
     };
 
     # locking with swaylock
@@ -57,11 +63,6 @@
       };
     };
 
-    qt = {
-      enable = true;
-      platformTheme = "gtk2";
-    };
-
     # Hyprland-specific packages
     environment.systemPackages = with pkgs; [
       dunst
@@ -76,13 +77,13 @@
       pavucontrol
       playerctl
       polkit_gnome
+      rofi
       swaybg
       swaylock-effects
       viewnior
       waybar
       wlogout
       wl-clipboard
-      wofi
       xfce.thunar
       xfce.thunar-volman
       xfce.thunar-archive-plugin
