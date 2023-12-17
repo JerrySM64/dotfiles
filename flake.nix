@@ -12,6 +12,10 @@
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -53,6 +57,31 @@
                 };
               };  
             })
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${user} = {
+                  imports = [
+                    # common home-manager configuration
+                    ./nixos/home.nix
+                    # host specific home-manager configuration
+                    ./nixos/hosts/${host}/home.nix
+                  ];
+
+                  home = {
+                    username = user;
+                    homeDirectory = "/home/${user}";
+                    # do not change this value
+                    stateVersion = "22.05";
+                  };
+
+                  # Let Home Manager install and manage itself.
+                  programs.home-manager.enable = true;
+                };
+              };
+            }
             # common configuration
             ./nixos/configuration.nix
             # host specific configuration
@@ -65,7 +94,6 @@
       # update with `nix flake update`
       # rebuild with `nixos-rebuild switch --flake .#<INSERT HOST HERE>`
       aarch64-vm = mkHost "aarch64-vm";
-      denkblock = mkHost "denkblock";
       green-demon = mkHost "green-demon";
       hurricane = mkHost "hurricane";
       ideenblock = mkHost "ideenblock";

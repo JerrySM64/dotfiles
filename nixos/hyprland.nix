@@ -1,4 +1,4 @@
-# This file is heavily based on the hyprland.nix file written by Lin Xianyi.
+# This file is heavily based on the hyprland.nix file written by Xianyi Lin.
 # HUGE shoutout to him/her for letting me base my file off of his/her one!
 # Be sure to check him/her out: https://github.com/iynaix
 
@@ -8,15 +8,14 @@
   config = {
     services.xserver = {
       enable = true;
-      videoDrivers = [ "amdgpu" ];
       displayManager.sddm = {
         enable = true;
-        theme = "${(pkgs.fetchFromGitHub {
-          owner = "Kangie";
-          repo = "sddm-sugar-candy";
-          rev = "a1fae5159c8f7e44f0d8de124b14bae583edb5b8";
-          sha256 = "p2d7I0UBP63baW/q9MexYJQcqSmZ0L5rkwK3n66gmqM=";
-        })}";
+      #  theme = "${(pkgs.fetchFromGitHub {
+      #    owner = "Kangie";
+      #    repo = "sddm-sugar-candy";
+      #    rev = "a1fae5159c8f7e44f0d8de124b14bae583edb5b8";
+      #    sha256 = "p2d7I0UBP63baW/q9MexYJQcqSmZ0L5rkwK3n66gmqM=";
+      #  })}";
       };
       layout = "de";
       xkbVariant = "";
@@ -53,9 +52,14 @@
         enable = true;
         extraPortals = with pkgs; [
           xdg-desktop-portal-hyprland
-          xdg-desktop-portal-kde
+          xdg-desktop-portal-gtk
         ];
       };
+    };
+
+    qt = {
+      enable = true;
+      platformTheme = "gtk2";
     };
 
     # Hyprland-specific packages
@@ -63,19 +67,17 @@
       dunst
       ffmpeg
       ffmpegthumbnailer
+      grimblast
       libsForQt5.qt5.qtgraphicaleffects
       libsForQt5.sddm-kcm
       kitty
-      nordic
       nwg-look
       pamixer
-      papirus-icon-theme
       pavucontrol
       playerctl
       polkit_gnome
       swaybg
       swaylock-effects
-      sway-contrib.grimshot
       viewnior
       waybar
       wlogout
