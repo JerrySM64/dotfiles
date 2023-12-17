@@ -1,5 +1,5 @@
 # Home Manager specific for Green Demon
-{ pkgs, config, isNixOS, ... }:
+{ pkgs, config, lib, isNixOS, ... }:
 
 {
   home = {
