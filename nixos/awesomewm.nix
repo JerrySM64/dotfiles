@@ -15,7 +15,7 @@
         };
         
 	# Enable the Awesome Window Manager
-	windowManager.awesome = {
+	      windowManager.awesome = {
           enable = true;
           luaModules = with pkgs.luaPackages; [
             luarocks
@@ -23,25 +23,25 @@
           ];
         };
 
-	# X11 configuration
-	## Tell X11 which driver to use
-	videoDrivers = [ "amdgpu" ];
-	exportConfiguration = true;
-	config = lib.mkAfter ''
-	  Section "Device"
-	    Identifier "Device-amdgpu[0]"
-	    Driver "amdgpu"
-	    Option "VariableRefresh" "true"
-	    Option "AsyncFlipSecondaries" "true"
-	  EndSection
+	      # X11 configuration
+	      ## Tell X11 which driver to use
+	      videoDrivers = [ "amdgpu" ];
+      	exportConfiguration = true;
+	      config = lib.mkAfter ''
+	        Section "Device"
+	          Identifier "Device-amdgpu[0]"
+	          Driver "amdgpu"
+	          Option "VariableRefresh" "true"
+	          Option "AsyncFlipSecondaries" "true"
+	        EndSection
 
-	  Section "Screen"
-	    Identifier "Screen-amdgpu-[0]
-	    Device "Device-amdgpu[0]"
-	    Option "VariableRefresh" "true"
-	    Option "AsyncFlipSecondaries" "true"
-	  EndSection
-	'';
+  	      Section "Screen"
+	          Identifier "Screen-amdgpu-[0]
+	          Device "Device-amdgpu[0]"
+	          Option "VariableRefresh" "true"
+	          Option "AsyncFlipSecondaries" "true"
+    	    EndSection
+	      '';
       };
 
       # GVFS Support
