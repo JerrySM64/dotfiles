@@ -24,6 +24,7 @@
     };
 
     environment.systemPackages = with pkgs; [
+      emacs
       gh
       gitFull
       gnat13
