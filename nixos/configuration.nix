@@ -95,6 +95,12 @@
   nix = {
     # Enable the flake command
     extraOptions = "experimental-features = nix-command flakes";
+
+    # Automatic garbage collection
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
   };
 
   # Enable Z-Shell
