@@ -18,7 +18,8 @@
       mangohud
       retroarch
       superTuxKart
-      winePackages.stableFull
+      winePackages.unstableFull
+      winetricks
     ];
   };
 }
