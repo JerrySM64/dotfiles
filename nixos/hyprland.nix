@@ -29,8 +29,12 @@
 
     # locking with swaylock
     security = {
-      pam.services.swaylock = {
-        text = "auth include login";
+      pam = {
+        services = {
+          swaylock = {
+            text = "auth include login";
+          };
+        };    
       };
 
       polkit = {
@@ -39,24 +43,32 @@
     };
 
     # Hyprland joins the battle!
-    programs.hyprland.enable = true;
+    programs = {
+      hyprland = {
+        enable = true;
+      };
+    };    
 
     # Polkit on Hyprland needs some extra love
-     systemd = {
-       user.services.polkit-gnome-authentication-agent-1 = {
-         description = "polkit-gnome-authentication-agent-1";
-         wantedBy = [ "graphical-session.target" ];
-         wants = [ "graphical-session.target" ];
-         after = [ "graphical-session.target" ];
-         serviceConfig = {
-           Type = "simple";
-           ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-           Restart = "on-failure";
-           RestartSec = 1;
-           TimeoutStopSec = 10;
-         };
-       };
-     };
+    systemd = {
+      user = {
+        services = {
+          polkit-gnome-authentication-agent-1 = {
+            description = "polkit-gnome-authentication-agent-1";
+            wantedBy = [ "graphical-session.target" ];
+            wants = [ "graphical-session.target" ];
+            after = [ "graphical-session.target" ];
+            serviceConfig = {
+              Type = "simple";
+              ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+              Restart = "on-failure";
+              RestartSec = 1;
+              TimeoutStopSec = 10;
+            };
+          };    
+        };
+      };
+    };
 
     # XDG Desktop Portal
     xdg = {
@@ -70,32 +82,38 @@
     };
 
     # Hyprland-specific packages
-    environment.systemPackages = with pkgs; [
-      dunst
-      ffmpeg
-      ffmpegthumbnailer
-      grimblast
-      libsForQt5.qt5.qtgraphicaleffects
-      libsForQt5.sddm-kcm
-      lxqt.lxqt-policykit
-      kitty
-      nwg-look
-      pamixer
-      pavucontrol
-      playerctl
-      polkit_gnome
-      rofi
-      swaybg
-      swaylock-effects
-      viewnior
-      waybar
-      wlogout
-      wl-clipboard
-      xarchiver
-      xfce.thunar
-      xfce.thunar-volman
-      xfce.thunar-archive-plugin
-      xfce.tumbler
-    ];
-  };
+    environment = {
+      systemPackages = with pkgs; [
+        dunst
+        ffmpeg
+        ffmpegthumbnailer
+        grimblast
+        libsForQt5.qt5.qtgraphicaleffects
+        libsForQt5.sddm-kcm
+        lxqt.lxqt-policykit
+        kitty
+        nwg-look
+        pamixer
+        pavucontrol
+        playerctl
+        polkit_gnome
+        rofi
+        swaybg
+        swaylock-effects
+        viewnior
+        waybar
+        wlogout
+        wl-clipboard
+        xarchiver
+        xfce.thunar
+        xfce.thunar-volman
+        xfce.thunar-archive-plugin
+        xfce.tumbler
+      ];
+      
+      variables = {
+        POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      };	
+    };
+  };  
 }
