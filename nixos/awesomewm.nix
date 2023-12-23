@@ -47,7 +47,7 @@
       # GVFS Support
       gvfs = {
         enable = true;
-	package = lib.mkForce pkgs.gnome.gvfs;
+	      package = lib.mkForce pkgs.gnome.gvfs;
       };
     };
 
