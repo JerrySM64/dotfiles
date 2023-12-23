@@ -147,6 +147,7 @@
       mpv
       openboardview
       qjackctl
+      spotify
       vesktop
       virt-manager
       win-virtio
