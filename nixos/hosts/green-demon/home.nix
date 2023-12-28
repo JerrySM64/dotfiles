@@ -48,4 +48,10 @@
     enable = true;
     platformTheme = "gtk";
   };
+
+  programs = {
+    emacs = {
+      enable = true;
+    };
+  };
 }
