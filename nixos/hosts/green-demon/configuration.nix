@@ -85,12 +85,12 @@
       
       # Extra QEMU options
       qemu = {
-	      runAsRoot = true;
+        runAsRoot = true;
         swtpm = {
           enable = true;
         };
 
-	      ovmf = {
+        ovmf = {
           enable = true;
           packages = [pkgs.OVMFFull.fd];
         };
