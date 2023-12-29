@@ -210,5 +210,8 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+
+  # TL;DR: Don't change this value! It determines the version this config was
+  # created with, NOT the version you're actually running!
   system.stateVersion = "22.05"; # Did you read the comment?
 }
