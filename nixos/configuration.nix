@@ -49,27 +49,24 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
-    layout = "de";
-    xkbVariant = "";
+  services = {
+    xserver = {
+      layout = "de";
+      xkbVariant = "";
+    };
+
+    # Enable CUPS to print documents
+    printing.enable = true;
+
+    # Enable Flatpak support
+    flatpak.enable = true;
+
+    # Enable dconf
+    dconf.enable = true;
   };
 
   # Configure console keymap
   console.keyMap = "de";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable Flatpak support
-  services.flatpak.enable = true;
-
-  # Enable dconf
-  programs.dconf.enable = true;
-
-  # Environment Variables
-  environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "1";
-  };
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -136,34 +133,41 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    brave
-    btop
-    cider
-    conky
-    discord
-    evince
-    eza
-    firefox-wayland
-    htop
-    kitty
-    libreoffice
-    lm_sensors
-    neofetch
-    neovim
-    ntfs3g
-    onlyoffice-bin
-    pciutils
-    pfetch
-    starship
-    tdesktop
-    unzip
-    vlc
-    wget
-    xdg-user-dirs
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      brave
+      btop
+      cider
+      conky
+      discord
+      evince
+      eza
+      firefox-wayland
+      htop
+      kitty
+      libreoffice
+      lm_sensors
+      neofetch
+      neovim
+      ntfs3g
+      onlyoffice-bin
+      pciutils
+      pfetch
+      starship
+      tdesktop
+      unzip
+      vlc
+      wget
+      xdg-user-dirs
+      zsh-autosuggestions
+      zsh-syntax-highlighting
+    ];
+
+    # Set Session variables
+    sessionVariables = {
+      MOZ_ENABLE_WAYLAND = "1";
+    };
+  };
 
   # Fonts
   fonts.packages = with pkgs; [
