@@ -2,7 +2,6 @@
 
 {
   config = {
-    
     programs = {
       adb = {
         enable = true;
@@ -17,9 +16,13 @@
       };
     };
     
-    users.users = {
-      Jerry = {
-        extraGroups = [ "adbusers" ];
+    users = {
+      users = {
+        Jerry = {
+          extraGroups = [
+            "adbusers"
+          ];
+        };
       };
     };
 
@@ -29,7 +32,8 @@
       github-desktop
       gnat13
       gnome.ghex
-      godot_4
+      gnumake
+      nodejs_21
       nix-prefetch-scripts
       pkg-config
       python311Full
