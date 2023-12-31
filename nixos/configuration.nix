@@ -60,9 +60,6 @@
 
     # Enable Flatpak support
     flatpak.enable = true;
-
-    # Enable dconf
-    dconf.enable = true;
   };
 
   # Configure console keymap
