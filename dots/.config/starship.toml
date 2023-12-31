@@ -1,91 +1,43 @@
-## FIRST LINE/ROW: Info & Status
-# First param ─┌
+#format = """
+#[╭─user───❯](bold blue) $username
+#[┣─system─❯](bold yellow) $hostname
+#[┣─project❯](bold red) $directory$rust$git_branch$git_state$git_status$package$golang$terraform$docker_context$python$docker_context$nodejs
+#[╰─cmd────❯](bold green)
+#"""
 [username]
-format = " [╭─$user]($style)@"
+style_user = "cyan bold"
+style_root = "red bold"
+format = "[$user]($style) "
+disabled = false
 show_always = true
-style_root = "bold red"
-style_user = "bold blue"
 
-# Second param
 [hostname]
-disabled = false
-format = "[$hostname]($style) in "
 ssh_only = false
-style = "bold blue"
-# trim_at = "-"
+format = 'on [$hostname](bold cyan) in '
+trim_at = "."
+disabled = false
 
-# Third param
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[❯](bold cyan)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[✗](bold red)"
+
+#  
+# configure directory
 [directory]
-style = "blue"
-truncate_to_repo = true
-truncation_length = 0
-truncation_symbol = "repo: "
+read_only = " "
+truncation_length = 10
+truncate_to_repo = true # truncates directory to root folder if in github repo
+style = "bold italic cyan"
 
-# Fourth param
-[sudo]
-disabled = false
-
-# Before all the version info (python, nodejs, php, etc.)
-[git_status]
-ahead = "⇡${count}"
-behind = "⇣${count}"
-deleted = "x"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-style = "white"
-
-# Last param in the first line/row
 [cmd_duration]
-disabled = false
-format = "took [$duration]($style)"
 min_time = 1
-style = "bold blue"
-
-
-## SECOND LINE/ROW: Prompt
-# Somethere at the beginning
-[battery]
-charging_symbol = ""
-disabled = true
-discharging_symbol = ""
-full_symbol = ""
-
-[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+format = 'took [$duration]($style)'
 disabled = false
-style = "bold red"
-threshold = 15
-
-[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
-disabled = true
-style = "bold yellow"
-threshold = 50
-
-[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
-disabled = true
-style = "bold green"
-threshold = 80
-
-# Prompt: optional param 1
-[time]
-disabled = true
-format = " 🕙 $time($style)\n"
-style = "bright-white"
-time_format = "%T"
-
-# Prompt: param 2
-[character]
-error_symbol = " [×](bold red)"
-success_symbol = " [╰─λ](bold blue)"
-
-# SYMBOLS
-[status]
-disabled = false
-format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
-map_symbol = true
-pipestatus = true
-symbol = "🔴"
+style = "bold italic cyan"
 
 [aws]
-symbol = " "
+symbol = "  "
 
 [conda]
 symbol = " "
@@ -93,8 +45,17 @@ symbol = " "
 [dart]
 symbol = " "
 
+#[directory]
+#read_only = " "
+
 [docker_context]
 symbol = " "
+format = "via [$symbol$context]($style) "
+style = "blue bold"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
 
 [elixir]
 symbol = " "
@@ -104,6 +65,28 @@ symbol = " "
 
 [git_branch]
 symbol = " "
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+stashed = "[${count}*](cyam)"
+modified = "[${count}+](yellow)"
+deleted =  "[${count}-](red)"
+conflicted =  "[${count}~](red)"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+untracked = "[${count}?](blue)"
+staged = "[${count}+](green)"
+
+[git_state]
+style =	"bold red"
+format = "[$state( $progress_current/$progress_total) ]($style)"
+rebase = "rebase"
+merge = "merge"
+revert = "revert"
+cherry_pick = "cherry"
+bisect = "bisect"
+am = "am"
+am_or_rebase = "am/rebase"
 
 [golang]
 symbol = " "
@@ -117,14 +100,17 @@ symbol = " "
 [julia]
 symbol = " "
 
+[haskell]
+symbol = "λ "
+
+[memory_usage]
+symbol = " "
+
 [nim]
 symbol = " "
 
 [nix_shell]
 symbol = " "
-
-[nodejs]
-symbol = " "
 
 [package]
 symbol = " "
@@ -136,7 +122,14 @@ symbol = " "
 symbol = " "
 
 [python]
-symbol = " "
+symbol = "🐍 "
+#pyenv_version_name = true
+format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
+style = "bold yellow"
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+version_format = "v${raw}"
 
 [ruby]
 symbol = " "
@@ -144,5 +137,16 @@ symbol = " "
 [rust]
 symbol = " "
 
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
 [swift]
 symbol = "ﯣ "
+
+[nodejs]
+format = "via [ Node.js $version](bold green) "
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
