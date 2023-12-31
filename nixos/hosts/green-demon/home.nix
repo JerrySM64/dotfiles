@@ -2,6 +2,10 @@
 { pkgs, config, lib, ... }:
 
 {
+  imports = [
+    ../../wm-config/hyprconf.nix
+  ];
+
   home = {
     packages = with pkgs; [
       dconf
