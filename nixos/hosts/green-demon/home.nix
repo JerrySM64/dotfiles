@@ -3,7 +3,9 @@
 
 {
   imports = [
+    ../../wm-config/awesomeconf.nix
     ../../wm-config/hyprconf.nix
+    ../../wm-config/qtileconf.nix
   ];
 
   home = {
