@@ -215,24 +215,24 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
           --  mykeyboardlayout,
-	   cpu_widget({
+	    cpu_widget({
 		width = 70,
 		step_width = 2,
 		step_spacing = 1,
 		color = '#aaaaaa'
-	   }),
-	   -- ram_widget({
-	   -- 	color_used = '#aa0000',
-	   -- 	color_buf = '#aaaa00',
-	   -- 	color_free = '#00aa00',
-	   -- 	widget_height = '30',
-	   -- 	widget_width = '30',
-	   -- 	timeout = '1',
-	   -- }),
-       wibox.widget.systray(),
-	   mytextclock,
+	    }),
+	    ram_widget({
+		color_used = '#aa0000',
+		color_buf = '#aaaa00',
+		color_free = '#00aa00',
+		widget_height = '30',
+		widget_width = '30',
+		timeout = '1',
+	    }),
+            wibox.widget.systray(),
+	    mytextclock,
           --  s.mylayoutbox,
-	   wibox.widget.textbox(" "),
+	    wibox.widget.textbox(" "),
         },
     }
 end)

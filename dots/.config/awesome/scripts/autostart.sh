@@ -4,7 +4,7 @@ pk_gnome() {
     if [ -f "/etc/os-release" ] && grep -qi "nixos" /etc/os-release; then
         /run/current-system/sw/etc/xdg/autostart/polkit-gnome-authentication-agent-1.desktop
     else
-        zsh /usr/lib/polkit-gnome-autentication-agent-1 &
+        /usr/libexec/polkit-gnome-autentication-agent-1 &
     fi
 }   
 
@@ -18,3 +18,4 @@ pa-applet &
 killall flameshot
 flameshot &
 pk_gnome
+
