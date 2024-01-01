@@ -5,7 +5,7 @@
   imports = [
     ../../wm-config/awesomeconf.nix
     ../../wm-config/hyprconf.nix
-    ../../wm-config/qtileconf.nix
+    # ../../wm-config/qtileconf.nix
   ];
 
   home = {
@@ -58,6 +58,7 @@
   programs = {
     emacs = {
       enable = true;
+      package = pkgs.emacs-gtk;
     };
   };
 }
