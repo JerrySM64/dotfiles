@@ -14,6 +14,7 @@
     ../../obs.nix
   #  ../../qtile.nix
   #  ../../wayfire.nix
+  #  ../../xfce.nix
   ];
 
   # Bootloader has to be done per machine, since the ThinkPad doesn't 
