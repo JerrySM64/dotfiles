@@ -11,7 +11,6 @@
           sddm = {
             enable = true;
           };
-          defaultSession = "none+awesome";
         };
         
 	# Enable the Awesome Window Manager
