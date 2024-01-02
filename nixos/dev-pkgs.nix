@@ -2,6 +2,14 @@
 
 {
   config = {
+    services = {
+      emacs = {
+        enable = true;
+        package = pkgs.emacs-gtk;
+        install = true;
+      };
+    };
+
     programs = {
       adb = {
         enable = true;
