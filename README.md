@@ -48,7 +48,7 @@ This is my collection of dotfiles and configuration files for NixOS etc. Feel fr
 
 |Editor|Where?|Done?|
 |---|---|---|
-|[Doom Emacs](https://github.com/doomemacs/doomemacs)|dots/.config/doom & dots/.config/emacs|✅|
+|[Doom Emacs](https://github.com/doomemacs/doomemacs)|dots/.config/doom|✅|
 |[Nano](https://www.nano-editor.org/)|-|❌|
 |[Neovim](https://neovim.io/)|-|❌|
 |[VIM](https://www.vim.org/)|-|❌|
