@@ -15,7 +15,7 @@
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
+;; - `doom-symbol-font' -- for symbols
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
@@ -74,3 +74,19 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Nix Mode and all of it's extras
+(use-package nix-mode
+  :mode ("\\.nix\\'" "\\.nix.in\\'"))
+(use-package nix-drv-mode
+  :ensure nix-mode
+  :mode "\\.drv\\'")
+(use-package nix-repl
+  :ensure nix-mode
+  :commands (nix-repl))
+
+;; Markdown Mode
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "pandoc"))
