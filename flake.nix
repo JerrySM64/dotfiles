@@ -21,12 +21,9 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    lanzaboote,
-    ...
-  }: {
+  outputs = inputs @ { self, nixpkgs, lanzaboote, ... }:
+
+  {
     nixosConfigurations = let
       user = "Jerry";
       mkHost = host:
