@@ -97,8 +97,17 @@
     };
   };
 
-  # Enable Z-Shell
-  programs.zsh.enable = true;
+  programs = {
+    # Enable Z-Shell
+    zsh = {
+      enable = true;
+    };
+
+    # Bye bye Nano!
+    nano = {
+      enable = false;
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
