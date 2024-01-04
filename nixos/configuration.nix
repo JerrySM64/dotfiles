@@ -182,6 +182,18 @@
     vegur
   ];
 
+  # Show the differences after a rebuild.
+  system = {
+    activationScripts = {
+      diff = {
+        supportsDryActivation = true;
+        text = ''
+          ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+        '';
+      };
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
