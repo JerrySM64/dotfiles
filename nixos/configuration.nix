@@ -53,6 +53,12 @@
     xserver = {
       layout = "de";
       xkbVariant = "";
+      desktopManager = {
+        # Bye bye xterm!
+        xterm = {
+          enable = false;
+        };
+      };
     };
 
     # Enable CUPS to print documents
