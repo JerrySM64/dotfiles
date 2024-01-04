@@ -32,6 +32,9 @@ bindkey '^[[1;3C' forward-word                  # Key Alt + Right
 bindkey '^[[H' beginning-of-line                # Key Home
 bindkey '^[[F' end-of-line                      # Key End
 
+# Add Doom to PATH (Doom Emacs)
+export PATH=~/.config/emacs/bin/:$PATH
+
 # Ignore case-sensitivity when TAB completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
