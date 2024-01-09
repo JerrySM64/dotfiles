@@ -35,6 +35,7 @@
     };
 
     environment.systemPackages = with pkgs; [
+      cmake
       gh
       gitFull
       github-desktop
