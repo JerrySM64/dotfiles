@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config, pkgs, ... }: 
+{ config, pkgs, inputs, ... }:
 
 { 
   # Bootloader, Kernel, Params and modules
@@ -99,7 +99,16 @@
     # Automatic garbage collection
     gc = {
       automatic = true;
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 3d";
+    };
+
+    settings = {
+      extra-substituters = [
+        "https://viperml.cachix.org"
+      ];
+      extra-trusted-public-keys = [
+        "viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8="
+      ];
     };
   };
 
@@ -169,6 +178,7 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      inputs.nh.packages.x86_64-linux.default
       brave
       btop
       cider
@@ -199,6 +209,7 @@
 
     # Set Session variables
     sessionVariables = {
+      FLAKE = "/home/Jerry/Development/dotfiles";
       MOZ_ENABLE_WAYLAND = "1";
     };
   };
