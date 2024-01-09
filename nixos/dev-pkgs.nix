@@ -40,8 +40,8 @@
       gitFull
       github-desktop
       gnat13
-      gnome.ghex
       gnumake
+      libtool
       nodejs_21
       nix-prefetch-scripts
       pkg-config
