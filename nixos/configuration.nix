@@ -107,6 +107,29 @@
     # Enable Z-Shell
     zsh = {
       enable = true;
+
+      # Syntax Highlighting
+      syntaxHighlighting = {
+        enable = true;
+      };
+
+      # Autosuggestions
+      autosuggestions = {
+        enable = true;
+        async = true;
+        highlightStyle = "fg=cyan";
+        strategy = ["completion"];
+      };
+
+      # Oh My Zsh
+      ohMyZsh = {
+        enable = true;
+        plugins = [
+          "history-substring-search"
+          "systemd"
+        ];
+
+      };
     };
 
     # Bye bye Nano!
