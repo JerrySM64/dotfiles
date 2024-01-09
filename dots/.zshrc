@@ -13,6 +13,9 @@ pfetch
 
 autoload -Uz compinit
 compinit
+
+# Menu driven autocomplete
+zstyle ':completion:*' menu select
 # End of lines added by compinstall
 
 if type nproc &>/dev/null; then   # GNU/Linux
