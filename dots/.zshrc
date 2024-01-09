@@ -72,7 +72,7 @@ alias ping='ping -c 4'
 #source /usr/share/doc/find-the-command/ftc.zsh askfirst
 
 # NixOS specific
-alias update='bash /home/Jerry/.local/share/nixos-update/updates.sh'
+alias update='bash /home/Jerry/.local/share/updates.sh'
 alias rebuild='cd ~/Development/dotfiles ; git add . ; nh os switch --nom --hostname=green-demon ; cd -'
 alias genrm='sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old ; nix-collect-garbage -d ; cd ~/Development/dotfiles ; git add . ; nh os switch --nom --hostname=green-demon ; cd -'
 alias nix='neofetch'

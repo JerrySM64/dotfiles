@@ -21,6 +21,13 @@
       gtk.enable = true;
       x11.enable = true;
     };
+
+    file = {
+      # Update Script
+      ".local/share/updates.sh" = {
+        source = ../../../dots/update-scripts/NixOS/green-demon/updates.sh;
+      };
+    };
   };
 
   gtk = {
