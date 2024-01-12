@@ -25,6 +25,10 @@
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
   };
 
   outputs = inputs @ { self, nixpkgs, lanzaboote, ... }:
@@ -74,6 +78,8 @@
                     ./nixos/home.nix
                     # host specific home-manager configuration
                     ./nixos/hosts/${host}/home.nix
+                    # other Home-Manager configurations
+                    ./home-manager/home.nix
                   ];
 
                   home = {
