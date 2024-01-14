@@ -74,8 +74,6 @@
                     ./nixos/home.nix
                     # host specific home-manager configuration
                     ./nixos/hosts/${host}/home.nix
-                    # other Home-Manager configurations
-                    ./home-manager/home.nix
                   ];
 
                   home = {
