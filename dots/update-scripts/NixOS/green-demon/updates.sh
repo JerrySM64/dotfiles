@@ -80,6 +80,7 @@ case $option in
     nh os switch --nom --hostname=green-demon
     cd -
     echo "Updates applied. Press the Enter key to shut down!"
+    read
 
     clear
     echo "Shutting down..."
