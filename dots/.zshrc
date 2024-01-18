@@ -77,6 +77,8 @@ alias rebuild='cd ~/Development/dotfiles ; git add . ; nh os switch --nom --host
 alias genrm='sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old ; nix-collect-garbage -d ; cd ~/Development/dotfiles ; git add . ; nh os switch --nom --hostname=green-demon ; cd -'
 alias nix='neofetch'
 
+alias ubuntu='distrobox enter ubuntu'
+
 # View information about your hardware
 #alias raminfo='sudo dmidecode --type 17'
 #alias cpuinfo='sudo dmidecode --type 4'
