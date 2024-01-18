@@ -6,16 +6,16 @@
   "height": 38,
   // "width": 900,
   // "margin": "",
-  "margin-top": 4,
+  "margin-top": 0,
   "margin-bottom": 0,
-  "margin-left": 4,
-  "margin-right": 4,
+  "margin-left": 0,
+  "margin-right": 0,
   "spacing": 1,
   "gtk-layer-shell": true,
   "modules-left": [
     "custom/notification",
-    "clock",
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "hyprland/window"
   ],
   "custom/notification": {
     "tooltip": false,
@@ -39,7 +39,7 @@
   },
   "clock": {
     "interval": 1,
-    "format": "{:󰥔  %H:%M  󰣆  %d.%m.%Y}",
+    "format": "{:󰣆  %d.%m.%Y  󰥔  %H:%M}",
     // "on-click": "gnome-calendar",
     "tooltip": false,
     "tooltip-format": "{calendar}",
@@ -69,17 +69,15 @@
     "on-click": "activate"
   },
   "modules-center": [
-    "hyprland/submap",
-    // "hyprland/window"
-    "sway/workspaces",
-    "sway/mode"
+    "clock"
+    // "hyprland/submap",
   ],
   "hyprland/submap": {
     "format": "{}",
     "tooltip": false
   },
   "hyprland/window": {
-    "format": "{:.40}'",
+    "format": "{:.40}",
     "separate-outputs": false
   },
   "sway/workspaces": {
@@ -108,10 +106,10 @@
     "memory",
     // "backlight",
     "bluetooth",
-    "network#wlo1",
-    "network#eno1",
     "pulseaudio#microphone",
-    "pulseaudio#audio"
+    "pulseaudio#audio",
+    "network#wlo1",
+    "network#eno1"
     // "battery"
   ],
   "tray": {
@@ -188,21 +186,22 @@
     // "format-alt": "{icon} {essid} | 󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz",
     "on-click": "nm-connection-editor",
     "tooltip": true,
-    "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+    "tooltip-format": "󰢮 Wi-Fi\n󰩟 {ipaddr}/{cidr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
   },
   "network#eno1": {
     "interval": 1,
     "interface": "enp42s0",
     "format-icons": [
-      "󰈀"
+      "󰈁",
+      "󰈂"
     ],
     "format-ethernet": "{icon}",
-    // "format-disconnected": "{icon}",
+    // "format-disconnected": "",
     "format-disconnected": "",
     // "format-alt": "{icon} | 󰢮 {ifname} | 󰩟 {ipaddr}/{cidr}",
     "on-click": "",
     "tooltip": true,
-    "tooltip-format": "󰢮 {ifname}\n󰩟 {ipaddr}/{cidr}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+    "tooltip-format": "󰢮 Ethernet\n󰩟 {ipaddr}/{cidr}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
   },
   "bluetooth": {
     "format-disabled": "",
