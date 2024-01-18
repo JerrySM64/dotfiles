@@ -146,7 +146,7 @@
       krita
       libratbag
       mpv
-      openboardview
+    #  openboardview
       qjackctl
       spotify
       vesktop
