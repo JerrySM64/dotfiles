@@ -11,6 +11,8 @@
       obs-studio-plugins.obs-tuna
       obs-studio-plugins.obs-vaapi
       obs-studio-plugins.obs-vkcapture
+      v4l2-relayd
+      v4l-utils
     ];
   };
 }
