@@ -103,12 +103,6 @@
     };
 
     settings = {
-      extra-substituters = [
-        "https://viperml.cachix.org"
-      ];
-      extra-trusted-public-keys = [
-        "viperml.cachix.org-1:qZhKBMTfmcLL+OG6fj/hzsMEedgKvZVFRRAhq7j8Vh8="
-      ];
     };
   };
 
@@ -178,7 +172,6 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
-      inputs.nh.packages.x86_64-linux.default
       brave
       btop
       cider
@@ -193,6 +186,8 @@
       lm_sensors
       neofetch
       neovim
+      nextcloud-client
+      nh
       ntfs3g
       onlyoffice-bin
       pciutils
