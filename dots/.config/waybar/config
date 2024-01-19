@@ -77,7 +77,7 @@
     "tooltip": false
   },
   "hyprland/window": {
-    "format": "{:.40}",
+    "format": "{:.80}",
     "separate-outputs": false
   },
   "sway/workspaces": {
