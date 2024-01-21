@@ -83,7 +83,6 @@
       ffmpeg
       ffmpegthumbnailer
       flameshot
-      kitty
       libsForQt5.qt5.qtgraphicaleffects
       libsForQt5.sddm-kcm
       lxappearance
@@ -97,6 +96,7 @@
       qgnomeplatform
       qgnomeplatform-qt6
       rofi
+      st
       xfce.mousepad
       xfce.thunar
       xfce.thunar-volman

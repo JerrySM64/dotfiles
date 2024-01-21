@@ -8,8 +8,8 @@ local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
-local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+--local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+--local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -52,7 +52,7 @@ end
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
+terminal = "st"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -161,7 +161,7 @@ local function set_wallpaper(s)
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
-	gears.wallpaper.maximized("/home/Jerry/.wallpaper/MapleLodgeCampsite.png", s, true)
+	gears.wallpaper.maximized("/home/Jerry/Nextcloud/Photos/Green\ Demon/Wallpapers/1335153.jpeg", s, true)
     end
 end
 
@@ -215,20 +215,20 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
           --  mykeyboardlayout,
-	    cpu_widget({
-		width = 70,
-		step_width = 2,
-		step_spacing = 1,
-		color = '#aaaaaa'
-	    }),
-	    ram_widget({
-		color_used = '#aa0000',
-		color_buf = '#aaaa00',
-		color_free = '#00aa00',
-		widget_height = '30',
-		widget_width = '30',
-		timeout = '1',
-	    }),
+	  --  cpu_widget({
+	  --    width = 70,
+	  --    step_width = 2,
+	  --    step_spacing = 1,
+	  --    color = '#aaaaaa'
+	  --  }),
+	  --  ram_widget({
+	  --	color_used = '#aa0000',
+	  --	color_buf = '#aaaa00',
+	  -- 	color_free = '#00aa00',
+	  --	widget_height = '30',
+	  --	widget_width = '30',
+	  -- 	timeout = '1',
+	  --  }),
             wibox.widget.systray(),
 	    mytextclock,
           --  s.mylayoutbox,
@@ -598,6 +598,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart Applications
 awful.spawn.with_shell("zsh ~/.config/awesome/scripts/autostart.sh")
+awful.spawn.with_shell("xfce4-panel")
 
 -- Miscellaneous
 beautiful.useless_gap = 4 

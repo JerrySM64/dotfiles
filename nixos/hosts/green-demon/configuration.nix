@@ -7,14 +7,14 @@
     ../../mounts.nix
     ../../dev-pkgs.nix
     ../../gaming.nix
-  #  ../../awesomewm.nix
+    ../../awesomewm.nix
   #  ../../gnome.nix
     ../../hyprland.nix
   #  ../../kde.nix
     ../../obs.nix
   #  ../../qtile.nix
   #  ../../wayfire.nix
-  #  ../../xfce.nix
+    ../../xfce.nix
   ];
 
   # Bootloader has to be done per machine, since the ThinkPad doesn't 
@@ -79,6 +79,13 @@
 
   # QEMU/KVM & Podman
   virtualisation = {
+
+    # Virtualbox
+    virtualbox = {
+      host = {
+        enable = true;
+      };
+    };
     
     # QEMU/KVM via libvirt daemon
     libvirtd = {
@@ -114,6 +121,12 @@
 
   # User account related things specific to Green Demon
   users = {
+    extraGroups = {
+      vboxusers = {
+        members = ["user-with-access-to-virtualbox"];
+      };
+    };
+
     users = {
       Jerry = {
         extraGroups = ["libvirt" "kvm"];
@@ -151,6 +164,7 @@
       spotify
       vesktop
       virt-manager
+      virt-viewer
       win-virtio
     ];
   };
