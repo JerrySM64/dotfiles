@@ -150,6 +150,7 @@
 
     # Packages specific to Green Demon
     systemPackages = with pkgs; [
+      anydesk
       ardour
       blender
       brasero
