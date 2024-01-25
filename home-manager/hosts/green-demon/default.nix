@@ -7,4 +7,4 @@
       gnome.dconf-editor
     ];
   };
-};
+}
