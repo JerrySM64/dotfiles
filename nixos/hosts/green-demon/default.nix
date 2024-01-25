@@ -95,4 +95,12 @@
       ];
     };
   };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      Jerry = import ../home-manager/hosts/green-demon/default.nix;
+    };
+  };
 }

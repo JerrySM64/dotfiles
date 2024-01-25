@@ -76,28 +76,6 @@
           # > Our main nixos configuration file <
           ./nixos/default.nix
           ./nixos/hosts/green-demon/default.nix
-          lanzaboote.nixosModules.lanzaboote
-
-          ({ lib, pkgs, ... }: {
-            environment = {
-              systemPackages = with pkgs; [
-                sbctl
-              ];
-            };
-
-            boot = {
-              loader = {
-                sytemd-boot = {
-                  enable = lib.mkForce false;
-                };
-              };
-
-              lanzaboote = {
-                enable = true;
-                pkiBundle = "/etc/secureboot";
-              };
-            };
-          })
         ];
       };
 
@@ -128,56 +106,6 @@
         modules = [
           ./nixos/default.nix
           ./nixos/hosts/m1/default.nix
-        ];
-      };
-    };
-
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      # FIXME replace with your username@hostname
-      "Jerry@green-demon" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {
-          inherit inputs outputs;
-        };
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home-manager/default.nix
-          ./home-manager/hosts/green-demon/default.nix
-        ];
-      };
-
-      "Jerry@ideenblock" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {
-          inherit inputs outputs;
-        };
-        modules = [
-          ./home-manager/default.nix
-          ./home-manager/hosts/ideenblock/default.nix
-        ];
-      };
-
-      "Jerry@hurricane" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {
-          inherit inputs outputs;
-        };
-        modules = [
-          ./home-manager/default.nix
-          ./home-manager/hosts/hurricane/default.nix
-        ];
-      };
-
-      "Jerry@m1" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-linux;
-        extraSpecialArgs = {
-          inherit inputs outputs;
-        };
-        modules = [
-          ./home-manager/default.nix
-          ./home-manager/hosts/m1/default.nix
         ];
       };
     };

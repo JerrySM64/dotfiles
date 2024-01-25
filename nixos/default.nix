@@ -22,6 +22,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ../pkgs/default.nix
+    ../pkgs/system.nix
     ../pkgs/fonts.nix
   ];
 
@@ -197,7 +198,7 @@
         # Forbid root login through SSH
         PermitRootLogin = "no";
         # Use keys only. Remove if you want to SSH using a password (not recommended)
-        PasswordAuthenticatio = false;
+        PasswordAuthentication = false;
       };
     };
 
@@ -232,56 +233,6 @@
     };
   };
 
-  programs = {
-    # Enable Z-Shell
-    zsh = {
-      enable = true;
-
-      # Syntax Highlighting
-      syntaxHighlighting = {
-        enable = true;
-      };
-
-      # Autosuggestions
-      autosuggestions = {
-        enable = true;
-        async = true;
-        plugins = [
-          "history-substring-search"
-          "systemd"
-        ];
-      };
-    };
-
-    # Bye bye, Nano!
-    nano = {
-      enable = false;
-    };
-
-    # Firefox
-    firefox = {
-      enable = true;
-      package = pkgs.firefox-wayland;
-    };
-
-    # Starship prompt
-    starship = {
-      enable = true;
-    };
-
-    # SUID wrapper
-    mtr = {
-      enable = true;
-    };
-
-    gnupg = {
-      agent = {
-        enable = true;
-        enableSSHSupport = true;
-      };
-    };
-  };
-
   # Enable Swap on ZRAM
   zramSwap = {
     enable = true;
@@ -295,6 +246,14 @@
     sessionVariables = {
       FLAKE = "/home/Jerry/Development/dotfiles";
       MOZ_ENABLE_WAYLAND = "1";
+    };
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      Jerry = import ../home-manager/default.nix;
     };
   };
   
