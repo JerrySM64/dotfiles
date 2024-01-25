@@ -4,6 +4,7 @@
   imports = [
     ./hardware.nix
     ../../de/xfce.nix
+    ../../users/green-demon.nix
     # Import home-manager's NixOS module
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -67,9 +68,7 @@
         # Secure Boot support in the OVMF package
         ovmf = {
           enable = true;
-          package = [
-            pkgs.OVMFFull.fd
-          ];
+          packages = [pkgs.OVMFFull.fd];
         };
       };
 

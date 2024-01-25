@@ -24,6 +24,7 @@
     ../pkgs/default.nix
     ../pkgs/system.nix
     ../pkgs/fonts.nix
+    ./users/default.nix
   ];
 
   nixpkgs = {

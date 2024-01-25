@@ -49,11 +49,6 @@
   home = {
     username = "Jerry";
     homeDirectory = "/home/Jerry";
-
-    packages = with pkgs; [
-      dconf
-      gnome.dcfonf-editor
-    ];
   };
 
   # Add stuff for your user as you see fit:
