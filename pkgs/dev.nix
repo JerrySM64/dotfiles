@@ -2,7 +2,7 @@
 
 {
   imports = [
-
+    ../nixos/users/dev.nix
   ];
 
   config = {
