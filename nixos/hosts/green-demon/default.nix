@@ -1,8 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, outputs, ... }:
 
 {
   imports = [
     ./hardware.nix
+    ../../de/xfce.nix
+    # Import home-manager's NixOS module
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   boot = {
@@ -15,7 +18,7 @@
     ];
 
     # Specify the kernel modules to blacklist
-    blacklistKernelModules = [
+    blacklistedKernelModules = [
       # "amdgpu"
       "nouveau"
       "nvidia"
@@ -100,7 +103,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      Jerry = import ../home-manager/hosts/green-demon/default.nix;
+      Jerry = import ../../../home-manager/hosts/green-demon/default.nix;
     };
   };
 }
