@@ -18,6 +18,7 @@
     ./theme.nix
     ./wm/hyprland.nix
     ./programs/rofi.nix
+    ./programs/waybar.nix
   ];
 
   nixpkgs = {
