@@ -16,6 +16,8 @@
 
     # Theme
     ./theme.nix
+    ./wm/hyprland.nix
+    ./programs/rofi.nix
   ];
 
   nixpkgs = {
