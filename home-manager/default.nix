@@ -16,10 +16,8 @@
 
     # Theme
     ./theme.nix
-    ./wm/hyprland.nix
-    ./programs/rofi.nix
-    ./programs/starship.nix
-    ./programs/waybar.nix
+    ./wm/default.nix
+    ./programs/default.nix
   ];
 
   nixpkgs = {
