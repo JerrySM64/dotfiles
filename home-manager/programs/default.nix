@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./alacritty.nix
     ./neofetch.nix
     ./rofi.nix
     ./starship.nix
