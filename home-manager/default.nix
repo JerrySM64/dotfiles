@@ -63,10 +63,6 @@
     home-manager = {
       enable = true;
     };
-
-    git = {
-      enable = true;
-    };
   };
 
   # Nicely reload system units when changing configs
