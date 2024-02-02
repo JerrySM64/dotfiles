@@ -5,178 +5,6 @@
     waybar = {
       enable = true;
       package = pkgs.waybar;
-      settings = [
-        {
-          "layer": "top",
-          "height": 38,
-          "margin-top": 0,
-          "margin-bottom": 0,
-          "margin-left": 0,
-          "margin-right": 0,
-          "spacing": 1,
-          "gtk-layer-shell": true,
-          "modules-left": [
-            "custom/notification",
-            "hyprland/workspaces",
-            "hyprland/window"
-          ],
-          "custom/notification": {
-            "tooltip": false,
-            "format": "{icon}",
-            "format-icons": {
-              "notification": "󱅫",
-              "none": "󰂚",
-              "dnd-notification": "󰂛",
-              "dnd-none": "󰂛",
-              "inhibited-notification": "󱅫",
-              "inhibited-none": "󰂚",
-              "dnd-inhibited-notification": "󰂛",
-              "dnd-inhibited-none": "󰂛"
-            },
-            "return-type": "json",
-            "exec-if": "which swaync-client",
-            "exec": "swaync-client -swb",
-            "on-click": "swaync-client -t -sw",
-            "on-click-right": "swaync-client -d -sw",
-            "escape": true
-          },
-          "clock": {
-            "interval": 1,
-            "format": "{:󰣆  %d.%m.%Y  󰥔  %H:%M}",
-            // "on-click": "gnome-calendar",
-            "tooltip": false,
-            "tooltip-format": "{calendar}",
-            "calendar": {
-              "mode": "year",
-              "mode-mon-col": 3,
-              "format": {
-                "today": "<span color='#0dbc79'>{}</span>"
-              }
-            }
-          },
-          "hyprland/workspaces": {
-            "format": "{icon}",
-            "format-icons": {
-              "1": "1",
-              "2": "2",
-              "3": "3",
-              "4": "4",
-              "5": "5",
-              "6": "6",
-              "7": "7",
-              "8": "8",
-              "9": "9",
-              "10": "10",
-              "default": "1"
-            },
-            "no-click": "activate"
-          },
-          "modules-center": [
-            "clock"
-          ],
-          "hyprland/window"; {
-            "format": "{:.80}",
-            "separate-outputs": false
-          },
-          "modules-right": [
-            "tray",
-            "cpu",
-            "memory",
-            "bluetooth",
-            "pulseaudio#microphone",
-            "pulseaudio#audio",
-            "network#wlo1",
-            "network#enp42s0"
-          ],
-          "tray": {
-            "icon-size":19,
-            "spacing": 10
-          },
-          "cpu": {
-            "format": "󰻠 {usage}%",
-            "on-click": "btop",
-            "tooltip": false
-          },
-          "memory": {
-            "format": "󰍛 {used:0.1f}GB ({percentage}%) / {total:0.1f}GB",
-            "on-click": "btop",
-            "tooltip": false
-          },
-          "pulseaudio#audio": {
-            "format": "{icon} {volume}%",
-            "format-bluetooth": "󰂯{icon} {volume}%",
-            "format-bluetooth-muted": "󰂯󰖁 {volume}%",
-            "format-muted": "󰖁 {volume}%",
-            "format-icons": {
-              "headphone": "󰋋",
-              "hands-free": "󰋋",
-              "headset": "󰋋",
-              "phone": "",
-              "portable": "",
-              "car": "",
-              "default": [
-                "󰕿",
-                "󰖀",
-                "󰕾"
-              ]
-            },
-            "on-click": "pamixer -t",
-            "on-scroll-up": "pamixer -i 5",
-            "on-scroll-down": "pamixer -d 5",
-            "tooltip": true,
-            "tooltip-format": "{icon} {desc}"
-          },
-          "pulseaudio#microphone": {
-            "format": "{format_source}",
-            "format-source": "󰍬 {volume}%",
-            "format-source-muted": "󰍭 {volume}%",
-            "on-scroll-up": "pamixer --default-source -i 5",
-            "on-scroll-down": "pamixer --default-source -d 5",
-            "max-volume": 100,
-            "tooltip": false
-          },
-          "network#wlo1": {
-            "interval": 1,
-            "interface": "wlo1",
-            "format-icons": [
-              "󰤯",
-              "󰤟",
-              "󰤢",
-              "󰤥",
-              "󰤨"
-            ],
-            "format-wifi": "{icon}",
-            "format-disconnected": "",
-            "on-click": "nmtui",
-            "tooltip": true,
-            "tooltip-format": "󰢮 Wi-Fi\n󰩟 {ipaddr}/{cidr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
-          },
-          "network#enp42s0": {
-            "interval": 1,
-            "interface": "enp42s0",
-            "format-icons": [
-              "󰈁",
-              "󰈂"
-            ],
-            "format-ethernet": "{icon}",
-            "format-disconnected": "󰈂",
-            "on-click": "nmtui",
-            "tooltip": true,
-            "tooltip-format": "󰢮 Ethernet\n󰩟 {ipaddr}/{cidr}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
-          },
-          "bluetooth": {
-            "format-disabled": "",
-            "format-off": "",
-            "format-on": "󰂯",
-            "format-connected": "󰂯",
-            "format-connected-battery": "󰂯",
-            "tooltip-format-connected": "{device_alias} 󰂄{device_battery_percentage}%",
-            "on-click": "",
-            "tooltip": true
-          }
-        }
-      ];
-
       style = ''
         @define-color white                 rgba(242, 242, 242, 1.0);
         @define-color black                 rgba(0, 2, 3, 1.0);
@@ -379,6 +207,184 @@
           background-color:                 @red
         }
       '';
+    };
+  };
+
+  home = {
+    file = {
+      ".config/waybar/config" = {
+        text = ''
+          {
+            "layer": "top",
+            "height": 38,
+            "margin-top": 0,
+            "margin-bottom": 0,
+            "margin-left": 0,
+            "margin-right": 0,
+            "spacing": 1,
+            "gtk-layer-shell": true,
+            "modules-left": [
+              "custom/notification",
+              "hyprland/workspaces",
+              "hyprland/window"
+            ],
+            "custom/notification": {
+              "tooltip": false,
+              "format": "{icon}",
+              "format-icons": {
+                "notification": "󱅫",
+                "none": "󰂚",
+                "dnd-notification": "󰂛",
+                "dnd-none": "󰂛",
+                "inhibited-notification": "󱅫",
+                "inhibited-none": "󰂚",
+                "dnd-inhibited-notification": "󰂛",
+                "dnd-inhibited-none": "󰂛"
+              },
+              "return-type": "json",
+              "exec-if": "which swaync-client",
+              "exec": "swaync-client -swb",
+              "on-click": "swaync-client -t -sw",
+              "on-click-right": "swaync-client -d -sw",
+              "escape": true
+            },
+            "clock": {
+              "interval": 1,
+              "format": "{:󰣆  %d.%m.%Y  󰥔  %H:%M}",
+              // "on-click": "gnome-calendar",
+              "tooltip": false,
+              "tooltip-format": "{calendar}",
+              "calendar": {
+                "mode": "year",
+                "mode-mon-col": 3,
+                "format": {
+                  "today": "<span color='#0dbc79'>{}</span>"
+                }
+              }
+            },
+            "hyprland/workspaces": {
+              "format": "{icon}",
+              "format-icons": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10",
+                "default": "1"
+              },
+              "no-click": "activate"
+            },
+            "modules-center": [
+              "clock"
+            ],
+            "hyprland/window"; {
+              "format": "{:.80}",
+              "separate-outputs": false
+            },
+            "modules-right": [
+              "tray",
+              "cpu",
+              "memory",
+              "bluetooth",
+              "pulseaudio#microphone",
+              "pulseaudio#audio",
+              "network#wlo1",
+              "network#enp42s0"
+            ],
+            "tray": {
+              "icon-size":19,
+              "spacing": 10
+            },
+            "cpu": {
+              "format": "󰻠 {usage}%",
+              "on-click": "btop",
+              "tooltip": false
+            },
+            "memory": {
+              "format": "󰍛 {used:0.1f}GB ({percentage}%) / {total:0.1f}GB",
+              "on-click": "btop",
+              "tooltip": false
+            },
+            "pulseaudio#audio": {
+              "format": "{icon} {volume}%",
+              "format-bluetooth": "󰂯{icon} {volume}%",
+              "format-bluetooth-muted": "󰂯󰖁 {volume}%",
+              "format-muted": "󰖁 {volume}%",
+              "format-icons": {
+                "headphone": "󰋋",
+                "hands-free": "󰋋",
+                "headset": "󰋋",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": [
+                  "󰕿",
+                  "󰖀",
+                  "󰕾"
+                ]
+              },
+              "on-click": "pamixer -t",
+              "on-scroll-up": "pamixer -i 5",
+              "on-scroll-down": "pamixer -d 5",
+              "tooltip": true,
+              "tooltip-format": "{icon} {desc}"
+            },
+            "pulseaudio#microphone": {
+              "format": "{format_source}",
+              "format-source": "󰍬 {volume}%",
+              "format-source-muted": "󰍭 {volume}%",
+              "on-scroll-up": "pamixer --default-source -i 5",
+              "on-scroll-down": "pamixer --default-source -d 5",
+              "max-volume": 100,
+              "tooltip": false
+            },
+            "network#wlo1": {
+              "interval": 1,
+              "interface": "wlo1",
+              "format-icons": [
+                "󰤯",
+                "󰤟",
+                "󰤢",
+                "󰤥",
+                "󰤨"
+              ],
+              "format-wifi": "{icon}",
+              "format-disconnected": "",
+              "on-click": "nmtui",
+              "tooltip": true,
+              "tooltip-format": "󰢮 Wi-Fi\n󰩟 {ipaddr}/{cidr}\n{icon} {essid}\n󱑽 {signalStrength}% {signaldBm} dBm {frequency} MHz\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+            },
+            "network#enp42s0": {
+              "interval": 1,
+              "interface": "enp42s0",
+              "format-icons": [
+                "󰈁",
+                "󰈂"
+              ],
+              "format-ethernet": "{icon}",
+              "format-disconnected": "󰈂",
+              "on-click": "nmtui",
+              "tooltip": true,
+              "tooltip-format": "󰢮 Ethernet\n󰩟 {ipaddr}/{cidr}\n󰞒 {bandwidthDownBytes}\n󰞕 {bandwidthUpBytes}"
+            },
+            "bluetooth": {
+              "format-disabled": "",
+              "format-off": "",
+              "format-on": "󰂯",
+              "format-connected": "󰂯",
+              "format-connected-battery": "󰂯",
+              "tooltip-format-connected": "{device_alias} 󰂄{device_battery_percentage}%",
+              "on-click": "",
+              "tooltip": true
+            }
+          }
+        '';
+      };
     };
   };
 }

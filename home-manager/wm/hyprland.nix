@@ -11,7 +11,7 @@
     };
     extraConfig = let
       modifier = "SUPER";
-    in concatStrings [ ''
+    in with lib; concatStrings [ ''
       exec-once = wl-clipboard-history -t
       exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP

@@ -109,5 +109,16 @@
         ];
       };
     };
+
+    homeConfigurations = {
+      "Jerry@green-demon" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+	extraSpecialArgs = {inherit inputs outputs;};
+	modules = [
+	  ./home-manager/default.nix
+	  ./home-manager/hosts/green-demon/default.nix
+	];
+      };
+    };
   };
 }

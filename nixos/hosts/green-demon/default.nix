@@ -2,9 +2,19 @@
 
 {
   imports = [
-    ./hardware.nix
-    ../../de/xfce.nix
-    ../../users/green-demon.nix
+     ./hardware.nix
+   #  ../../de/gnome.nix
+   #  ../../de/kde.nix
+   #  ../../de/xfce.nix
+     ../../users/green-demon.nix
+   #  ../../wm/awesomewm.nix
+     ../../wm/hyprland.nix
+   #  ../../wm/qtile.nix
+   #  ../../wm/wayfire.nix
+     ../../../pkgs/dev.nix
+     ../../../pkgs/fonts.nix
+     ../../../pkgs/system.nix
+     ../../../pkgs/hosts/green-demon/system.nix
     # Import home-manager's NixOS module
     inputs.home-manager.nixosModules.home-manager
   ];

@@ -16,8 +16,9 @@
 
     # Theme
     ./theme.nix
-    ./wm/default.nix
-    ./programs/default.nix
+    ./wm
+    ./programs
+    ./shell
   ];
 
   nixpkgs = {

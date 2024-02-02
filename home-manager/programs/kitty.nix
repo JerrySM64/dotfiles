@@ -13,32 +13,32 @@
         font_size = 11;
         foreground = "#c0b18b";
         background = "#262626";
-        background_opacity = 0.9;
+        background_opacity = "0.9";
         selection_foreground = "#2f2f2f";
         selection_background = "d75f5f";
         cursor = "#8fee96";
         cursor_shape = "underline";
-        cursor_blink_interval = 0.5;
-        cursor_stop_blinking_after = 15.0;
-        scrollback_lines = 2000;
+        cursor_blink_interval = "0.5";
+        cursor_stop_blinking_after = "15.0";
+        scrollback_lines = "2000";
         scrollback_pager = "less +G -R";
-        wheel_scroll_multiplier = 5.0;
-        click_interval = 0.5;
+        wheel_scroll_multiplier = "5.0";
+        click_interval = "0.5";
         select_by_word_characters = ":@-./_~?&=%+#";
-        mouse_hide_wait = 0.0;
+        mouse_hide_wait = "0.0";
         enabled_layouts = "*";
         remember_window_size = true;
-        initial_window_width = 640;
-        initial_window_height = 400;
-        repaint_delay = 10;
-        input_delay = 3;
-        visual_bell_duration = 0.0;
+        initial_window_width = "640";
+        initial_window_height = "400";
+        repaint_delay = "10";
+        input_delay = "3";
+        visual_bell_duration = "0.0";
         enable_audio_bell = false;
         open_url_modifiers = "ctrl+shift";
         open_url_with = "default";
         term = "xterm-kitty";
-        window_border_width = 0;
-        window_margin_width = 15;
+        window_border_width = "0";
+        window_margin_width = "15";
         active_border_color = "#ffffff";
         inactive_border_color = "#cccccc";
         active_tab_foreground = "#000";
@@ -68,7 +68,7 @@
 
         # magenta
         color5 = "#775759";
-        color13 = #775759";
+        color13 = "#775759";
 
         # cyan
         color6 = "#84edb9";
@@ -80,11 +80,10 @@
 
         hide_window_decorations = true;
         macos_option_as_alt = false;
-        remember_window_size = true;
         macos_titlebar_color = "background";
 
         allow_remote_control = true;
-        confirm_os_window_close = 0;
+        confirm_os_window_close = "0";
       };
 
       keybindings = {
@@ -135,11 +134,12 @@
          "ctrl+shift+," = "move_tab_backward";
 
         # Miscellaneous
-         "ctrl+shift+up" = "increase_font_size";
-         "ctrl+shift+down" = "decrease_font_size";
+         "ctrl++" = "increase_font_size";
+         "ctrl+-" = "decrease_font_size";
          "ctrl+shift+backspace" = "restore_font_size";
       };
 
-      theme = "Adapta_Nokto_Maia";
+      theme = "Catppuccin-Mocha";
     };
   };
+}
