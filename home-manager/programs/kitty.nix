@@ -15,7 +15,7 @@
         background = "#262626";
         background_opacity = "0.9";
         selection_foreground = "#2f2f2f";
-        selection_background = "d75f5f";
+        selection_background = "#d75f5f";
         cursor = "#8fee96";
         cursor_shape = "underline";
         cursor_blink_interval = "0.5";
@@ -38,7 +38,7 @@
         open_url_with = "default";
         term = "xterm-kitty";
         window_border_width = "0";
-        window_margin_width = "15";
+        window_margin_width = "0";
         active_border_color = "#ffffff";
         inactive_border_color = "#cccccc";
         active_tab_foreground = "#000";

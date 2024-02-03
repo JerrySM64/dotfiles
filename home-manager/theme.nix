@@ -36,4 +36,18 @@
     enable = true;
     platformTheme = "gtk";
   };
+
+  home = {
+    pointerCursor = {
+      package = pkgs.simp1e-cursors;
+      name = "Simp1e-Catppuccin-Mocha";
+      size = 24;
+      gtk = {
+        enable = true;
+      };
+      x11 = {
+        enable = true;
+      };
+    };
+  };
 }

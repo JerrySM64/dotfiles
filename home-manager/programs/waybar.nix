@@ -30,7 +30,7 @@
         }
 
         window#waybar {
-          background-color:                 @back-transparent-8;
+          background-color:                 @black-transparent-8;
           color:                            @text;
           border-radius:                    0px;
         }
@@ -91,7 +91,7 @@
         #taskbar {
           border-radius:                    8px;
           margin-top:                       4px;
-          margin-bottom                     4px;
+          margin-bottom:                    4px;
           margin-left:                      1px;
           margin-right:                     1px;
         }
@@ -121,6 +121,8 @@
         #custom-launcher,
         #submap,
         #mode,
+        #custom-kernel,
+        #custom-temp,
         #cpu,
         #memory,
         #pulseaudio.audio,
@@ -224,7 +226,6 @@
             "spacing": 1,
             "gtk-layer-shell": true,
             "modules-left": [
-              "custom/notification",
               "hyprland/workspaces",
               "hyprland/window"
             ],
@@ -280,15 +281,18 @@
               "no-click": "activate"
             },
             "modules-center": [
-              "clock"
+              "clock",
+              "custom/notification"
             ],
-            "hyprland/window"; {
+            "hyprland/window": {
               "format": "{:.80}",
               "separate-outputs": false
             },
             "modules-right": [
               "tray",
+              "custom/kernel",
               "cpu",
+              "custom/temp",
               "memory",
               "bluetooth",
               "pulseaudio#microphone",
@@ -296,6 +300,19 @@
               "network#wlo1",
               "network#enp42s0"
             ],
+            "custom/kernel": {
+              "format": "   {} ",
+              "interval": 3600,
+              "exec": "uname -r",
+              "signal": 8,
+              "on-click": "kitty -e ~/.config/waybar/kernel-widget-function.sh"
+            },
+            "custom/temp": {
+              "format": " {}°C",
+              "interval": 5,
+              "exec": "exec sensors | grep 'Tctl' | cut --characters 16-19",
+              "on-click": "kitty -e btop"
+            },
             "tray": {
               "icon-size":19,
               "spacing": 10
@@ -383,6 +400,17 @@
               "tooltip": true
             }
           }
+        '';
+      };
+
+      ".config/waybar/kernel-widget-function.sh" = {
+        text = ''
+          #!/usr/bin/env bash
+
+          neofetch
+          echo "Press the ENTER key to start a shell."
+          echo "To close this window, press CTRL + C or SUPER + Q."
+          read
         '';
       };
     };

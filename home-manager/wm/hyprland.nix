@@ -117,7 +117,7 @@
       windowrule = size 800 600, title:^(Volume Control)$
       windowrule = move 75 44%, title:^(Volume Control)$
 
-      $screenshotarea = hyprctl keyword animation "fadeOut,0,0,default"; grimblast copy area; hyprctl keyword animation "fadeout,1,4,default"
+      $screenshotarea = hyprctl keyword animation "fadeOut,0,0,default"; grimblast copy area; hyprctl keyword animation "fadeOut,1,4,default"
 
       bind = ${modifier}, B, exec, brave
       bind = ${modifier}, P, exec, wlogout
@@ -129,7 +129,7 @@
       bind = ,XF86AudioPause, exec, playerctl play-pause
       bind = ,XF86AudioNext, exec, playerctl next
       bind = ,XF86AudioPrev, exec, playerctl previous
-      bind = ${modifier} SHIFT, S, exec $screenshotarea
+      bind = ${modifier} SHIFT, S, exec, $screenshotarea
       bind = , Print, exec, grimblast --cursor copy output
       bind = ALT, Print, exec, grimblast --cursor copy screen
       bind = ${modifier} SHIFT, X, exec, hyprpicker -a -n

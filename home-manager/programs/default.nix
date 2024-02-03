@@ -4,7 +4,9 @@
   imports = [
     ./alacritty.nix
     ./kitty.nix
+    ./neofetch.nix
     ./rofi.nix
+    ./starship.nix
     ./waybar.nix
   ];
 

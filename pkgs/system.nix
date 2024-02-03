@@ -65,6 +65,7 @@
         kitty
         lm_sensors
         neofetch
+        neovim
         nextcloud-client
         nh
         ntfs3g
