@@ -15,7 +15,7 @@
         };
         hostname = {
           ssh_only = false;
-          format = "on [$hostname](bold cyan) in ";
+          format = "at [$hostname](bold cyan) in ";
           trim_at = ".";
           disabled = false;
         };
@@ -63,8 +63,8 @@
           symbol = " ";
         };
         git_status = {
-          format = "(\[$all_status$ahead_behind\]($style) )";
-          stashed = "[$count*](cyam)";
+          format = "([$all_status$ahead_behind]($style) )";
+          stashed = "[$count*](cyan)";
           modified = "[$count+](yellow)";
           deleted =  "[$count-](red)";
           conflicted =  "[$count~](red)";
