@@ -169,7 +169,10 @@
     xserver = {
       # Set keyboard layout in GUI
       layout = "de";
-      xkbVariant = "";
+      xkb = {
+        variant = "";
+      };
+
       desktopManager = {
         xterm = {
           enable = false; # Bye bye, Xterm!

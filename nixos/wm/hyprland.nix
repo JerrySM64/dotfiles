@@ -14,8 +14,6 @@
         #    sha256 = "p2d7I0UBP63baW/q9MexYJQcqSmZ0L5rkwK3n66gmqM=";
         #  })}";
         };
-        layout = "de";
-        xkbVariant = "";
       };
 
       gvfs = {
