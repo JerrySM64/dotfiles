@@ -35,7 +35,7 @@
         border_size = 3
         col.active_border = rgb(6e16af) rgb(1916af) 45deg
         no_border_on_floating = true
-        layout = master
+        layout = dwindle
       }
 
       misc {
