@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs = {
@@ -25,8 +25,9 @@
         @define-color black-solid           rgba(0, 0, 0, 1.0);
 
         * {
-          font-family:                      Iosevka, Material Design Icons Desktop;
+          font-family:                      JetBrains Mono Nerd Font, Material Design Icons Desktop;
           font-size:                        14px;
+          font-weight:                      bold;
         }
 
         window#waybar {
@@ -86,6 +87,27 @@
           background-color:                 @white;
           color:                            @black;
           transition:                       all 0.3s ease;
+        }
+
+        #custom-appmenu {
+          color:                            @text;
+          border:                           1px solid @lightgray;
+          border-radius:                    20px;
+          margin-top:                       5px;
+          margin-bottom:                    5px;
+          margin-left:                      5px;
+          margin-right:                     5px;
+        }
+
+        #custom-appmenu button {
+          background-color:                 transparent;
+          transition:                       all 0.3s ease;
+        }
+
+        #custom-appmenu.hover {
+          background-color:                 @lightgray;
+          transition:                       all 0.3s ease;
+          animation:                        colored-gradient 10s ease infinite;
         }
 
         #taskbar {
@@ -226,6 +248,7 @@
             "spacing": 1,
             "gtk-layer-shell": true,
             "modules-left": [
+              "custom/appmenu",
               "hyprland/workspaces",
               "hyprland/window"
             ],
@@ -251,7 +274,7 @@
             },
             "clock": {
               "interval": 1,
-              "format": "{:󰣆  %d.%m.%Y  󰥔  %H:%M}",
+              "format": "{:󰣆  %d. %b. %Y  󰥔  %H:%M} ",
               // "on-click": "gnome-calendar",
               "tooltip": false,
               "tooltip-format": "{calendar}",
@@ -281,12 +304,11 @@
               "no-click": "activate"
             },
             "modules-center": [
-              "clock",
-              "custom/notification"
             ],
             "hyprland/window": {
-              "format": "{:.80}",
-              "separate-outputs": false
+              "format": "{:.200}",
+              "separate-outputs": false,
+              "on-click": "rofi -show window"
             },
             "modules-right": [
               "tray",
@@ -294,18 +316,25 @@
               "cpu",
               "custom/temp",
               "memory",
-              "bluetooth",
+              "custom/notification",
               "pulseaudio#microphone",
               "pulseaudio#audio",
+              "bluetooth",
               "network#wlo1",
-              "network#enp42s0"
+              "network#enp42s0",
+              "clock"
             ],
             "custom/kernel": {
-              "format": "   {} ",
+              "format": "   {}",
               "interval": 3600,
               "exec": "uname -r",
               "signal": 8,
               "on-click": "kitty -e ~/.config/waybar/kernel-widget-function.sh"
+            },
+            "custom/appmenu": {
+              "tooltip": false,
+              "format": " Apps ",
+              "on-click": "rofi -show drun"
             },
             "custom/temp": {
               "format": " {}°C",
@@ -396,7 +425,7 @@
               "format-connected": "󰂯",
               "format-connected-battery": "󰂯",
               "tooltip-format-connected": "{device_alias} 󰂄{device_battery_percentage}%",
-              "on-click": "",
+              "on-click": "nmtui",
               "tooltip": true
             }
           }
