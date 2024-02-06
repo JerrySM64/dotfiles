@@ -7,6 +7,7 @@
     ./neofetch.nix
     ./rofi.nix
     ./starship.nix
+    ./swaync.nix
     ./waybar.nix
   ];
 
