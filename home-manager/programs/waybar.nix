@@ -274,7 +274,7 @@
             },
             "clock": {
               "interval": 1,
-              "format": "{:󰣆  %d. %b. %Y  󰥔  %H:%M} ",
+              "format": "{: %d. %b. %Y  %H:%M} ",
               // "on-click": "gnome-calendar",
               "tooltip": false,
               "tooltip-format": "{calendar}",
@@ -352,7 +352,7 @@
               "tooltip": false
             },
             "memory": {
-              "format": "󰍛 {used:0.1f}GB ({percentage}%) / {total:0.1f}GB",
+              "format": "󰍛 {used:0.1f}GB / {total:0.1f}GB",
               "on-click": "btop",
               "tooltip": false
             },
