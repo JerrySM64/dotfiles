@@ -1,5 +1,6 @@
 { inputs, config, pkgs,
-  username, hostname, ... }:
+  username, hostname,
+  userDescription, ... }:
 
 let 
   inherit (import ./options.nix) 
@@ -45,7 +46,7 @@ in {
       homeMode = "755";
       hashedPassword = "$6$YdPBODxytqUWXCYL$AHW1U9C6Qqkf6PZJI54jxFcPVm2sm/XWq3Z1qa94PFYz0FF.za9gl5WZL/z/g4nFLQ94SSEzMg5GMzMjJ6Vd7.";
       isNormalUser = true;
-      description = "${gitUsername}";
+      description = "${userDescription}";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
       shell = pkgs.${theShell};
       ignoreShellProgramCheck = true;

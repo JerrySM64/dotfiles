@@ -4,6 +4,7 @@
 
 let
   username = "jerry";
+  userDescription = "Jerry";
   hostname = "Green-Demon";
   # This is for running NixOS
   # On a tmpfs or root on RAM
@@ -15,8 +16,9 @@ let
 in {
   # User Variables
   username = "${username}";
+  userDescription = "${userDescription}"
   hostname = "${hostname}";
-  gitUsername = "Jerry Starke";
+  gitUsername = "JerrySM64";
   gitEmail = "42114389+JerrySM64@users.no-reply.github.com";
   theme = "ayu-dark";
   cursorTheme = "Simp1e-Tokyo-Night-Storm";
