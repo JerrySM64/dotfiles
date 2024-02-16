@@ -34,6 +34,7 @@
     ./python.nix
     ./printer.nix
     ./services.nix
+    ./smb.nix
     ./steam.nix
     ./vm.nix
   ];

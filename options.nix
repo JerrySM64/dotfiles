@@ -30,6 +30,7 @@ in {
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   flakeDir = "${flakeDir}";
+  screenshotDir = "${userHome}/Pictures/Screenshots";
   terminal = "kitty";
 
   # System Settings
@@ -61,6 +62,11 @@ in {
   nfs = false;
   nfsMountPoint = "/mnt/nas";
   nfsDevice = "nas:/volume1/nas";
+
+  # Enable /Setup Samba (SMB)
+  smb = true;
+  smbMountPoint = "/mnt/samba";
+  smbDevice = "smb:/127.0.0.1/smb";
 
   # NTP & HWClock Settings
   ntp = true;

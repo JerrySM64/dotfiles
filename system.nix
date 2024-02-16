@@ -5,7 +5,7 @@
 let 
   inherit (import ./options.nix) 
     theLocale theTimezone 
-    flakeDir gitUsername theShell 
+    flakeDir userDescription theShell 
     impermanence wallpaperDir wallpaperGit
     theLCVariables theKBDLayout;
 in {
