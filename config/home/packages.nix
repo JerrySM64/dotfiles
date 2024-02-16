@@ -6,10 +6,10 @@ let
 in {
   # Install Packages For The User
   home.packages = with pkgs; [
-    pkgs."${browser}" discord libvirt swww grimblast slurp gnome.file-roller
+    pkgs."${browser}" libvirt swww grimblast slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
-    gimp obs-studio rustup audacity pavucontrol
-    font-awesome spotify swayidle neovide element-desktop swaylock
+    gimp obs-studio rustup audacity pavucontrol font-awesome
+    spotify swayidle neovide swaylock
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })

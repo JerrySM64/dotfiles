@@ -43,7 +43,7 @@ in {
   theTimezone = "Europe/Berlin";
   theShell = "zsh"; # Possible options: bash, zsh
   theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
-  impermanence = true; # This should be set to false unless you know what you're doing!
+  impermanence = true; # This should be set to false unless you already have an impermanent system!
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
 
   # For Hybrid Systems intel-nvidia
@@ -64,7 +64,7 @@ in {
   nfsDevice = "nas:/volume1/nas";
 
   # Enable /Setup Samba (SMB)
-  smb = true;
+  smb = false;
   smbMountPoint = "/mnt/samba";
   smbDevice = "smb:/127.0.0.1/smb";
 
@@ -94,6 +94,11 @@ in {
 
   # Cloud-based - let's hope it's not raining, today!
   nextcloud = true;
+
+  # Social Apps
+  element = true;
+  discord = true;
+  telegram = true;
 
   # Enable Larger Programs
   ardour = true;
