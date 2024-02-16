@@ -18,8 +18,8 @@ in {
   username = "${username}";
   userDescription = "${userDescription}";
   hostname = "${hostname}";
-  gitUsername = "JerrySM64";
-  gitEmail = "42114389+JerrySM64@users.no-reply.github.com";
+  gitUsername = "Jerry Starke";
+  gitEmail = "42114389+JerrySM64@users.noreply.github.com";
   theme = "ayu-dark";
   cursorTheme = "Simp1e-Tokyo-Night-Storm";
   slickbar = true;
