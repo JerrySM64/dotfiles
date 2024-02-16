@@ -44,7 +44,7 @@ in {
     mutableUsers = true;
     users."${username}" = {
       homeMode = "755";
-      hashedPassword = "$6$YdPBODxytqUWXCYL$AHW1U9C6Qqkf6PZJI54jxFcPVm2sm/XWq3Z1qa94PFYz0FF.za9gl5WZL/z/g4nFLQ94SSEzMg5GMzMjJ6Vd7.";
+      hashedPassword = "$6$TIzjLu.7bL9up7Uh$D0xh.dRIGwniTi.DYTtUwep9yKXNteJmq6TNPa7c.skZzvKyb9XIYuloIlZ8/7tCZv3THSfehY2SNnDQb72oX0";
       isNormalUser = true;
       description = "${userDescription}";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
