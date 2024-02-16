@@ -1,0 +1,40 @@
+{ config, pkgs, ... }:
+
+{
+  imports = [
+    ./adb.nix
+    ./amd-gpu.nix
+    ./appimages.nix
+    ./ardour.nix
+    ./autorun.nix
+    ./boot.nix
+    ./dev-common.nix
+    ./displaymanager.nix
+    ./distrobox.nix
+    ./flatpak.nix
+    ./font.nix
+    ./hwclock.nix
+    ./intel-amd.nix
+    ./intel-gpu.nix
+    ./intel-nvidia.nix
+    ./kernel.nix
+    ./logitech.nix
+    ./nano.nix
+    ./neovim.nix
+    ./nfs.nix
+    ./nix-prefetch-scripts.nix
+    ./nodejs.nix
+    ./ntfs.nix
+    ./ntp.nix
+    ./nvidia.nix
+    ./packages.nix
+    ./persistence.nix
+    ./podman.nix
+    ./polkit.nix
+    ./python.nix
+    ./printer.nix
+    ./services.nix
+    ./steam.nix
+    ./vm.nix
+  ];
+}
