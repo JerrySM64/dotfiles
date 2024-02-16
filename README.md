@@ -1,4 +1,4 @@
-# EasyNix - NixOS configuration made simple
+# My flake called "EasyNix" for NixOS
 This is EasyNix, my configuration for NixOS. Based on the beautiful work by [Tyler Kelley](https://gitlab.com/Zaney/zaneyos). Feel free to poke around. Maybe you find some things, you like or learn new things from it.
 
 ![image](https://github.com/JerrySM64/dotfiles/assets/42114389/4310d38c-564a-4a6b-b1d5-25c5e2aa890a)
