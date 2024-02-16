@@ -1,7 +1,7 @@
 # Dotfiles and configuration files for NixOS
 This is EasyNix, my configuration for NixOS. Based on the beautiful work on [ZaneyOS](https://gitlab.com/Zaney/zaneyos) by Tyler Kelley. Feel free to poke around. Maybe you find some things, you like or learn new things from it.
 
-![image](https://github.com/JerrySM64/dotfiles/assets/42114389/963a5623-cce5-40cd-a093-c982e51b8c45)
+![image](https://github.com/JerrySM64/dotfiles/assets/42114389/4310d38c-564a-4a6b-b1d5-25c5e2aa890a)
 
 ## How do I use your configuration?
 That's fairly simple! Here are the steps to reproduce it on your system:
