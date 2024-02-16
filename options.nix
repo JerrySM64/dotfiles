@@ -9,14 +9,14 @@ let
   # This is for running NixOS
   # On a tmpfs or root on RAM
   # You Most Likely Want This -> false
-  impermanence = false; 
+  impermanence = true; 
   userHome = "/home/${username}";
-  flakeDir = if impermanence == false then "${userHome}/easynix"
-	     else "/nix/persist/etc/nixos/easynix";
+  flakeDir = if impermanence == false then "${userHome}/dotfiles"
+	     else "/nix/persist/etc/nixos/dotfiles";
 in {
   # User Variables
   username = "${username}";
-  userDescription = "${userDescription}"
+  userDescription = "${userDescription}";
   hostname = "${hostname}";
   gitUsername = "JerrySM64";
   gitEmail = "42114389+JerrySM64@users.no-reply.github.com";
@@ -42,7 +42,7 @@ in {
   theTimezone = "Europe/Berlin";
   theShell = "zsh"; # Possible options: bash, zsh
   theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
-  impermanence = false; # This should be set to false unless you know what you're doing!
+  impermanence = true; # This should be set to false unless you know what you're doing!
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
 
   # For Hybrid Systems intel-nvidia
