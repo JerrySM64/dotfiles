@@ -5,10 +5,13 @@
 let
   username = "jerry";
   userDescription = "Jerry";
-  hostname = "Green-Demon";
+  hostname = "VisheraTheBulldozer";
   # This is for running NixOS
   # On a tmpfs or root on RAM
-  # You Most Likely Want This -> false
+  # Setting this to false is 
+  # a must unless you already 
+  # have an impermanent system!
+  # TLDR; You Most Likely Want This -> false
   impermanence = true; 
   userHome = "/home/${username}";
   flakeDir = if impermanence == false then "${userHome}/dotfiles"
@@ -26,7 +29,7 @@ in {
   simplebar = false; # UNDER CONSTRUCTION. DO NOT ENABLE!
   borderAnim = true;
   browser = "brave";
-  wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you my wallpapers
+  wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you Zaney's wallpapers
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   flakeDir = "${flakeDir}";
@@ -37,13 +40,13 @@ in {
   clock24h = true;
   theLocale = "en_US.UTF-8";
   theKBDLayout = "de";
-  theSecondKBDLayout = "us";
+  theSecondKBDLayout = "";
   theKBDVariant = "";
   theLCVariables = "de_DE.UTF-8";
   theTimezone = "Europe/Berlin";
   theShell = "zsh"; # Possible options: bash, zsh
   theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
-  impermanence = true; # This should be set to false unless you already have an impermanent system!
+  impermanence = if impermanence == true then true else false;
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
 
   # For Hybrid Systems intel-nvidia
@@ -53,7 +56,7 @@ in {
   gpuType = "amd";
 
   # Bios Type 
-  biosType = "uefi"; # Possible options: legacy, uefi
+  biosType = "legacy"; # Possible options: legacy, uefi
   legacyGrubDevice = "/dev/sda1";
 
   # Nvidia Hybrid Devices
@@ -105,9 +108,9 @@ in {
   telegram = true;
 
   # Enable Larger Programs
-  ardour = true;
+  ardour = false;
   blender = true;
-  kdenlive = true;
+  kdenlive = false;
   obs = true;
   steam = true;
 
