@@ -1,11 +1,37 @@
 { pkgs, config, ... }:
 
-{
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # This is for OBS Virtual Cam Support - v4l2loopback setup
-  boot.kernelModules = [ "v4l2loopback" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+let 
+  inherit (import ../../options.nix) obs biosType legacyGrubDevice; 
+in {
+  boot = if (obs == true) then {
+    loader = if (biosType == "legacy") then {
+      grub = {
+        enable = true;
+        device = "${legacyGrubDevice}";
+        useOSProber = true;
+        configurationLimit = 8;
+      };
+    } else {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 8;
+      };
+    };
+    kernelModules = ["v4l2loopback"];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+  } else {
+    loader = if (biosType == "legacy") then {
+      grub = {
+        enable = true;
+        device = "${legacyGrubDevice}";
+        useOSProber = true;
+        configurationLimit = 8;
+      };
+    } else {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 8;
+      };
+    };
+  };
 }

@@ -8,8 +8,8 @@ in {
   home.packages = with pkgs; [
     pkgs."${browser}" libvirt swww grimblast slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
-    gimp obs-studio rustup audacity pavucontrol font-awesome
-    spotify swayidle neovide swaylock
+    gimp rustup audacity pavucontrol font-awesome spotify 
+    swayidle neovide swaylock
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })

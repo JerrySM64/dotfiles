@@ -52,6 +52,10 @@ in {
   cpuType = "amd";
   gpuType = "amd";
 
+  # Bios Type 
+  biosType = "uefi"; # Possible options: legacy, uefi
+  legacyGrubDevice = "/dev/sda1";
+
   # Nvidia Hybrid Devices
   # ONLY NEEDED FOR HYBRID
   # SYSTEMS! 
@@ -104,6 +108,7 @@ in {
   ardour = true;
   blender = true;
   kdenlive = true;
+  obs = true;
   steam = true;
 
   # Enable Terminals
