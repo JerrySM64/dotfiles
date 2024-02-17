@@ -32,6 +32,7 @@ in lib.mkIf (impermanence == true) {
 	".config/git"
 	".config/pulse/"
 	".config/Thunar"
+	".local/share/containers"
 	".local/share/sddm"
 	".local/share/Steam"
 	".local/state/wireplumber"

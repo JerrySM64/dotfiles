@@ -83,7 +83,7 @@ in {
   ntfs = true;
 
   # Add support for containers
-  distrobox = false; # Setting this to true also enables Podman.
+  distrobox = true; # Setting this to true also enables Podman.
   flatpak = false;
   podman = false;
 
