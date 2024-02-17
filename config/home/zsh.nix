@@ -51,7 +51,7 @@ lib.mkIf (theShell == "zsh") {
       flex="neofetch";
       v="nvim";
       nv="neovide";
-      ls="eza -lah color=auto";
+      ls="eza -lah";
       mkdir="mkdir -p";
       ".."="cd ..";
       reboot="systemctl reboot";
