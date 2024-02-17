@@ -5,49 +5,17 @@
 
 {
   imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "ahci" "ohci_pci" "ehci_pci" "pata_atiixp" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    {
-      device = "none";
-      fsType = "tmpfs";
-      options = [ "defaults" "size=25%" "mode=755" ];
-    };
-
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/B741-F128";
-      fsType = "vfat";
-      options = [ "umask=0077" ];
-    };
-
-  fileSystems."/nix" =
-    {
-      device = "/dev/disk/by-uuid/22c57a38-3197-4908-84ff-8bf5423e1001";
+    { device = "/dev/disk/by-uuid/d61eba7c-3f32-4929-a57a-870b42af4e69";
       fsType = "xfs";
-    };
-
-  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/775004eb-ddc7-4366-8a7f-976a6036d519";
-
-  fileSystems."/etc/nixos" =
-    {
-      device = "/nix/persist/etc/nixos";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/log" =
-    {
-      device = "/nix/persist/var/log";
-      fsType = "none";
-      options = [ "bind" ];
     };
 
   swapDevices = [ ];
@@ -57,7 +25,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp2s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp3s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

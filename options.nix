@@ -12,7 +12,7 @@ let
   # a must unless you already 
   # have an impermanent system!
   # TLDR; You Most Likely Want This -> false
-  impermanence = true; 
+  impermanence = false; 
   userHome = "/home/${username}";
   flakeDir = if impermanence == false then "${userHome}/dotfiles"
 	     else "/nix/persist/etc/nixos/dotfiles";
@@ -53,11 +53,11 @@ in {
   # Should Be Used As gpuType
   # For VMs vm Should Be Used For gpuType
   cpuType = "amd";
-  gpuType = "amd";
+  gpuType = "nvidia";
 
   # Bios Type 
   biosType = "legacy"; # Possible options: legacy, uefi
-  legacyGrubDevice = "/dev/sda1";
+  legacyGrubDevice = "/dev/sda";
 
   # Nvidia Hybrid Devices
   # ONLY NEEDED FOR HYBRID
