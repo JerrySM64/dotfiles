@@ -7,17 +7,17 @@ This is EasyNix, my configuration for NixOS. Based on the beautiful work by [Tyl
 That's fairly simple! Here are the steps to reproduce it on your system:
 
 ### Get into a NixOS live system
-This step is very simple. Grab a NixOS install iso from the NixOS website. I recommend the GNOME ISO. After downloading make a bootable USB ready with the solution of your choice. Then boot from it.
+This step is very simple. Grab a NixOS install ISO from the NixOS website. I recommend the GNOME one. After downloading make a bootable USB ready with the solution of your choice. Then boot from it.
 
 ### Partitioning your hard drive
-You can use GParted to partition your hard drive. Make sure that the partition scheme is GPT. Then create partitions like that:
+You can use GParted to partition your hard drive. Make sure the partition scheme is GPT. Then create partitions like that:
 
 ```
 1-512 MiB   fat32       
 513-100%    xfs/ext4
 ```
 
-After creating the partitions, make sure that the Flags for the fat32 partition is set to boot and esp.
+After creating the partitions, make sure the flags for the fat32 partition are set to boot and esp.
 
 When that's done, close GParted and open up a terminal.
 
@@ -51,7 +51,7 @@ Now go into the options.nix and set your preferences. You can use nano for that.
 nano options.nix
 ```
 ### Set your password
-By default, this comes with the user password set to "password". You can leave it at that, but it's an insecure password and I highly recommend to change it. Since it's a hashed password, you need to do that in a bit different way. To do that, enter the following commands:
+By default, this comes with my password as the user password. Because you don't know my password, you need to change it. To do that, enter the following commands:
 
 ```bash
 mkpasswd -m sha-512 <YOUR-PASSWORD>
