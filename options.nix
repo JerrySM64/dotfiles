@@ -7,8 +7,11 @@ let
   userDescription = "Jerry";
   hostname = "Green-Demon";
   # This is for running NixOS
-  # On a tmpfs or root on RAM
-  # You Most Likely Want This -> false
+  # On a tmpfs or root on RAM 
+  # Setting this to false is 
+  # a must unless you already 
+  # have an impermanent system!
+  # TLDR; You Most Likely Want This -> false
   impermanence = true; 
   userHome = "/home/${username}";
   flakeDir = if impermanence == false then "${userHome}/dotfiles"
@@ -26,7 +29,7 @@ in {
   simplebar = false; # UNDER CONSTRUCTION. DO NOT ENABLE!
   borderAnim = true;
   browser = "brave";
-  wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you my wallpapers
+  wallpaperGit = "https://github.com/EasyNixProject/wallpapers"; # This will give you the EasyNix wallpapers
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   flakeDir = "${flakeDir}";
@@ -43,8 +46,8 @@ in {
   theTimezone = "Europe/Berlin";
   theShell = "zsh"; # Possible options: bash, zsh
   theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
-  impermanence = true; # This should be set to false unless you already have an impermanent system!
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
+  impermanence = if impermanence == true then true else false;
 
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
@@ -54,7 +57,7 @@ in {
 
   # Bios Type 
   biosType = "uefi"; # Possible options: legacy, uefi
-  legacyGrubDevice = "/dev/sda1";
+  # legacyGrubDevice = "/dev/sda";
 
   # Nvidia Hybrid Devices
   # ONLY NEEDED FOR HYBRID
