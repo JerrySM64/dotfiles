@@ -29,7 +29,7 @@ in {
   simplebar = false; # UNDER CONSTRUCTION. DO NOT ENABLE!
   borderAnim = true;
   browser = "brave";
-  wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you Zaney's wallpapers
+  wallpaperGit = "https://github.com/EasyNixProject/wallpapers"; # This will give you the EasyNix wallpapers
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   flakeDir = "${flakeDir}";
