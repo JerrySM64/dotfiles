@@ -63,43 +63,43 @@ in {
             "buttons-grid": {
                 "actions": [
                     {
-                        "label": "󰐥",
+                        "label": "⏹️",
                         "command": "systemctl poweroff"
                     },
                     {
-                        "label": "󰜉",
+                        "label": "🔁",
                         "command": "systemctl reboot"
                     },
                     {
-                        "label": "",
+                        "label": "🚪",
+                        "command": "hyprctl dispatch exit"
+                    },
+                    {
+                        "label": "🗂️",
                         "command": "thunar"
                     },
                     {
-                        "label": "",
-                        "command": "pavucontrol"
-                    },
-                    {
-                        "label": "",
+                        "label": "📸",
                         "command": "gimp"
                     },
                     {
-                        "label": "󰕾",
+                        "label": "📣",
                         "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
                     },
                     {
-                        "label": "󰍬",
+                        "label": "🎙️",
                         "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
                     },
                     {
-                        "label": "",
+                        "label": "🎮",
                         "command": "steam"
                     },
                     {
-                        "label": "",
+                        "label": "🌎",
                         "command": "firefox"
                     },
                     {
-                        "label": "",
+                        "label": "📹",
                         "command": "obs"
                     }
                 ]
