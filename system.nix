@@ -55,13 +55,12 @@ in {
   };
 
   environment.variables = {
+    ENVER = "unstable";
     FLAKE = "${flakeDir}";
-
     PERSIST = if impermanence == true then 
       ''/nix/persist/''
     else 
       '''';
-
     POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
   };
 
