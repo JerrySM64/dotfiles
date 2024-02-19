@@ -14,6 +14,7 @@
     ./kitty.nix
     ./neofetch.nix
     ./nextcloud.nix
+    ./obs.nix
     ./packages.nix
     ./rofi.nix
     ./starship.nix

@@ -14,8 +14,8 @@ let
   # TLDR; You Most Likely Want This -> false
   impermanence = true; 
   userHome = "/home/${username}";
-  flakeDir = if impermanence == false then "${userHome}/dotfiles"
-	     else "/nix/persist/etc/nixos/dotfiles";
+  flakeDir = if impermanence == false then "${userHome}/easynix"
+	     else "/nix/persist/etc/nixos/easynix";
 in {
   # User Variables
   username = "${username}";
