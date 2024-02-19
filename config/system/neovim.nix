@@ -10,18 +10,19 @@ in {
     plugins = {
       telescope.enable = true;
       neo-tree.enable = true;
-      airline = {
+      indent.blankline.enable = true;
+      lualine = {
 	enable = true;
-	powerlineFonts = true;
-	theme = "tomorrow";
+	theme = "auto";
       };
       startup = { 
 	enable = true;
-	theme = "evil";
+	theme = "dashboard";
 	userMappings = {
 	  "<leader>ff" = "<cmd>Telescope find_files<CR>";
 	  "<leader>s"  = "<cmd>Telescope live_grep<CR>";
-	  "<leader>f"  = "<cmd>Neotree reveal right<CR>";
+	  "<leader>fb"  = "<cmd>Neotree reveal right<CR>";
+	  "<leader>fl"  = "<cmd>Neotree reveal left<CR>";
 	};
       };
       comment-nvim.enable = true;
@@ -86,6 +87,8 @@ in {
       set showtabline=2
       colorscheme base16-${theme}
       inoremap jj <ESC>
+      let s:guifontsize = 16 
+      let s:guifont = "JetBrains\\ Mono\\ Nerd\\ Font"
     '';
 
     keymaps = [
@@ -97,9 +100,15 @@ in {
       }
       {
         mode = "n";
-        key = "<leader>f";
+        key = "<leader>fb";
         options.silent = false;
         action = "<cmd>Neotree reveal right<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>fl";
+        options.silent = false;
+        action = "<cmd>Neotree reveal left<CR>";
       }
     ];
 
