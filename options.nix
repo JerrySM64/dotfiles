@@ -12,7 +12,7 @@ let
   # a must unless you already 
   # have an impermanent system!
   # TLDR; You Most Likely Want This -> false
-  impermanence = true; 
+  impermanence = false; 
   userHome = "/home/${username}";
   flakeDir = if impermanence == false then "${userHome}/easynix"
 	     else "/nix/persist/etc/nixos/easynix";

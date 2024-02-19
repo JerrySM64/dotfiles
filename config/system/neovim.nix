@@ -10,7 +10,7 @@ in {
     plugins = {
       telescope.enable = true;
       neo-tree.enable = true;
-      indent.blankline.enable = true;
+      indent-blankline.enable = true;
       lualine = {
 	enable = true;
 	theme = "auto";
