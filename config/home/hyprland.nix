@@ -143,7 +143,7 @@ in with lib; {
       bind = ${modifier},P,pseudo, # dwindle
       bind = ${modifier},S,togglesplit, # dwindle
       bind = ${modifier},F,fullscreen,
-      bind = ${modifier},Space,togglefloating,
+      bind = ${modifier}SHIFT,F,togglefloating,
       bind = ${modifier}SHIFT,Q,exit,
       bind = ${modifier}SHIFT,left,movewindow,l
       bind = ${modifier}SHIFT,right,movewindow,r
@@ -171,6 +171,7 @@ in with lib; {
       bind = ${modifier},8,workspace,8
       bind = ${modifier},9,workspace,9
       bind = ${modifier},0,workspace,10
+      bind = ${modifier},SPACE,togglespecialworkspace
       bind = ${modifier}SHIFT,1,movetoworkspace,1
       bind = ${modifier}SHIFT,2,movetoworkspace,2
       bind = ${modifier}SHIFT,3,movetoworkspace,3
@@ -181,6 +182,7 @@ in with lib; {
       bind = ${modifier}SHIFT,8,movetoworkspace,8
       bind = ${modifier}SHIFT,9,movetoworkspace,9
       bind = ${modifier}SHIFT,0,movetoworkspace,10
+      bind = ${modifier},SHIFT,SPACE,movetoworkspace,special
       bind = ${modifier}CONTROL,right,workspace,e+1
       bind = ${modifier}CONTROL,left,workspace,e-1
       bind = ${modifier},mouse_down,workspace, e+1
