@@ -20,7 +20,8 @@ in with lib; {
       else [ "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "tray" ];
 
       "hyprland/workspaces" = {
-      	format = if simplebar == true then "{name}" else "{icon}";
+      	format = if simplebar == true ||
+	            slickbar == true then "{name}" else "{icon}";
       	format-icons = {
           default = " ";
           active = " ";
