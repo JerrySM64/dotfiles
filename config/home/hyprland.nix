@@ -136,7 +136,7 @@ in with lib; {
       ''}
       bind = ${modifier}SHIFT,E,exec,emopicker9000
       bind = ${modifier}SHIFT,S,exec,screenshootin
-      bind = ${modifier},Print,exec,grimblast --cursor copy output
+      bind = ${modifier},Print,exec,grimblast --cursor copysave output
       bind = ${modifier},E,exec,thunar
       bind = ${modifier},M,exec,spotify
       bind = ${modifier},Q,killactive,
