@@ -20,7 +20,8 @@ in with lib; {
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
-      monitor=,preferred,auto,1
+      monitor = DP-3, preferred, 1920x0, 1
+      monitor = HDMI-A-1, preferred,0x0,1
       windowrule = float, ^(steam)$
       windowrule = size 1080 900, ^(steam)$
       windowrule = center, ^(steam)$
@@ -143,6 +144,7 @@ in with lib; {
       bind = ${modifier},P,pseudo, # dwindle
       bind = ${modifier},S,togglesplit, # dwindle
       bind = ${modifier},F,fullscreen,
+      bind = ${modifier},C,exec,code,
       bind = ${modifier}SHIFT,F,togglefloating,
       bind = ${modifier}SHIFT,Q,exit,
       bind = ${modifier}SHIFT,left,movewindow,l

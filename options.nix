@@ -3,9 +3,9 @@
 # https://gitlab.com/Zaney/zaneyos/-/wikis/Setting-Options
 
 let
-  username = "jerry";
-  userDescription = "Jerry";
-  hostname = "Green-Demon";
+  username = "buber";
+  userDescription = "Tomek Bobrowicz";
+  hostname = "darkside";
   # This is for running NixOS
   # On a tmpfs or root on RAM 
   # Setting this to false is 
@@ -21,14 +21,14 @@ in {
   username = "${username}";
   userDescription = "${userDescription}";
   hostname = "${hostname}";
-  gitUsername = "Jerry Starke";
-  gitEmail = "42114389+JerrySM64@users.noreply.github.com";
-  theme = "ayu-dark";
+  gitUsername = "Tomek Bobrowicz";
+  gitEmail = "bobrowicz.tomek@gmail.com";
+  theme = "catppuccin-mocha";
   cursorTheme = "Simp1e-Tokyo-Night-Storm";
   slickbar = true;
   simplebar = false; # UNDER CONSTRUCTION. DO NOT ENABLE!
   borderAnim = true;
-  browser = "brave";
+  browser = "google-chrome";
   wallpaperGit = "https://github.com/EasyNixProject/wallpapers"; # This will give you the EasyNix wallpapers
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
@@ -39,11 +39,11 @@ in {
   # System Settings
   clock24h = true;
   theLocale = "en_US.UTF-8";
-  theKBDLayout = "de";
+  theKBDLayout = "pl";
   theSecondKBDLayout = "us";
   theKBDVariant = "";
-  theLCVariables = "de_DE.UTF-8";
-  theTimezone = "Europe/Berlin";
+  theLCVariables = "pl_PL.UTF-8";
+  theTimezone = "Europe/Warsaw";
   theShell = "zsh"; # Possible options: bash, zsh
   theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
@@ -80,7 +80,7 @@ in {
   localHWClock = false;
 
   # Enable Printer & Scanner Support
-  printer = false;
+  printer = true;
 
   # Enable Support For
   # Logitech Devices

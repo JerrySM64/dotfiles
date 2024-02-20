@@ -40,11 +40,13 @@ in {
   console.keyMap = "${theKBDLayout}";
 
   # Define a user account.
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
   users = {
     mutableUsers = true;
     users."${username}" = {
       homeMode = "755";
-      hashedPassword = "$6$TIzjLu.7bL9up7Uh$D0xh.dRIGwniTi.DYTtUwep9yKXNteJmq6TNPa7c.skZzvKyb9XIYuloIlZ8/7tCZv3THSfehY2SNnDQb72oX0";
+      #hashedPassword = "$6$TIzjLu.7bL9up7Uh$D0xh.dRIGwniTi.DYTtUwep9yKXNteJmq6TNPa7c.skZzvKyb9XIYuloIlZ8/7tCZv3THSfehY2SNnDQb72oX0";
       isNormalUser = true;
       description = "${userDescription}";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];

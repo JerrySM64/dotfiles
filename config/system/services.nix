@@ -21,6 +21,9 @@
     pulse.enable = true;
     jack.enable = true;
   };
+  services.udev.extraRules = ''
+    ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x1483" ATTR{power/wakeup}="disabled"
+  '';
   hardware.pulseaudio.enable = false;
   sound.enable = true;
   security.rtkit.enable = true;

@@ -12,7 +12,7 @@
     pkg-config meson hugo gnumake ninja go nodejs symbola
     noto-fonts-color-emoji nh material-icons brightnessctl
     toybox virt-viewer swappy ripgrep appimage-run yad
-    networkmanagerapplet playerctl pfetch-rs
+    networkmanagerapplet playerctl pfetch-rs vscode blueman
   ];
 
   programs = {
