@@ -100,19 +100,19 @@ in {
   neovim = true;
 
   # Cloud-based - let's hope it's not raining, today!
-  nextcloud = true;
+  nextcloud = false;
 
   # Social Apps
   element = true;
   discord = true;
-  telegram = true;
+  telegram = false;
 
   # Enable Larger Programs
   ardour = true;
   blender = true;
   kdenlive = true;
   obs = true;
-  steam = true;
+  steam = false;
 
   # Enable Terminals
   # If You Disable All You Get Kitty
