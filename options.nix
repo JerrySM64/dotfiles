@@ -5,7 +5,7 @@
 let
   username = "buber";
   userDescription = "Tomek Bobrowicz";
-  hostname = "thinkpad";
+  hostname = "darkside";
   # This is for running NixOS
   # On a tmpfs or root on RAM 
   # Setting this to false is 
@@ -21,7 +21,7 @@ in {
   username = "${username}";
   userDescription = "${userDescription}";
   hostname = "${hostname}";
-  gitUsername = "TomekBobrowicz";
+  gitUsername = "Tomek Bobrowicz";
   gitEmail = "bobrowicz.tomek@gmail.com";
   theme = "catppuccin-mocha";
   cursorTheme = "Simp1e-Tokyo-Night-Storm";
@@ -52,8 +52,8 @@ in {
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
   # For VMs vm Should Be Used For gpuType
-  cpuType = "intel";
-  gpuType = "intel";
+  cpuType = "amd";
+  gpuType = "amd";
 
   # Bios Type 
   biosType = "uefi"; # Possible options: legacy, uefi
@@ -100,19 +100,19 @@ in {
   neovim = true;
 
   # Cloud-based - let's hope it's not raining, today!
-  nextcloud = false;
+  nextcloud = true;
 
   # Social Apps
   element = true;
   discord = true;
-  telegram = false;
+  telegram = true;
 
   # Enable Larger Programs
   ardour = true;
   blender = true;
   kdenlive = true;
   obs = true;
-  steam = false;
+  steam = true;
 
   # Enable Terminals
   # If You Disable All You Get Kitty
