@@ -5,7 +5,7 @@
 let
   username = "buber";
   userDescription = "Tomek Bobrowicz";
-  hostname = "darkside";
+  hostname = "thinkpad";
   # This is for running NixOS
   # On a tmpfs or root on RAM 
   # Setting this to false is 
@@ -52,8 +52,8 @@ in {
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
   # For VMs vm Should Be Used For gpuType
-  cpuType = "amd";
-  gpuType = "amd";
+  cpuType = "intel";
+  gpuType = "intel";
 
   # Bios Type 
   biosType = "uefi"; # Possible options: legacy, uefi

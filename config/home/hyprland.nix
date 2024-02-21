@@ -20,8 +20,7 @@ in with lib; {
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
-      monitor = DP-3, preferred, 1920x0, 1
-      monitor = HDMI-A-1, preferred,0x0,1
+      monitor = , preferred,0x0,1
       windowrule = float, ^(steam)$
       windowrule = size 1080 900, ^(steam)$
       windowrule = center, ^(steam)$
