@@ -21,7 +21,7 @@ in {
   username = "${username}";
   userDescription = "${userDescription}";
   hostname = "${hostname}";
-  gitUsername = "Tomek Bobrowicz";
+  gitUsername = "TomekBobrowicz";
   gitEmail = "bobrowicz.tomek@gmail.com";
   theme = "catppuccin-mocha";
   cursorTheme = "Simp1e-Tokyo-Night-Storm";
