@@ -7,14 +7,16 @@ let
     theLocale theTimezone 
     flakeDir userDescription theShell 
     impermanence wallpaperDir wallpaperGit
-    theLCVariables theKBDLayout;
+    theLCVariables theKBDLayout theme;
 in {
-  imports =
-    [
-      inputs.nixvim.nixosModules.nixvim
-      ./hardware.nix
-      ./config/system
-    ];
+  imports = [
+    inputs.nixvim.nixosModules.nixvim
+    inputs.nix-colors.homeManagerModules.default
+    ./hardware.nix
+    ./config/system
+  ];
+
+  colorScheme = inputs.nix-colors.colorSchemes.${theme};
 
   # Enable networking
   networking.hostName = "${hostname}"; # Define your hostname

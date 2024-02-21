@@ -20,7 +20,6 @@
     ./kernel.nix
     ./logitech.nix
     ./nano.nix
-    ./neovim.nix
     ./nfs.nix
     ./nix-prefetch-scripts.nix
     ./nodejs.nix

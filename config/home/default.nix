@@ -13,6 +13,7 @@
     ./kdenlive.nix
     ./kitty.nix
     ./neofetch.nix
+    ./neovim.nix
     ./nextcloud.nix
     ./obs.nix
     ./packages.nix
