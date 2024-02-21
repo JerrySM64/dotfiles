@@ -1,4 +1,4 @@
 
 .DS_Store
-options.nix
-hardware.nix
+.options.nix
+.hardware.nix
