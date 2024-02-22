@@ -36,6 +36,10 @@ in with lib; {
 
       input {
         kb_layout = ${theKBDLayout}, ${theSecondKBDLayout}
+        ${if gpuType == "vm" then ''
+          kb_options=caps:super
+        '' else ''
+        ''}
         follow_mouse = 1
         touchpad {
           natural_scroll = true
