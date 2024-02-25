@@ -63,15 +63,19 @@ in {
             "buttons-grid": {
                 "actions": [
                     {
-                        "label": "⏹️",
+                        "label": "",
                         "command": "systemctl poweroff"
                     },
                     {
-                        "label": "🔁",
+                        "label": "",
                         "command": "systemctl reboot"
                     },
                     {
-                        "label": "🚪",
+                        "label": "󰒲",
+                        "command": "systemctl suspend"
+                    },
+                    {
+                        "label": "󰩈",
                         "command": "hyprctl dispatch exit"
                     },
                     {

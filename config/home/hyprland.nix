@@ -20,10 +20,13 @@ in with lib; {
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
-      monitor = , preferred,0x0,1
+    monitor = DP-1, preferred, 0x0, 1
+    monitor = HDMI-A-1, preferred, 1980x0,1
       windowrule = float, ^(steam)$
       windowrule = size 1080 900, ^(steam)$
       windowrule = center, ^(steam)$
+      windowrulev2 = workspace 4, class:^(Code)$
+      windowrulev2 = workspace 7 silent, class:^(discord)$
       general {
         gaps_in = 6
         gaps_out = 8
@@ -118,6 +121,7 @@ in with lib; {
       exec-once = swaync
       exec-once = wallsetter
       exec-once = nm-applet --indicator
+      exec-once = discord --start-minimized
       exec-once = swayidle -w timeout 720 'swaylock -f' timeout 800 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
       dwindle {
         pseudotile = true
