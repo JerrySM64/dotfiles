@@ -44,6 +44,8 @@ lib.mkIf (impermanence == true) {
         ".wakatime"
       ];
       files = [
+        ".wakatime.bdb"
+        ".wakatime.cfg"
         ".zsh_history"
         ".config/gtk-3.0/bookmarks"
       ];
