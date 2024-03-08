@@ -131,6 +131,10 @@ in
       #};
     };
 
+    extraPlugins = [
+      pkgs.vimPlugins.vim-wakatime
+    ];
+
     # FOR NEOVIDE
     extraConfigLua = '' 
       vim.opt.guifont = "JetBrainsMono\\ NFM,Noto_Color_Emoji:h14"

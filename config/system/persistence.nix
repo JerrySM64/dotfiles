@@ -34,11 +34,14 @@ lib.mkIf (impermanence == true) {
         ".config/pulse/"
         ".config/Thunar"
         ".local/share/containers"
+        ".local/share/nvim"
         ".local/share/sddm"
         ".local/share/Steam"
+        ".local/state/nvim"
         ".local/state/wireplumber"
         ".ssh"
         ".steam"
+        ".wakatime"
       ];
       files = [
         ".zsh_history"
