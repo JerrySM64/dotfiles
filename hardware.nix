@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" "sr_mod" ];
@@ -14,13 +15,39 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/d14244ab-2f5d-4f16-828d-2ee6658983fe";
-      fsType = "ext4";
+    {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=25%" "mode=755" ];
     };
 
-  fileSystems."/efi" =
-    { device = "systemd-1";
-      fsType = "autofs";
+  fileSystems."/boot" =
+    {
+      device = "/dev/disk/by-uuid/375B-4205";
+      fsType = "vfat";
+      options = [ "umask=0077" ];
+    };
+
+  fileSystems."/nix" =
+    {
+      device = "/dev/disk/by-uuid/7c0170f2-d10a-413c-bd10-42619217b637";
+      fsType = "xfs";
+    };
+
+  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/5b23f565-e115-4e87-8004-6421e60cc825";
+
+  fileSystems."/etc/nixos" =
+    {
+      device = "/nix/persist/etc/nixos";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var/log" =
+    {
+      device = "/nix/persist/var/log";
+      fsType = "none";
+      options = [ "bind" ];
     };
 
   swapDevices = [ ];

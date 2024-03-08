@@ -8,9 +8,9 @@
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs = {
-	nixpkgs = {
-	  follows = "nixpkgs";
-	};
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
       };
     };
     nix-colors = {
@@ -22,17 +22,17 @@
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs = {
-	hyprland = {
-	  follows = "hyprland";
-	};
+        hyprland = {
+          follows = "hyprland";
+        };
       };
     };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs = {
-	nixpkgs = {
-	  follows = "nixpkgs";
-	};
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
       };
     };
     impermanence = {
@@ -41,48 +41,54 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs = {
-	nixpkgs = {
-	  follows = "nixpkgs";
-	};
-      };
-    };
-  };
-
-  outputs = inputs@{ nixpkgs, home-manager, 
-		     impermanence, lanzaboote,
-		     ... }:
-  let
-    system = "x86_64-linux";
-    inherit (import ./options.nix) username hostname;
-
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-	    allowUnfree = true;
-      };
-    };
-  in {
-    nixosConfigurations = {
-      "${hostname}" = nixpkgs.lib.nixosSystem {
-	specialArgs = { 
-          inherit system; inherit inputs; 
-          inherit username; inherit hostname;
+        nixpkgs = {
+          follows = "nixpkgs";
         };
-	modules = [ 
-	  ./system.nix
-	  impermanence.nixosModules.impermanence
-          home-manager.nixosModules.home-manager {
-	    home-manager.extraSpecialArgs = {
-	      inherit username; inherit inputs;
-              inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-            };
-	    home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-	    home-manager.users.${username} = import ./home.nix;
-	  }
-	];
       };
     };
   };
+
+  outputs =
+    inputs@{ nixpkgs
+    , home-manager
+    , impermanence
+    , lanzaboote
+    , ...
+    }:
+    let
+      system = "x86_64-linux";
+      inherit (import ./options.nix) username hostname;
+
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+    in
+    {
+      nixosConfigurations = {
+        "${hostname}" = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit system; inherit inputs;
+            inherit username; inherit hostname;
+          };
+          modules = [
+            ./system.nix
+            impermanence.nixosModules.impermanence
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                inherit username; inherit inputs;
+                inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
+              };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.users.${username} = import ./home.nix;
+            }
+          ];
+        };
+      };
+    };
 }

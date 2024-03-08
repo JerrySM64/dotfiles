@@ -40,22 +40,20 @@ lib.mkIf (theShell == "zsh") {
       autoload -Uz compinit
       compinit
     '';
-    sessionVariables = {
-
-    };
+    sessionVariables = { };
     shellAliases = {
-      rebuild="nh os switch --nom --hostname ${hostname}";
-      rebuild-ask="nh os switch --nom --hostname ${hostname} --ask";
-      update="nh os switch --nom --hostname ${hostname} --update";
-      genrm="nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
-      flex="neofetch";
-      v="nvim";
-      nv="neovide";
-      ls="eza -lah";
-      mkdir="mkdir -p";
-      ".."="cd ..";
-      reboot="systemctl reboot";
-      poweroff="systemctl poweroff";
+      rebuild = "nh os switch --nom --hostname ${hostname}";
+      rebuild-ask = "nh os switch --nom --hostname ${hostname} --ask";
+      update = "nh os switch --nom --hostname ${hostname} --update";
+      genrm = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      flex = "neofetch";
+      v = "nvim";
+      nv = "neovide";
+      ls = "eza -lah";
+      mkdir = "mkdir -p";
+      ".." = "cd ..";
+      reboot = "systemctl reboot";
+      poweroff = "systemctl poweroff";
     };
   };
 }

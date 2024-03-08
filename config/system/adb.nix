@@ -1,7 +1,7 @@
 { config, lib, username, ... }:
 
-let inherit (import ../../options.nix) adb; in 
+let inherit (import ../../options.nix) adb; in
 lib.mkIf (adb == true) {
   programs.adb.enable = true;
-  users.users.${username}.extraGroups = ["adbusers"];
+  users.users.${username}.extraGroups = [ "adbusers" ];
 }

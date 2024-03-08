@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let inherit (import ../../options.nix) discord; in 
+let inherit (import ../../options.nix) discord; in
 lib.mkIf (discord == true) {
-  home.packages = [pkgs.discord];
+  home.packages = [ pkgs.discord ];
 }

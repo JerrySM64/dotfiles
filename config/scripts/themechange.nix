@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-let 
+let
   inherit (import ../../options.nix) flakeDir;
 in
 pkgs.writeShellScriptBin "themechange" ''

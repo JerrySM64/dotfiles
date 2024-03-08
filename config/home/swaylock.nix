@@ -2,7 +2,8 @@
 
 let
   palette = config.colorScheme.palette;
-in {
+in
+{
   home.file.".config/swaylock/config".text = ''
     indicator-caps-lock
     show-failed-attempts

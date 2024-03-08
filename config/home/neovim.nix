@@ -3,17 +3,18 @@
 let
   plugins = pkgs.vimPlugins;
   theme = config.colorScheme.palette;
-in {
+in
+{
   programs.nixvim = {
     enable = true;
 
     globals.mapleader = " "; # Sets the leader key to space
-    
+
     options = {
-      clipboard="unnamedplus";
-      number = true;         # Show line numbers
+      clipboard = "unnamedplus";
+      number = true; # Show line numbers
       relativenumber = true; # Show relative line numbers
-      shiftwidth = 2;        # Tab width should be 2
+      shiftwidth = 2; # Tab width should be 2
       softtabstop = 2;
       smartindent = true;
       wrap = false;
@@ -45,7 +46,7 @@ in {
       base0E = "#${theme.base0E}";
       base0F = "#${theme.base0F}";
     };
-    
+
     plugins = {
       barbecue.enable = true;
       gitsigns.enable = true;
@@ -64,24 +65,24 @@ in {
       lualine = {
         enable = true;
       };
-      startup = { 
+      startup = {
         enable = true;
         theme = "dashboard";
       };
       lint = {
         enable = true;
         lintersByFt = {
-          text = ["vale"];
-          json = ["jsonlint"];
-          markdown = ["vale"];
-          rst = ["vale"];
-          ruby = ["ruby"];
-          janet = ["janet"];
-          inko = ["inko"];
-          clojure = ["clj-kondo"];
-          dockerfile = ["hadolint"];
-          terraform = ["tflint"];
-          typscriptreact = ["prettier_eslint"];
+          text = [ "vale" ];
+          json = [ "jsonlint" ];
+          markdown = [ "vale" ];
+          rst = [ "vale" ];
+          ruby = [ "ruby" ];
+          janet = [ "janet" ];
+          inko = [ "inko" ];
+          clojure = [ "clj-kondo" ];
+          dockerfile = [ "hadolint" ];
+          terraform = [ "tflint" ];
+          typscriptreact = [ "prettier_eslint" ];
         };
       };
       lsp = {
@@ -112,22 +113,22 @@ in {
         enable = true;
         nixGrammars = true;
       };
-      nvim-cmp = {
-        enable = true;
-        autoEnableSources = true;
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "path"; }
-          { name = "buffer"; }
-        ];
-        mapping = {
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<Tab>" = {
-            action = ''cmp.mapping.select_next_item()'';
-            modes = [ "i" "s" ];
-          };
-        };
-      };
+      #nvim-cmp = {
+      #  enable = true;
+      #  autoEnableSources = true;
+      #  sources = [
+      #    { name = "nvim_lsp"; }
+      #    { name = "path"; }
+      #    { name = "buffer"; }
+      #  ];
+      #  mapping = {
+      #    "<CR>" = "cmp.mapping.confirm({ select = true })";
+      #    "<Tab>" = {
+      #      action = ''cmp.mapping.select_next_item()'';
+      #      modes = [ "i" "s" ];
+      #    };
+      #  };
+      #};
     };
 
     # FOR NEOVIDE
@@ -219,5 +220,5 @@ in {
       }
     ];
   };
- } 
+} 
 

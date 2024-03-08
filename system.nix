@@ -1,14 +1,20 @@
-{ inputs, config, pkgs,
-  username, hostname,
-  userDescription, ... }:
+{ inputs
+, config
+, pkgs
+, username
+, hostname
+, userDescription
+, ...
+}:
 
-let 
-  inherit (import ./options.nix) 
-    theLocale theTimezone 
-    flakeDir userDescription theShell 
+let
+  inherit (import ./options.nix)
+    theLocale theTimezone
+    flakeDir userDescription theShell
     impermanence wallpaperDir wallpaperGit
     theLCVariables theKBDLayout theme;
-in {
+in
+{
   imports = [
     inputs.nixvim.nixosModules.nixvim
     inputs.nix-colors.homeManagerModules.default
@@ -52,17 +58,18 @@ in {
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
       shell = pkgs.${theShell};
       ignoreShellProgramCheck = true;
-      packages = with pkgs; [];
+      packages = with pkgs; [ ];
     };
   };
 
   environment.variables = {
     ENVER = "unstable";
     FLAKE = "${flakeDir}";
-    PERSIST = if impermanence == true then 
-      ''/nix/persist/''
-    else 
-      '''';
+    PERSIST =
+      if impermanence == true then
+        ''/nix/persist/''
+      else
+        '''';
     POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
   };
 
@@ -71,7 +78,7 @@ in {
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = ["https://hyprland.cachix.org"];
+      substituters = [ "https://hyprland.cachix.org" ];
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];

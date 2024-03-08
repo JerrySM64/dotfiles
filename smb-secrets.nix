@@ -3,7 +3,8 @@ let
   smbEnableDomain = false;
   smbDomain = "domain.com";
   smbPassword = "ILoveSamba";
-in {
+in
+{
   smbUsername = "${smbUsername}";
   smbEnableDomain = if smbEnableDomain == true then true else false;
   smbDomain = "${smbDomain}";

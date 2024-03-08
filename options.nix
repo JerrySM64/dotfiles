@@ -12,11 +12,13 @@ let
   # a must unless you already 
   # have an impermanent system!
   # TLDR; You Most Likely Want This -> false
-  impermanence = false; 
+  impermanence = true;
   userHome = "/home/${username}";
-  flakeDir = if impermanence == false then "${userHome}/easynix"
-	     else "/nix/persist/etc/nixos/easynix";
-in {
+  flakeDir =
+    if impermanence == false then "${userHome}/easynix"
+    else "/nix/persist/etc/nixos/easynix";
+in
+{
   # User Variables
   username = "${username}";
   userDescription = "${userDescription}";
@@ -124,7 +126,8 @@ in {
   adb = false;
   common = true;
   nix-prefetch-scripts = true;
-  nodejs = false; nodejs-v = "21";
+  nodejs = false;
+  nodejs-v = "21";
   python = true;
 
 }

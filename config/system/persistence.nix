@@ -2,7 +2,8 @@
 
 let
   inherit (import ../../options.nix) impermanence;
-in lib.mkIf (impermanence == true) {
+in
+lib.mkIf (impermanence == true) {
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
@@ -18,30 +19,30 @@ in lib.mkIf (impermanence == true) {
     ];
     users.${username} = {
       directories = [
-	"Development"
-	"Downloads"
-	"Music"
-	"Documents"
-	"Pictures"
-	"Videos"
-	".cache"
-	".cache/spotify"
-	".config/BraveSoftware"
-	".config/discord"
-	".config/gh"
-	".config/git"
-	".config/pulse/"
-	".config/Thunar"
-	".local/share/containers"
-	".local/share/sddm"
-	".local/share/Steam"
-	".local/state/wireplumber"
-	".ssh"
-	".steam"
+        "Development"
+        "Downloads"
+        "Music"
+        "Documents"
+        "Pictures"
+        "Videos"
+        ".cache"
+        ".cache/spotify"
+        ".config/BraveSoftware"
+        ".config/discord"
+        ".config/gh"
+        ".config/git"
+        ".config/pulse/"
+        ".config/Thunar"
+        ".local/share/containers"
+        ".local/share/sddm"
+        ".local/share/Steam"
+        ".local/state/wireplumber"
+        ".ssh"
+        ".steam"
       ];
       files = [
-	".zsh_history"
-	".config/gtk-3.0/bookmarks"
+        ".zsh_history"
+        ".config/gtk-3.0/bookmarks"
       ];
     };
   };
