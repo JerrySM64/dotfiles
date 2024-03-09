@@ -5,6 +5,12 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
+    nixpkgs-small = {
+      url = "github:nixos/nixpkgs/nixos-unstable-small";
+    };
+    nixpkgs-upstream = {
+      url = "github:nixos/nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs = {
