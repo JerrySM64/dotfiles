@@ -25,18 +25,28 @@ in
   hostname = "${hostname}";
   gitUsername = "Jerry Starke";
   gitEmail = "42114389+JerrySM64@users.noreply.github.com";
-  theme = "ayu-dark";
-  cursorTheme = "Simp1e-Tokyo-Night-Storm";
-  slickbar = true;
-  simplebar = false; # UNDER CONSTRUCTION. DO NOT ENABLE!
-  borderAnim = true;
   browser = "brave";
+  terminal = "kitty";
+
+  # Wallpaper and Directory Settings
   wallpaperGit = "https://github.com/EasyNixProject/wallpapers"; # This will give you the EasyNix wallpapers
   # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   flakeDir = "${flakeDir}";
   screenshotDir = "${userHome}/Pictures/Screenshots";
-  terminal = "kitty";
+
+  # Hyprland Design Settings
+  ## Waybar Design
+  slickbar = false;
+  eternal = true; # Variation of the Slickbar
+  simplebar = false; # UNDER CONSTRUCTION. DO NOT ENABLE!
+
+  ## Hyprland Window Borders
+  borderAnim = true;
+
+  ## Theming
+  theme = "ayu-dark";
+  cursorTheme = "Simp1e-Tokyo-Night-Storm";
 
   # System Settings
   clock24h = true;
