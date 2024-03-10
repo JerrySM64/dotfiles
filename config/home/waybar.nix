@@ -2,7 +2,7 @@
 
 let
   palette = config.colorScheme.palette;
-  inherit (import ../../options.nix) slickbar simplebar eternal clock24h;
+  inherit (import ../../options.nix) slickbar simplebar eternal clock24h terminal;
 in
 with lib; {
   # Configure & Theme Waybar
@@ -55,15 +55,18 @@ with lib; {
         interval = 5;
         format = " {}%";
         tooltip = true;
+        on-click = "${terminal} -e btop";
       };
       "cpu" = {
         interval = 5;
         format = " {usage:2}%";
         tooltip = true;
+        on-click = "${terminal} -e btop";
       };
       "disk" = {
         format = " {free}";
         tooltip = true;
+        on-click = "${terminal} -e sh -c df -h ; read";
       };
       "network" = {
         format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
@@ -71,6 +74,7 @@ with lib; {
         format-wifi = " {bandwidthDownBits}";
         format-disconnected = "󰤮";
         tooltip = false;
+        on-click = "${terminal} -e btop";
       };
       "tray" = {
         spacing = 12;
