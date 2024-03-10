@@ -54,9 +54,9 @@ in
         enable = true;
         keymaps = {
           "<leader>ff" = "find_files";
+          "<leader>lg" = "live_grep";
         };
       };
-      neo-tree.enable = true;
       indent-blankline.enable = true;
       nvim-colorizer.enable = true;
       nvim-autopairs.enable = true;
@@ -68,22 +68,6 @@ in
       startup = {
         enable = true;
         theme = "dashboard";
-      };
-      lint = {
-        enable = true;
-        lintersByFt = {
-          text = [ "vale" ];
-          json = [ "jsonlint" ];
-          markdown = [ "vale" ];
-          rst = [ "vale" ];
-          ruby = [ "ruby" ];
-          janet = [ "janet" ];
-          inko = [ "inko" ];
-          clojure = [ "clj-kondo" ];
-          dockerfile = [ "hadolint" ];
-          terraform = [ "tflint" ];
-          typscriptreact = [ "prettier_eslint" ];
-        };
       };
       lsp = {
         enable = true;
@@ -133,6 +117,7 @@ in
 
     extraPlugins = [
       pkgs.vimPlugins.vim-wakatime
+      plugins.telescope-file-browser-nvim
     ];
 
     # FOR NEOVIDE
@@ -208,9 +193,9 @@ in
     keymaps = [
       {
         mode = "n";
-        key = "<leader>fb";
-        action = "<cmd>Neotree reveal right<CR>";
-        options.silent = false;
+        key = "<space>fb";
+        action = ":Telescope file_browser<CR>";
+        options.noremap = true;
       }
       {
         key = "<Tab>";

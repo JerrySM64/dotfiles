@@ -35,6 +35,7 @@
     ./services.nix
     ./smb.nix
     ./steam.nix
+    ./syncthing.nix
     ./vm.nix
   ];
 }

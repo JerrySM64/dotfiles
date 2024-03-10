@@ -25,9 +25,8 @@ with lib; {
       concatStrings [
         ''
           monitor=,preferred,auto,1
-          windowrule = float, ^(steam)$
-          windowrule = size 1080 900, ^(steam)$
-          windowrule = center, ^(steam)$
+          windowrule = fullscreen, ^(wlogout)$
+          windowrule = animation fade, ^(wlogout)$
           general {
             gaps_in = 6
             gaps_out = 8

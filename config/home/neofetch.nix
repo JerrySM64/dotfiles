@@ -11,7 +11,8 @@
                 info "$(color 6)  DE " de
                 info "$(color 5)  TER" term
                 info "$(color 3)  CPU" cpu
-                info "$(color 7)  GPU" gpu
+                prin "$(color 7)  GPU$(separator)" "AMD Radeon RX 6650 XT"
+            #    info "$(color 7)  GPU" gpu
                 info "$(color 5)  MEM" memory
                 prin " "
                 prin "$(color 1) $(color 2) $(color 3) $(color 4) $(color 5) $(color 6) $(color 7) $(color 8)"

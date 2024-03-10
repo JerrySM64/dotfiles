@@ -114,6 +114,9 @@ in
   # Cloud-based - let's hope it's not raining, today!
   nextcloud = true;
 
+  # Synchronisation using Syncthing
+  syncthing = false;
+
   # Social Apps
   element = true;
   discord = true;

@@ -21,6 +21,7 @@
     ./starship.nix
     ./telegram.nix
     ./waybar.nix
+    ./wlogout.nix
     ./swappy.nix
     ./swaylock.nix
     ./swaync.nix
