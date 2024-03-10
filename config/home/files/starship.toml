@@ -13,7 +13,7 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format = 'on [$hostname](bold cyan) in '
+format = 'at [$hostname](bold cyan) in '
 trim_at = "."
 disabled = false
 
