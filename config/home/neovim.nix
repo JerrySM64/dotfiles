@@ -80,7 +80,7 @@ in
             installRustc = true;
             installCargo = true;
           };
-          nixd.enable = true;
+          nil_ls.enable = true;
           html.enable = true;
           ccls.enable = true;
           cmake.enable = true;
@@ -96,6 +96,16 @@ in
       treesitter = {
         enable = true;
         nixGrammars = true;
+      };
+      cmp = {
+        enable = true;
+        settings = {
+          snippet.expand = ''
+            function(args)
+              require('luasnip').lsp_expand(args.body)
+            end
+          '';
+        };
       };
       #nvim-cmp = {
       #  enable = true;
