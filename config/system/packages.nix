@@ -1,6 +1,10 @@
 { pkgs, config, inputs, ... }:
 
 {
+  imports = [
+    ../../extraPackages.nix
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
