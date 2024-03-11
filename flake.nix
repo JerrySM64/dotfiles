@@ -11,6 +11,9 @@
     nixpkgs-upstream = {
       url = "github:nixos/nixpkgs";
     };
+    zen-kernel = {
+      url = "github:jerrysm64/nixpkgs/update-kernels";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs = {

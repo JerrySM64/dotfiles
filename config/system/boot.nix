@@ -20,8 +20,10 @@ in
             configurationLimit = 8;
           };
         };
-      kernelModules = [ "v4l2loopback" ];
-      extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    #  kernelModules = [ "v4l2loopback" ];
+      kernelModules = [  ];
+      extraModulePackages = [  ];
+    #  extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     } else {
       loader =
         if (biosType == "legacy") then {
