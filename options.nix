@@ -102,9 +102,9 @@ in
   ntfs = true;
 
   # Add support for containers
-  distrobox = true; # Setting this to true also enables Podman.
+  distrobox = true; # This option will get merged with the podman option in the future.
   flatpak = false;
-  podman = false;
+  podman = false; 
 
   # Text Editors
   emacs = false; # The config is still under construction. You will get vanilla GNU Emacs as of right now!
