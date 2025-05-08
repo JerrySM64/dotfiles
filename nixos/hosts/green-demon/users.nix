@@ -4,7 +4,7 @@
   config = {
     users = {
       users = {
-        Jerry = {
+        jerry = {
           extraGroups = [
             "libvirt"
             "kvm"
@@ -16,7 +16,7 @@
         libvirtd = {
           members = [
             "root"
-            "Jerry"
+            "jerry"
           ];
         };
       };

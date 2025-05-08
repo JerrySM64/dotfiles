@@ -249,7 +249,7 @@
   environment = {
     # Set session variables
     sessionVariables = {
-      FLAKE = "/home/Jerry/Development/dotfiles";
+      FLAKE = "/home/jerry/Development/dotfiles";
       MOZ_ENABLE_WAYLAND = "1";
     };
   };
@@ -258,13 +258,13 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      Jerry = import ../home-manager/default.nix;
+      jerry = import ../home-manager/default.nix;
     };
   };
   
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 
-  # TL;DR: Don't change this value! Ti determines the version this config was
+  # TL;DR: Don't change this value! It determines the version this config was
   # created with, NOT the one you're actually running!
   system.stateVersion = "22.05"; # Did you read the comment?
 }

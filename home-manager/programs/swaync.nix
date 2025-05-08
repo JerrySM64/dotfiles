@@ -6,7 +6,7 @@
       ".config/swaync/config.json" = {
         text = ''
           {
-            "$schema": "/home/Jerry/.config/swaync/configSchema.json",
+            "$schema": "/home/jerry/.config/swaync/configSchema.json",
             "positionX": "right",
             "positionY": "top",
             "layer": "overlay",
