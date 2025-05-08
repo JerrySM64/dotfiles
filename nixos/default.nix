@@ -225,11 +225,6 @@
     keyMap = "de";
   };
 
-  # Enable sound
-  sound = {
-    enable = true;
-  };
-
   # Set security options
   security = {
     # Enable rtkit
@@ -249,7 +244,7 @@
   environment = {
     # Set session variables
     sessionVariables = {
-      FLAKE = "/home/jerry/Development/dotfiles";
+      FLAKE = "/home/jerry/.config/flake";
       MOZ_ENABLE_WAYLAND = "1";
     };
   };
