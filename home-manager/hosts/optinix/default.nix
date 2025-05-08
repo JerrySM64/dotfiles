@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -7,10 +7,11 @@
 
   home = {
     file = {
-      ".local/share/updates.sh" = {
+      # Make the update command work right out of the box
+      ".local/bin/updates" = {
         executable = true;
         text = ''
-          #!/run/current-system/sw/bin/bash
+          #!/usr/bin/env bash
 
           clear
           echo -e "\n\e[1m\e[31mWhat do you want to do?\e[0m"
@@ -26,7 +27,7 @@
             1)
               clear
               echo -e "\n\e[1m\e[34mUpdating the Flake... \e[0m\n"
-              \nix flake update /home/Jerry/Development/dotfiles
+              nix flake update /home/jerry/.config/flake
               echo -e "Flake updated."
               ;;
 
@@ -40,12 +41,12 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              \nix flake update /home/Jerry/Development/dotfiles
+              nix flake update /home/jerry/.config/flake
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
-              cd ~/Development/dotfiles
+              cd ~/.config/flake
               git add .
-              nh os switch --nom --hostname=ideenblock
+              nh os switch --nom --hostname=optinix
               cd -
               echo -e "Updates applied."
               ;;
@@ -59,12 +60,12 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              \nix flake update /home/Jerry/Development/dotfiles
+              nix flake update /home/jerry/.config/flake
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
-              cd ~/Development/dotfiles
+              cd ~/.config/flake
               git add .
-              nh os switch --nom --hostname=ideenblock
+              nh os switch --nom --hostname=green-demon
               cd -
               echo "Updates applied. Press the Enter key to reboot!"
               read
@@ -89,7 +90,7 @@
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
               cd ~/Development/dotfiles
               git add .
-              nh os switch --nom --hostname=ideenblock
+              nh os switch --nom --hostname=green-demon
               cd -
               echo "Updates applied. Press the Enter key to shut down!"
               read

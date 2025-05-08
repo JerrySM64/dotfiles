@@ -3,7 +3,7 @@
 {
   users = {
     users = {
-      Jerry = {
+      jerry = {
         isNormalUser = true;
         description = "Jerry";
         extraGroups = [

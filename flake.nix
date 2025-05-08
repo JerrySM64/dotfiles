@@ -79,45 +79,34 @@
         ];
       };
 
-      ideenblock = nixpkgs.lib.nixosSystem {
+      optinix = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
         };
         modules = [
           ./nixos/default.nix
-          ./nixos/hosts/ideenblock/default.nix
-        ];
-      };
-
-      hurricane = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-        };
-        modules = [
-          ./nixos/default.nix
-          ./nixos/hosts/hurricane/default.nix
-        ];
-      };
-
-      m1 = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-        };
-        modules = [
-          ./nixos/default.nix
-          ./nixos/hosts/m1/default.nix
+          ./nixos/hosts/optinix/default.nix
         ];
       };
     };
 
     homeConfigurations = {
-      "Jerry@green-demon" = home-manager.lib.homeManagerConfiguration {
+      "jerry@green-demon" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-	extraSpecialArgs = {inherit inputs outputs;};
-	modules = [
-	  ./home-manager/default.nix
-	  ./home-manager/hosts/green-demon/default.nix
-	];
+        extraSpecialArgs = {inherit inputs outputs;};
+	      modules = [
+	        ./home-manager/default.nix
+	        ./home-manager/hosts/green-demon/default.nix
+	      ];
+      };
+
+      "jerry@optinix" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home-manager/default.nix
+          ./home-manager/hosts/optinix/defualt.nix
+        ];
       };
     };
   };

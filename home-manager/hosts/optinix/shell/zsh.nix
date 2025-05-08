@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home = {
@@ -45,10 +45,11 @@
           alias rm="rm -i"
           alias mkdir="mkdir -p"
           alias v="nvim"
-          alias update="˜/.local/share/updates.sh"
-          alias rebuild="nh os switch --nom --hostname=ideenblock"
-          alias genrm="sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old ; nix-collect-garbage -d ; nh os switch --nom --hostname=ideenblock"
+          alias update="~/.local/share/updates.sh"
+          alias rebuild="nh os switch --nom --hostname=green-demon"
+          alias genrm="sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old ; nix-collect-garbage -d ; nh os switch --nom --hostname=green-demon"
           alias nix="neofetch"
+          alias ubuntu="distrobox enter ubuntu"
         '';
       };
     };
