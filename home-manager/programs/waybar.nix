@@ -107,7 +107,7 @@ with lib; {
         tooltip = false;
         format = " ";
         # exec = "rofi -show drun";
-        on-click = "rofi-launcher";
+        on-click = "rofi -show drun";
       };
       "idle_inhibitor" = {
         format = "{icon}";
