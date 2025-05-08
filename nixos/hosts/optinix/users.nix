@@ -11,10 +11,6 @@
       };
 
       groups = {
-        libvirtd = {
-          members = [
-          ];
-        };
       };
     };
   };

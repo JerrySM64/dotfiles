@@ -48,7 +48,7 @@
           alias update="~/.local/share/updates.sh"
           alias rebuild="nh os switch --nom --hostname=green-demon"
           alias genrm="sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old ; nix-collect-garbage -d ; nh os switch --nom --hostname=green-demon"
-          alias nix="neofetch"
+          alias flex="neofetch"
           alias ubuntu="distrobox enter ubuntu"
         '';
       };

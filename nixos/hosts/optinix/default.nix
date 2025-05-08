@@ -10,7 +10,7 @@
      ../../wm/hyprland.nix
    #  ../../wm/qtile.nix
    #  ../../wm/wayfire.nix
-     ../../../pkgs/dev.nix
+   #  ../../../pkgs/dev.nix
      ../../../pkgs/fonts.nix
      ../../../pkgs/system.nix
      ../../../pkgs/hosts/green-demon/system.nix
