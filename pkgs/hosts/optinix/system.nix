@@ -13,16 +13,12 @@
     gh = {
       enable = true;
     };
-
-    fastfetch = {
-      enable = true;
-    };
   };
 
   # System packages
   environment = {
     systemPackages = with pkgs; [
-      
+      fastfetch
     ];
   };
 }
