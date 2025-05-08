@@ -17,8 +17,7 @@
       exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = wlsunset -S 9:00 -s 19:30
       exec-once = $POLKIT_BIN
-      exec-once = nextcloud
-      exec = swaybg -m fill -i ~/Nextcloud/Photos/Green\ Demon/Wallpapers/1335153.jpeg
+      exec = swaybg -m fill -i ~/Pictures/wall.jpg
       exec-once = waybar
 
       monitor=,preferred,auto,1
@@ -33,8 +32,9 @@
         gaps_in = 5
         gaps_out = 5
         border_size = 3
-        col.active_border = rgb(6e16af) rgb(1916af) 45deg
-        no_border_on_floating = true
+        col.active_border = rgba(95e6cbff) rgba(59c2ffff) rgba(b8cc52ff) rgba(d2a6ffff) 45deg
+	col.inactive_border = rgba(131721cc) rgba(0f1419cc) 45deg
+        no_border_on_floating = false
         layout = dwindle
       }
 
@@ -57,12 +57,12 @@
           noise = 0.0
           new_optimizations = true
         }
-        drop_shadow = true
-        shadow_ignore_window = true
-        shadow_offset = 2 2
-        shadow_range = 4
-        shadow_render_power = 2
-        col.shadow = 0x66000000
+        #drop_shadow = true
+        #shadow_ignore_window = true
+        #shadow_offset = 2 2
+        #shadow_range = 4
+        #shadow_render_power = 2
+        #col.shadow = 0x66000000
 
         blurls = gtk-layer-shell
         blurls = waybar
@@ -84,33 +84,33 @@
       }
 
       dwindle {
-        no_gaps_when_only = false
+        #no_gaps_when_only = false
         pseudotile = true
         preserve_split = true
       }
 
-      windowrule = float, file_progress
-      windowrule = float, confirm
-      windowrule = float, dialog
-      windowrule = float, download
-      windowrule = float, notification
-      windowrule = float, error
-      windowrule = float, splash
-      windowrule = float, confirmreset
+      #windowrule = float, file_progress
+      #windowrule = float, confirm
+      #windowrule = float, dialog
+      #windowrule = float, download
+      #windowrule = float, notification
+      #windowrule = float, error
+      #windowrule = float, splash
+      #windowrule = float, confirmreset
       windowrule = float, title:Open File
-      windowrule = float, titlebranchdialog
-      windowrule = float, Rofi
-      windowrule = animation, none, Rofi
-      windowrule = float, viewnior
-      windowrule = float, file-roller
-      windowrule = float, feh
-      windowrule = float, pavucontrol-qt
-      windowrule = float, pavucontrol
-      windowrule = float, nextcloud
-      windowrule = fullscreen, wlogout
+      #windowrule = float, titlebranchdialog
+      #windowrule = float, Rofi
+      #windowrule = animation, none, Rofi
+      #windowrule = float, viewnior
+      #windowrule = float, file-roller
+      #windowrule = float, feh
+      #windowrule = float, pavucontrol-qt
+      #windowrule = float, pavucontrol
+      #windowrule = float, nextcloud
+      #windowrule = fullscreen, wlogout
       windowrule = float, title:wlogout
-      windowrule = idleinhibit focus, mpv
-      windowrule = idleinhibit fullscreen, firefox
+      #windowrule = idleinhibit focus, mpv
+      #windowrule = idleinhibit fullscreen, firefox
       windowrule = float, title:^(Media viewer)$
       windowrule = float, title:^(Volume Control)$
       windowrule = float, title:^(Picture-in-Picture)$

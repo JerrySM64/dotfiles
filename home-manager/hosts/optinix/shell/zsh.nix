@@ -40,15 +40,14 @@
           autoload -Uz compinit && compinit
 
           alias ls="eza -lah --color=auto"
-          alias cp="cp -i"
-          alias mv="mv -i"
           alias rm="rm -i"
           alias mkdir="mkdir -p"
           alias v="nvim"
-          alias update="~/.local/share/updates.sh"
-          alias rebuild="nh os switch --nom --hostname=green-demon"
-          alias genrm="sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old ; nix-collect-garbage -d ; nh os switch --nom --hostname=green-demon"
-          alias flex="neofetch"
+          alias vim="nvim"
+          alias update="~/.local/bin/updater"
+          alias rebuild="nh os switch --hostname=optinix"
+          alias genrm="sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old ; nix-collect-garbage -d ; nh os switch --hostname=optinix"
+          alias flex="fastfetch"
           alias ubuntu="distrobox enter ubuntu"
         '';
       };

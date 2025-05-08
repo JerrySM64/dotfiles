@@ -13,7 +13,7 @@
    #  ../../../pkgs/dev.nix
      ../../../pkgs/fonts.nix
      ../../../pkgs/system.nix
-   #  ../../../pkgs/hosts/optinix/system.nix
+     ../../../pkgs/hosts/optinix/system.nix
     # Import home-manager's NixOS module
     inputs.home-manager.nixosModules.home-manager
   ];
