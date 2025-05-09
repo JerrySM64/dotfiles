@@ -125,10 +125,6 @@
 
   # Set hardware related stuff
   hardware  = {
-    # Disable PulseAudio. We're going to use PipeWire.
-    pulseaudio = {
-      enable = false;
-    };
   };
 
   # Set up networking
@@ -166,10 +162,20 @@
 
   # Enable services
   services = {
+    # Disable PulseAudio. We're going to use PipeWire.
+    pulseaudio = {
+      enable = false;
+    };
+    
+    # Enable touchpad support
+    libinput = {
+      enable = true;
+    };
+
     xserver = {
       # Set keyboard layout in GUI
-      layout = "de";
       xkb = {
+        layout = "de";
         variant = "";
       };
 
@@ -177,11 +183,6 @@
         xterm = {
           enable = false; # Bye bye, Xterm!
         };
-      };
-
-      # Enable touchpad support
-      libinput = {
-        enable = true;
       };
     };
 
@@ -245,6 +246,7 @@
     # Set session variables
     sessionVariables = {
       FLAKE = "/home/jerry/.config/flake";
+      NH_FLAKE = "/home/jerry/.config/flake";
       MOZ_ENABLE_WAYLAND = "1";
     };
   };

@@ -139,7 +139,7 @@
          "ctrl+shift+backspace" = "restore_font_size";
       };
 
-      theme = "Catppuccin-Mocha";
+      # themeFile = "Catppuccin-Mocha";
     };
   };
 }
