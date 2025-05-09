@@ -4,14 +4,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Compact-Blue-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [
-          "blue"
-        ];
-        variant = "mocha";
-        size = "compact";
-      };
+      name = "Ayu-Dark";
+      package = pkgs.ayu-theme-gtk;
     };
     iconTheme = {
       name = "Papirus";

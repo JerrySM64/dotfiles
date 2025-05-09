@@ -31,7 +31,7 @@ with lib; {
       modules-right =  [ "tray" "idle_inhibitor" "custom/notification" "battery" "custom/exit" ]; # Eternal: [ "idle_inhibitor" "pulseaudio" "clock"  "custom/notification" "tray" ]
 
       "hyprland/workspaces" = {
-        format = "{icon}"; # Eternal: "{name}"
+        format = "{name}";
         format-icons = {
           default = " ";
           active = " ";
