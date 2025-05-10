@@ -10,7 +10,7 @@
      ../../wm/hyprland.nix
    #  ../../wm/qtile.nix
    #  ../../wm/wayfire.nix
-   #  ../../../pkgs/dev.nix
+     ../../../pkgs/dev.nix
      ../../../pkgs/fonts.nix
      ../../../pkgs/system.nix
      ../../../pkgs/hosts/optinix/system.nix
@@ -20,7 +20,7 @@
 
   boot = {
     # Use Zen Kernel
-    #kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     # Kernel parameters
     kernelParams = [
