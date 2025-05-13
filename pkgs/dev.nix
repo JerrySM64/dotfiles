@@ -37,7 +37,6 @@
         gnat13
         gnumake
         libtool
-        nodejs_21
         nix-prefetch-scripts
         pkg-config
         python311Full
