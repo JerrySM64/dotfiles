@@ -3,6 +3,7 @@
 {
   imports = [
     ./shell/default.nix
+    ./wm/hyprland.nix
   ];
 
   home = {
@@ -41,12 +42,12 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              nix flake update /home/jerry/.config/flake
+              nix flake update $FLAKE
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
-              cd ~/.config/flake
+              cd $FLAKE
               git add .
-              nh os switch --nom --hostname=optinix
+              nh os switch --hostname=optinix
               cd -
               echo -e "Updates applied."
               ;;
@@ -60,13 +61,13 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              nix flake update /home/jerry/.config/flake
+              nix flake update $FLAKE
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
-              cd ~/.config/flake
+              cd $FLAKE
               git add .
-              nh os switch --nom --hostname=green-demon
-              cd -
+              nh os boot --hostname=optinix
+
               echo "Updates applied. Press the Enter key to reboot!"
               read
 
@@ -85,13 +86,13 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              \nix flake update /home/jerry/Development/dotfiles
+              nix flake update $FLAKE
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
-              cd ~/Development/dotfiles
+              cd $FLAKE
               git add .
-              nh os switch --nom --hostname=green-demon
-              cd -
+              nh os boot --hostname=optinix
+
               echo "Updates applied. Press the Enter key to shut down!"
               read
 
