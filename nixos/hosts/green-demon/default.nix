@@ -6,7 +6,6 @@
    #  ../../de/gnome.nix
    #  ../../de/kde.nix
    #  ../../de/xfce.nix
-     ../../users/green-demon.nix
    #  ../../wm/awesomewm.nix
      ../../wm/hyprland.nix
    #  ../../wm/qtile.nix

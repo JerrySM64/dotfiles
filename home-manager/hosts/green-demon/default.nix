@@ -3,15 +3,16 @@
 {
   imports = [
     ./shell/default.nix
+    ./wm/hyprland.nix
   ];
 
   home = {
     file = {
       # Make the update command work right out of the box
-      ".local/share/updates.sh" = {
+      ".local/bin/updater" = {
         executable = true;
         text = ''
-          #!/run/current-system/sw/bin/bash
+          #!/usr/bin/env bash
 
           clear
           echo -e "\n\e[1m\e[31mWhat do you want to do?\e[0m"
@@ -27,7 +28,7 @@
             1)
               clear
               echo -e "\n\e[1m\e[34mUpdating the Flake... \e[0m\n"
-              \nix flake update /home/jerry/Development/dotfiles
+              nix flake update $FLAKE
               echo -e "Flake updated."
               ;;
 
@@ -41,13 +42,14 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              \nix flake update /home/jerry/Development/dotfiles
+              nix flake update $FLAKE
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
-              cd ~/Development/dotfiles
+              cd $FLAKE
               git add .
-              nh os switch --nom --hostname=green-demon
+              nh os switch --hostname=green-demon
               cd -
+
               echo -e "Updates applied."
               ;;
             3)
@@ -60,13 +62,14 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              \nix flake update /home/jerry/Development/dotfiles
+              nix flake update $FLAKE
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
-              cd ~/Development/dotfiles
+              cd $FLAKE
               git add .
-              nh os switch --nom --hostname=green-demon
+              nh os boot --hostname=green-demon
               cd -
+
               echo "Updates applied. Press the Enter key to reboot!"
               read
 
@@ -85,13 +88,14 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              \nix flake update /home/jerry/Development/dotfiles
+              nix flake update $FLAKE
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
-              cd ~/Development/dotfiles
+              cd $FLAKE
               git add .
-              nh os switch --nom --hostname=green-demon
+              nh os boot --hostname=green-demon
               cd -
+
               echo "Updates applied. Press the Enter key to shut down!"
               read
 

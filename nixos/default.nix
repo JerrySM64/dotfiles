@@ -223,7 +223,7 @@
 
   # Set keyboard layout in TTY
   console = {
-    keyMap = "de";
+    keyMap = "dvorak-de";
   };
 
   # Set security options
@@ -237,7 +237,7 @@
   # Enable Swap on ZRAM
   zramSwap = {
     enable = true;
-    # Set the limit to double the RAM (Completely overkill. Why am I doing it, again?)
+    # Set the limit to double the RAM (Completely overkill. Why am I doing it again?)
     memoryPercent = 200;
   };
 
