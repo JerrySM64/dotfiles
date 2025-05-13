@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -20,7 +20,10 @@
       exec = swaybg -m fill -i ~/Pictures/wall.jpg
       exec-once = waybar
 
-      monitor=,preferred,auto,1
+      monitor=DP-1,1920x1080@144,0x0,1
+      monitor=HDMI-A-1,1920x1080@60,1920x0,1
+      monitor=DP-2,1920x1080@180,3840x0,1
+      monitor=HDMI-A-2,1920x1080@60,5760x0,1
 
       input {
         kb_layout = de
@@ -57,12 +60,13 @@
           noise = 0.0
           new_optimizations = true
         }
-        #drop_shadow = true
-        #shadow_ignore_window = true
-        #shadow_offset = 2 2
-        #shadow_range = 4
-        #shadow_render_power = 2
-        #col.shadow = 0x66000000
+        shadow {
+          enabled = true
+          offset = 2 2
+          range = 4
+          render_power = 2
+          color = 0x66000000
+        }
 
         blurls = gtk-layer-shell
         blurls = waybar
@@ -89,28 +93,28 @@
         preserve_split = true
       }
 
-      #windowrule = float, file_progress
-      #windowrule = float, confirm
-      #windowrule = float, dialog
-      #windowrule = float, download
-      #windowrule = float, notification
-      #windowrule = float, error
-      #windowrule = float, splash
-      #windowrule = float, confirmreset
+      windowrule = float, class:file_progress
+      windowrule = float, class:confirm
+      windowrule = float, class:dialog
+      windowrule = float, class:download
+      windowrule = float, class:notification
+      windowrule = float, class:error
+      windowrule = float, class:splash
+      windowrule = float, class:confirmreset
       windowrule = float, title:Open File
-      #windowrule = float, titlebranchdialog
-      #windowrule = float, Rofi
-      #windowrule = animation, none, Rofi
-      #windowrule = float, viewnior
-      #windowrule = float, file-roller
-      #windowrule = float, feh
-      #windowrule = float, pavucontrol-qt
-      #windowrule = float, pavucontrol
-      #windowrule = float, nextcloud
-      #windowrule = fullscreen, wlogout
+      windowrule = float, class:titlebranchdialog
+      windowrule = float, title:Rofi
+      windowrule = animation, none, title:Rofi
+      windowrule = float, title:viewnior
+      windowrule = float, class:file-roller
+      windowrule = float, class:feh
+      windowrule = float, class:pavucontrol-qt
+      windowrule = float, class:pavucontrol
+      windowrule = float, class:nextcloud
+      windowrule = fullscreen, title:wlogout
       windowrule = float, title:wlogout
-      #windowrule = idleinhibit focus, mpv
-      #windowrule = idleinhibit fullscreen, firefox
+      windowrule = idleinhibit focus, title:mpv
+      windowrule = idleinhibit fullscreen, title:firefox
       windowrule = float, title:^(Media viewer)$
       windowrule = float, title:^(Volume Control)$
       windowrule = float, title:^(Picture-in-Picture)$

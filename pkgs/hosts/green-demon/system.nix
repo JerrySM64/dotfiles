@@ -8,11 +8,8 @@
   # System packages
   environment = {
     systemPackages = with pkgs; [
-      anydesk
-      ardour
       blender
       brasero
-      distrobox
       gimp
       inkscape
       krita
