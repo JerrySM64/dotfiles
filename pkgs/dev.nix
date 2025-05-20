@@ -12,6 +12,12 @@
         package = pkgs.emacs-gtk;
         install = true;
       };
+
+      ollama = {
+        enable = true;
+        acceleration = "rocm";
+        loadModels = [ "deepseek-r1:70b" ];
+      };
     };
 
     programs = {
@@ -31,6 +37,7 @@
     environment = {
       systemPackages = with pkgs; [
         cmake
+        distrobox
         gh
         gitFull
         github-desktop

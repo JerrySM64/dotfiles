@@ -60,17 +60,17 @@
       systemPackages = with pkgs; [
         brave
         btop
-        discord
         eza
+        fastfetch
         kitty
         lm_sensors
-        neofetch
         neovim
         nextcloud-client
         nh
         ntfs3g
         pciutils
         pfetch
+        protonvpn-gui
         starship
         tdesktop
         unzip

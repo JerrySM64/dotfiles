@@ -35,21 +35,28 @@
           bindkey '^[[F' end-of-line                      # Key End
 
           export PATH=~/.config/emacs/bin/:$PATH
+          export PATH=~/.local/bin/:$PATH
 
           zstyle ":completion:*" matcher-list "" "m:{a-z0A-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
           autoload -Uz compinit && compinit
 
           alias ls="eza -lah --color=auto"
-          alias cp="cp -i"
           alias mv="mv -i"
           alias rm="rm -i"
           alias mkdir="mkdir -p"
           alias v="nvim"
-          alias update="~/.local/share/updates.sh"
-          alias rebuild="nh os switch --nom --hostname=green-demon"
-          alias genrm="sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old ; nix-collect-garbage -d ; nh os switch --nom --hostname=green-demon"
-          alias nix="neofetch"
+          alias update="~/.local/bin/updater"
+          alias rebuild="nh os switch --hostname=green-demon"
+          alias genrm="sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old ; nix-collect-garbage -d ; nh os switch --hostname=green-demon"
+          alias flex="fastfetch"
+
           alias ubuntu="distrobox enter ubuntu"
+          alias alpine="distrobox enter alpine"
+          alias fedora="distrobox enter fedora"
+          alias gentoo="distrobox enter gentoo"
+          alias opensuse="distrobox enter opensuse"
+          alias void="distrobox enter void"
+          alias arch="distrobox enter arch-game"
         '';
       };
     };

@@ -3,6 +3,7 @@
 {
   imports = [
     ../../obs.nix
+    ./game.nix
   ];
 
   # System packages

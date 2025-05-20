@@ -28,7 +28,7 @@
             1)
               clear
               echo -e "\n\e[1m\e[34mUpdating the Flake... \e[0m\n"
-              nix flake update $FLAKE
+              nix flake update --flake $FLAKE
               echo -e "Flake updated."
               ;;
 
@@ -42,7 +42,7 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              nix flake update $FLAKE
+              nix flake update --flake $FLAKE
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
               cd $FLAKE
@@ -62,7 +62,7 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              nix flake update $FLAKE
+              nix flake update --flake $FLAKE
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
               cd $FLAKE
@@ -88,7 +88,7 @@
               distrobox-upgrade -a
 
               echo -e "\n\e[1m\e[31m3/4 (75%) \e[34mUpdating the Flake... \e[0m\n"
-              nix flake update $FLAKE
+              nix flake update --flake $FLAKE
 
               echo -e "\n\e[1m\e[31m4/4 (100%) \e[34mUpdating the system... \e[0m\n"
               cd $FLAKE

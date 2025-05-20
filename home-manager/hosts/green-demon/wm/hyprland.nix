@@ -19,14 +19,28 @@
       exec-once = $POLKIT_BIN
       exec = swaybg -m fill -i ~/Pictures/wall.jpg
       exec-once = waybar
+      exec-once = protonvpn-app
 
-      monitor=DP-1,1920x1080@144,0x0,1
-      monitor=HDMI-A-1,1920x1080@60,1920x0,1
-      monitor=DP-2,1920x1080@180,3840x0,1
-      monitor=HDMI-A-2,1920x1080@60,5760x0,1
+      monitor = DP-1, 1920x1080@144, 0x0, 1
+      monitor = HDMI-A-1, 1920x1080@60, 1920x0, 1
+      monitor = DP-2, 1920x1080@180, 3840x0, 1
+      monitor = HDMI-A-2, 1920x1080@60, 5760x0, 1
+
+      # Workspace pinning
+      workspace = 1, monitor:DP-2, default:true
+      workspace = 2, monitor:DP-2
+      workspace = 3, monitor:DP-2
+      workspace = 4, monitor:HDMI-A-1, default:true
+      workspace = 5, monitor:HDMI-A-1
+      workspace = 6, monitor:HDMI-A-1
+      workspace = 7, monitor:HDMI-A-2, default:true
+      workspace = 8, monitor:HDMI-A-2
+      workspace = 9, monitor:HDMI-A-2
+      workspace = 10, monitor:DP-1, default:true
 
       input {
         kb_layout = de
+        kb_variant = dvorak
         follow_mouse = 1
         sensitivity = 0
       }
@@ -36,7 +50,7 @@
         gaps_out = 5
         border_size = 3
         col.active_border = rgba(95e6cbff) rgba(59c2ffff) rgba(b8cc52ff) rgba(d2a6ffff) 45deg
-	col.inactive_border = rgba(131721cc) rgba(0f1419cc) 45deg
+        col.inactive_border = rgba(131721cc) rgba(0f1419cc) 45deg
         no_border_on_floating = false
         layout = dwindle
       }
