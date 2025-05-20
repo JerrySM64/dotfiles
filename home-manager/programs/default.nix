@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./fuzzel.nix
     ./kitty.nix
     ./neofetch.nix
     ./rofi.nix

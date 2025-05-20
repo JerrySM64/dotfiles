@@ -155,7 +155,7 @@
       bind = ${modifier}, Return, exec, kitty
       bind = ${modifier}, X, exec, kitty
       bind = ${modifier}, E, exec, thunar
-      bind = ${modifier}, R, exec, rofi -show drun
+      bind = ${modifier}, R, exec, fuzzel
       bind = ${modifier}, escape, exec, wlogout --protocol layer-shell -b 5 -T 400 -B 400
       bind = ${modifier}, Q, killactive,
       bind = ${modifier} SHIFT, Q, exit,

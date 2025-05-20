@@ -87,6 +87,7 @@
       systemPackages = with pkgs; [
         ffmpeg
         ffmpegthumbnailer
+        fuzzel
         grimblast
         libsForQt5.qt5.qtgraphicaleffects
         libsForQt5.sddm-kcm
@@ -97,7 +98,7 @@
         pavucontrol
         playerctl
         polkit_gnome
-        rofi
+      # rofi
         swaybg
         swaylock-effects
         swaynotificationcenter
