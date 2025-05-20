@@ -1,7 +1,7 @@
 # Dotfiles and configuration files for NixOS
 This is my configuration for NixOS. Feel free to poke around. Maybe you find some things, you like or learn new things from it.
 
-![image](https://github.com/user-attachments/assets/d26e88d1-6136-45fa-a8fd-a88992b15633)
+![image](https://github.com/user-attachments/assets/3a3a0f87-79f7-4f7e-a05c-55f21c803387)
 Wallpaper not included. Gotta bring your own. :P
 
 ## Where did EasyNix go?
