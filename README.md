@@ -1,7 +1,8 @@
 # Dotfiles and configuration files for NixOS
 This is my configuration for NixOS. Feel free to poke around. Maybe you find some things, you like or learn new things from it.
 
-![image](https://github.com/JerrySM64/dotfiles/assets/42114389/963a5623-cce5-40cd-a093-c982e51b8c45)
+![image](https://github.com/user-attachments/assets/d26e88d1-6136-45fa-a8fd-a88992b15633)
+Wallpaper not included. Gotta bring your own. :P
 
 ## Where did EasyNix go?
 As time went on, it became harder and harder to maintain EasyNix. It was based on ZaneyOS 1.x and Zaney himself decided to pull the plug and rewrite ZaneyOS from scratch because ZaneyOS suffered from the same issue, EasyNix did. Since it's not working anymore, I decided to revive my old pre-merge branch and put EasyNix to rest. It's not deleted so if you want, you can check out the EasyNix branch.
