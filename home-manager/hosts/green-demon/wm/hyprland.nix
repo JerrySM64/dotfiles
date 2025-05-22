@@ -39,8 +39,7 @@
       workspace = 10, monitor:DP-1, default:true
 
       input {
-        kb_layout = de
-        kb_variant = dvorak
+        kb_layout = us,de
         follow_mouse = 1
         sensitivity = 0
       }
@@ -159,6 +158,7 @@
       bind = ${modifier}, escape, exec, wlogout --protocol layer-shell -b 5 -T 400 -B 400
       bind = ${modifier}, Q, killactive,
       bind = ${modifier} SHIFT, Q, exit,
+      bind = ${modifier} SHIFT, K, exec, hyprctl switchxkblayout current next
       bind = ${modifier}, F, fullscreen,
       bind = ${modifier}, Space, togglefloating,
       bind = ${modifier}, P, pseudo, # dwindle
