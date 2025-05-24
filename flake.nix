@@ -9,13 +9,22 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
-    # Home manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # Home Manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     # Lanzaboote for Secure Boot support
     lanzaboote = {
-      url = "github:nix-community/lanzaboote";
+      url = "github:nix-community/lanzaboote/v0.4.2";
       inputs = {
         nixpkgs = {
           follows = "nixpkgs";
@@ -72,6 +81,23 @@
           inherit inputs outputs;
         };
         modules = [
+          # > Secure Boot is needed for certain operating systems to be happy <
+          lanzaboote.nixosModules.lanzaboote
+
+          ({ pkgs, lib, ... }: {
+            environment.systemPackages = [
+              pkgs.sbctl
+            ];
+
+            boot = {
+              loader.systemd-boot.enable = lib.mkForce false;
+              lanzaboote = {
+                enable = true;
+                pkiBundle = "/var/lib/sbctl";
+              };
+            };
+          })
+
           # > Our main nixos configuration file <
           ./nixos/default.nix
           ./nixos/hosts/green-demon/default.nix
@@ -105,6 +131,15 @@
         modules = [
           ./home-manager/default.nix
           ./home-manager/hosts/optinix/default.nix
+        ];
+      };
+
+      "jerry@hm" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home-manager/default.nix
+          ./home-manager/hosts/hm/default.nix
         ];
       };
     };
