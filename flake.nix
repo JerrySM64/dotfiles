@@ -134,12 +134,12 @@
         ];
       };
 
-      "jerry@hm" = home-manager.lib.homeManagerConfiguration {
+      "jerry@void" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home-manager/default.nix
-          ./home-manager/hosts/hm/default.nix
+          ./home-manager/hosts/void/default.nix
         ];
       };
     };
