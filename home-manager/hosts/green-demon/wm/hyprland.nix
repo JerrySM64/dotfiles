@@ -6,6 +6,7 @@
     package = pkgs.hyprland;
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
+    systemd.enable = true;
     settings = {
       monitor = [
         "desc:Acer Technologies KG241Y P3 1433035123E00, highres@highrr, 3840x0, 1"
