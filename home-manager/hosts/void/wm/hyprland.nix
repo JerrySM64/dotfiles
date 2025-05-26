@@ -63,7 +63,6 @@
           size = "8";
           passes = "3";
           noise = "0.0";
-          new_optimization = "true";
         };
 
         shadow = {
@@ -74,7 +73,7 @@
           color = "0x66000000";
         };
 
-        blurls = "lcokscreen";
+        blurls = "lockscreen";
       };
 
       animations = {
