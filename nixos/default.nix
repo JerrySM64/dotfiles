@@ -125,6 +125,7 @@
 
   # Set hardware related stuff
   hardware  = {
+    bluetooth.enable = true;
   };
 
   # Set up networking
@@ -172,10 +173,12 @@
       enable = true;
     };
 
+    blueman.enable = true;
+
     xserver = {
       # Set keyboard layout in GUI
       xkb = {
-        layout = "de";
+        layout = "us";
         variant = "";
       };
 
@@ -223,7 +226,7 @@
 
   # Set keyboard layout in TTY
   console = {
-    keyMap = "dvorak-de";
+    keyMap = "us";
   };
 
   # Set security options
@@ -239,6 +242,11 @@
     enable = true;
     # Set the limit to double the RAM (Completely overkill. Why am I doing it again?)
     memoryPercent = 200;
+  };
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
   };
 
   # Environment related stuff goes here
