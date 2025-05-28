@@ -25,6 +25,7 @@
     ../pkgs/system.nix
     ../pkgs/fonts.nix
     ./users/default.nix
+    ./fhs-appimage.nix
   ];
 
   nixpkgs = {
@@ -242,11 +243,6 @@
     enable = true;
     # Set the limit to double the RAM (Completely overkill. Why am I doing it again?)
     memoryPercent = 200;
-  };
-
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
   };
 
   # Environment related stuff goes here

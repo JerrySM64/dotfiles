@@ -86,6 +86,8 @@
       onShutdown = "shutdown";
     };
 
+    containers.enable = true;
+
     # Podman for containers
     podman = {
       enable = true;
