@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   programs.neovim = {
@@ -24,7 +24,6 @@
 
     plugins = with pkgs.vimPlugins; [
       alpha-nvim
-      auto-session
       bufferline-nvim
       cmp-buffer
       cmp_luasnip
@@ -37,6 +36,7 @@
       lualine-nvim
       luasnip
       neodev-nvim
+      neovim-ayu
       nui-nvim
       nvim-autopairs
       nvim-cmp
@@ -62,7 +62,6 @@
       ${builtins.readFile ./nvim/keymaps.lua}
       ${builtins.readFile ./nvim/plugins/alpha.lua}
       ${builtins.readFile ./nvim/plugins/autopairs.lua}
-      ${builtins.readFile ./nvim/plugins/auto-session.lua}
       ${builtins.readFile ./nvim/plugins/comment.lua}
       ${builtins.readFile ./nvim/plugins/cmp.lua}
       ${builtins.readFile ./nvim/plugins/lsp.lua}
@@ -72,7 +71,26 @@
       ${builtins.readFile ./nvim/plugins/treesitter.lua}
       require("ibl").setup()
       require("bufferline").setup()
-      require("lualine").setup()
+      require("lualine").setup({
+        options = {
+          theme = "ayu_dark",
+        },
+      })
+      require("ayu").setup({
+        mirage = false,
+        terminal = false,
+        overrides = {
+          Normal = { bg = "None" },
+          NormalFloat = { bg = "None" },
+          ColorColumn = { bg = "None" },
+          SignColumn = { bg = "None" },
+          Folded = { bg = "None" },
+          FoldColumn = { bg = "None" },
+          CursorLine = { bg = "None" },
+          CursorColumn = { bg = "None" },
+          VertSplit = { bg = "None" },
+        }
+      })
     '';
   };
 }
