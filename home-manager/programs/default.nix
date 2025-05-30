@@ -6,6 +6,7 @@
     ./fuzzel.nix
     ./kitty.nix
     ./neofetch.nix
+    ./neovim.nix
     ./rofi.nix
     ./starship.nix
     ./swaync.nix
