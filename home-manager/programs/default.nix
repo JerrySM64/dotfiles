@@ -10,6 +10,7 @@
     ./rofi.nix
     ./starship.nix
     ./swaync.nix
+    ./xdg.nix
     ./waybar.nix
   ];
 
