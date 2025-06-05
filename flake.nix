@@ -111,6 +111,17 @@
         ];
       };
 
+      tiny-heater = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+        };
+        modules = [
+          # > Our main nixos configuration file <
+          ./nixos/default.nix
+          ./nixos/hosts/tiny-heater/default.nix
+        ];
+      };
+
       optinix = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
@@ -132,6 +143,18 @@
 
           ./home-manager/default.nix
           ./home-manager/hosts/green-demon/default.nix
+        ];
+      };
+
+      "jerry@tiny-heater" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # nvf
+          nix-index-database.hmModules.nix-index
+
+          ./home-manager/default.nix
+          ./home-manager/hosts/tiny-heater/default.nix
         ];
       };
 
