@@ -40,6 +40,7 @@
           autoload -Uz compinit && compinit
 
           alias ls="eza -lah --color=auto"
+          alias cat="bat"
           alias rm="rm -i"
           alias mkdir="mkdir -p"
           alias v="nvim"

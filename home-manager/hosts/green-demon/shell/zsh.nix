@@ -41,6 +41,7 @@
           autoload -Uz compinit && compinit
 
           alias ls="eza -lah --color=auto"
+          alias cat="bat"
           alias mv="mv -i"
           alias rm="rm -i"
           alias mkdir="mkdir -p"
