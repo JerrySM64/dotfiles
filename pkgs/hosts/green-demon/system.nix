@@ -16,6 +16,7 @@
       krita
       libratbag
       mpv
+      remmina
       virt-manager
       virt-viewer
     ];

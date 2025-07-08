@@ -19,6 +19,7 @@
 
     # Imports so this file doesn't get so long
     ./programs/default.nix
+    ./wm/default.nix
   ];
 
   nixpkgs = {

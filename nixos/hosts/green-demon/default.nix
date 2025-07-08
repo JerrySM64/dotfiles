@@ -5,7 +5,8 @@
      ./hardware.nix
      ./openrgb.nix
    #  ../../wm/awesomewm.nix
-     ../../wm/hyprland.nix
+   #  ../../wm/hyprland.nix
+     ../../wm/niri.nix
    #  ../../wm/qtile.nix
      ../../../pkgs/dev.nix
      ../../../pkgs/fonts.nix
