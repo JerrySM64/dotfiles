@@ -193,6 +193,9 @@
     # Enable CUPS to print documents
     printing = {
       enable = true;
+      drivers = with pkgs; [
+        epson-escpr2
+      ];
     };
 
     # Enable Flatpak

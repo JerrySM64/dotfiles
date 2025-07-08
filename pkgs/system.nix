@@ -35,12 +35,6 @@
         enable = false;
       };
 
-      # Firefox
-      firefox = {
-        enable = true;
-        package = pkgs.firefox-wayland;
-      };
-
       # SUID wrapper
       mtr = {
         enable = true;

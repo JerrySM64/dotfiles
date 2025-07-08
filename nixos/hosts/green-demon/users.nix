@@ -7,6 +7,7 @@
         jerry = {
           extraGroups = [
             "libvirt"
+            "libvirtd"
             "kvm"
           ];
         };

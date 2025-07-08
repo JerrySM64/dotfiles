@@ -1,7 +1,0 @@
-{ config, ... }:
-
-{
-  imports = [
-    ./hyprland.nix
-  ];
-}

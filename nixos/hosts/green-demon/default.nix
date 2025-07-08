@@ -4,13 +4,9 @@
   imports = [
      ./hardware.nix
      ./openrgb.nix
-   #  ../../de/gnome.nix
-   #  ../../de/kde.nix
-   #  ../../de/xfce.nix
    #  ../../wm/awesomewm.nix
      ../../wm/hyprland.nix
    #  ../../wm/qtile.nix
-   #  ../../wm/wayfire.nix
      ../../../pkgs/dev.nix
      ../../../pkgs/fonts.nix
      ../../../pkgs/system.nix
@@ -57,9 +53,6 @@
   # Man, I love services. I want some more!
   services = {
     pipewire = {
-      jack = {
-        enable = true;
-      };
     };
   };
 

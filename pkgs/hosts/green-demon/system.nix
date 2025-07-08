@@ -16,8 +16,6 @@
       krita
       libratbag
       mpv
-      qjackctl
-      spotify
       virt-manager
       virt-viewer
     ];

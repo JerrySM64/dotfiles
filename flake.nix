@@ -121,16 +121,6 @@
           ./nixos/hosts/tiny-heater/default.nix
         ];
       };
-
-      optinix = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-        };
-        modules = [
-          ./nixos/default.nix
-          ./nixos/hosts/optinix/default.nix
-        ];
-      };
     };
 
     homeConfigurations = {
@@ -155,27 +145,6 @@
 
           ./home-manager/default.nix
           ./home-manager/hosts/tiny-heater/default.nix
-        ];
-      };
-
-      "jerry@OptiNix" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          # nvf
-          nix-index-database.hmModules.nix-index
-
-          ./home-manager/default.nix
-          ./home-manager/hosts/optinix/default.nix
-        ];
-      };
-
-      "jerry@void" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          ./home-manager/default.nix
-          ./home-manager/hosts/void/default.nix
         ];
       };
     };

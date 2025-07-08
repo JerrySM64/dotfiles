@@ -18,9 +18,7 @@
     ./theme.nix
 
     # Imports so this file doesn't get so long
-    ./wm/default.nix
     ./programs/default.nix
-    ./shell/default.nix
   ];
 
   nixpkgs = {
