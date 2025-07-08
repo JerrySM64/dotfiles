@@ -11,10 +11,10 @@
     };
     settings = {
       monitor = [
-        "desc:Acer Technologies KG241Y P3 1433035123E00, highres@highrr, 3840x0, 1"
-        "desc:Dell Inc. DELL P2214H 29C2946E1M2L, highres@highrr, 1920x0, 1"
-        "desc:Dell Inc. DELL P2217H RH81R66D3M2B, highres@highrr, 5760x0, 1"
-        "desc:LG Electronics LG ULTRAGEAR 0x000A944A, highres@highrr, 0x0, 1"              
+        "desc:LG Electronics LG ULTRAGEAR 0x000A944A, 1920x1080@144, -3840x0, 1"              
+        "desc:Dell Inc. DELL P2214H 29C2946E1M2L, highres@highrr, -1920x0, 1"
+        "desc:Acer Technologies KG241Y P3 1433035123E00, highres@highrr, 0x0, 1"
+        "desc:Dell Inc. DELL P2217H RH81R66D3M2B, highres@highrr, 1920x-540, 1, transform, 1"
       ];
 
       workspace = [
@@ -229,7 +229,10 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-hyprland];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
     configPackages = [pkgs.hyprland];
   };
 }

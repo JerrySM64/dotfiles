@@ -41,7 +41,6 @@
         gh
         gitFull
         github-desktop
-        gnat13
         gnumake
         libtool
         nix-prefetch-scripts

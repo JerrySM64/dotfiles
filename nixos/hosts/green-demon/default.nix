@@ -3,6 +3,7 @@
 {
   imports = [
      ./hardware.nix
+     ./openrgb.nix
    #  ../../de/gnome.nix
    #  ../../de/kde.nix
    #  ../../de/xfce.nix

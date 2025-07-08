@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, system, security, ... }: 
+{ config, lib, pkgs, inputs, system, security, ... }: 
   
 {
   config = {
@@ -19,6 +19,7 @@
 
       gvfs = {
         enable = true;
+        package = lib.mkForce pkgs.gnome.gvfs;
       };
 
       gnome = {
