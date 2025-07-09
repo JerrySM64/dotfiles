@@ -24,8 +24,10 @@
 
   # Niri joins the battle!
   programs = {
-    niri = {
+    niri.enable = true;
+    xwayland = {
       enable = true;
+      package = pkgs.xwayland-satellite;
     };
   };    
 
@@ -77,6 +79,7 @@
       xfce.thunar-volman
       xfce.thunar-archive-plugin
       xfce.tumbler
+      xwayland-satellite
     ];
     
     variables = {
