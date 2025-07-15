@@ -2,6 +2,7 @@
   
 {
   services = {
+    dbus.implementation = "broker";
     displayManager.gdm.enable = true;
 
     gvfs = {
@@ -9,11 +10,7 @@
       package = lib.mkForce pkgs.gnome.gvfs;
     };
 
-    gnome = {
-      gnome-keyring = {
-        enable = true;
-      };
-    };
+    gnome.gnome-keyring.enable = true;
   };
 
   # locking with swaylock
@@ -47,26 +44,29 @@
   };
 
   # XDG Desktop Portal
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gnome
-    ];
-    configPackages = [pkgs.niri];
-  };
+    xdg.portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gnome
+      ];
+      configPackages = [pkgs.niri];
+    };
 
-  # Hyprland-specific packages
+  # Niri-specific packages
   environment = {
     systemPackages = with pkgs; [
       ffmpeg
       ffmpegthumbnailer
       fuzzel
-      grimblast
+      grim
       kitty
+      nautilus
       pamixer
       pavucontrol
       playerctl
       polkit_gnome
+      slurp
       swaybg
       swaylock-effects
       swaynotificationcenter
@@ -74,12 +74,7 @@
       waybar
       wlogout
       wl-clipboard
-      xarchiver
-      xfce.thunar
-      xfce.thunar-volman
-      xfce.thunar-archive-plugin
-      xfce.tumbler
-      xwayland-satellite
+      file-roller
     ];
     
     variables = {

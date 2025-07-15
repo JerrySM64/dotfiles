@@ -6,6 +6,7 @@
     userDirs = {
       enable = true;
     };
+
     mime.enable = true;
   };
 }

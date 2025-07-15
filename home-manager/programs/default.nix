@@ -17,6 +17,8 @@
   home = {
     packages = with pkgs; [
       dconf
+
+      (import ./screenshotter.nix {inherit pkgs;})
     ];
   };
 }

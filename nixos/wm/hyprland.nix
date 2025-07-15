@@ -5,6 +5,7 @@
     services = {
       displayManager.sddm = {
         enable = true;
+        wayland.enable = true;
       #  theme = "${(pkgs.fetchFromGitHub {
       #    owner = "Kangie";
       #    repo = "sddm-sugar-candy";
@@ -14,7 +15,7 @@
       };
       
       xserver = {
-        enable = true;
+        enable = false;
       };
 
       gvfs = {

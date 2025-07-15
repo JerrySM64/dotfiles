@@ -26,5 +26,10 @@
         openFirewall = true;
       };
     };
+
+    gamemode = {
+      enable = true;
+      enableRenice = true;
+    };
   };
 }

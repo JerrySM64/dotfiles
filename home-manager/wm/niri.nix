@@ -9,6 +9,7 @@
       swaybg
       swayidle
       xwayland-satellite
+      xdg-desktop-portal-gnome
     ];
 
     file = {
@@ -17,5 +18,11 @@
         recursive = true;
       };
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gnome];
+    configPackages = [pkgs.xdg-desktop-portal-gnome];
   };
 }
