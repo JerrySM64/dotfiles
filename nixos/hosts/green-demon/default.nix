@@ -2,16 +2,17 @@
 
 {
   imports = [
-     ./hardware.nix
-     ./openrgb.nix
-   #  ../../wm/awesomewm.nix
-     ../../wm/hyprland.nix
-   #  ../../wm/niri.nix
-   #  ../../wm/qtile.nix
-     ../../../pkgs/dev.nix
-     ../../../pkgs/fonts.nix
-     ../../../pkgs/system.nix
-     ../../../pkgs/hosts/green-demon/system.nix
+    ./davinci-resolve.nix
+    ./hardware.nix
+    ./openrgb.nix
+  # ../../wm/awesomewm.nix
+    ../../wm/hyprland.nix
+  #  ../../wm/niri.nix
+  #  ../../wm/qtile.nix
+    ../../../pkgs/dev.nix
+    ../../../pkgs/fonts.nix
+    ../../../pkgs/system.nix
+    ../../../pkgs/hosts/green-demon/system.nix
     # Import home-manager's NixOS module
     inputs.home-manager.nixosModules.home-manager
   ];
