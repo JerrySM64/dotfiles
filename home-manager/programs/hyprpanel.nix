@@ -141,7 +141,7 @@
           };
 
           menus = {
-            enableShadoow = true;
+            enableShadow = true;
             monochrome = false;
             menu.dashboard.scaling = "90";
           };
@@ -161,7 +161,7 @@
         font = {
           name = "JetBrains Mono Nerd Font";
           label = "JetBrains Mono Nerd Font Light";
-          size = "12px";
+          size = "16px";
         };
       };
     };
