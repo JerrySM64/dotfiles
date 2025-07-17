@@ -1,11 +1,9 @@
-{ config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home = {
     file = {
-      ".config/neofetch/config.conf" = {
-        source = ../files/neofetch.conf;
-      };
+      ".config/neofetch/config.conf".source = ../files/neofetch.conf;
     };
   };
 }
