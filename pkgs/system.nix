@@ -49,25 +49,25 @@
 
 
   # Define the system packages here
-  environment = {
-    systemPackages = with pkgs; [
-      brave
-      btop
-      eza
-      fastfetch
-      kitty
-      lm_sensors
-      neovim
-      nextcloud-client
-      nh
-      ntfs3g
-      pciutils
-      pfetch
-      protonvpn-gui
-      starship
-      tdesktop
-      unzip
-      wget
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    brave
+    btop
+    eza
+    fastfetch
+    kitty
+    lm_sensors
+    neovim
+    nextcloud-client
+    nh
+    ntfs3g
+    pciutils
+    pfetch
+    protonvpn-gui
+    starship
+    tdesktop
+    unzip
+    wget
+
+    (callPackage ./custom/hourglass.nix {})
+  ];
 }
