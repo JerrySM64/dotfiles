@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
   programs.hyprpanel = {
     enable = true;
@@ -24,6 +24,14 @@
         systray.ignore = [
           "blueman"
         ];
+
+        media = {
+          truncation = true;
+          truncation_size = "50";
+          show_label = true;
+          format = "{title}";
+          show_active_only = true;
+        };
 
         layouts = {
           "HDMI-A-1" = {
