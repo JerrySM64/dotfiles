@@ -3,12 +3,16 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
     systemd = {
       enableXdgAutostart = true;
       variables = ["--all"];
     };
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+    ];
     settings = {
       monitor = [
         "desc:LG Electronics LG ULTRAGEAR 0x000A944A, 1920x1080@144, -3840x0, 1"              
@@ -40,7 +44,7 @@
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "wlsunset -S 9:00 -s 19:30"
         "$POLKIT_BIN"
-        "waybar"
+        "hyprpanel"
         "protonvpn-app"
       ];
       
@@ -138,7 +142,7 @@
 
       "$mod" = "SUPER";
 
-      "$screenshotarea" = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
+      "$screenshotarea" = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast copy area; hyprctl keyword animation 'fadeOut,1,4,default'; hyprpanel -q; hyprpanel";
 
       bind = [
         "$mod, B, exec, brave"
@@ -230,9 +234,8 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
-    configPackages = [pkgs.hyprland];
+    configPackages = [inputs.hyprland.packages.${pkgs.system}.hyprland];
   };
 }

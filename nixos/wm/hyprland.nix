@@ -102,9 +102,9 @@
         playerctl
         polkit_gnome
       # rofi
-        swaybg
+        #  swaybg
         swaylock-effects
-        swaynotificationcenter
+        #  swaynotificationcenter
         viewnior
         waybar
         wlogout

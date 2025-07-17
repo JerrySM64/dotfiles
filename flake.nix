@@ -4,10 +4,10 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # You can access packages and modules from different nixpkgs revs
-    # at the same time. Here's an working example:
+    # Nixpkgs Stable in case it's needed (Currently NixOS 25.05)
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
-    # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
+    # Nixpkgs Unstable Small for faster updates to critical components
+    nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     # Home Manager
     home-manager = {
@@ -31,19 +31,8 @@
     # Lanzaboote for Secure Boot support
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
-
-    # Shameless plug: looking for a way to nixify your themes and make
-    # everything match nicely? Try nix-colors!
-    # nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = {
@@ -55,7 +44,7 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    # Supported systems for your flake packages, shell, etc.
+    # Supported systems flake packages, shell, etc.
     systems = [
       "x86_64-linux"
     ];
@@ -63,14 +52,12 @@
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    # Formatter for your nix files, available through 'nix fmt'
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    # Your custom packages and modifications, exported as overlays
+    # Custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
@@ -80,7 +67,7 @@
     homeManagerModules = import ./modules/home-manager;
 
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
+    # Available through 'nixos-rebuild --flake .#hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
       green-demon = nixpkgs.lib.nixosSystem {

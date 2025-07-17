@@ -4,6 +4,7 @@
   imports = [
     ./alacritty.nix
     ./fuzzel.nix
+    ./hyprpanel.nix
     ./kitty.nix
     ./neofetch.nix
     ./neovim.nix
