@@ -10,9 +10,6 @@
   environment = {
     systemPackages = with pkgs; [
       blender
-      brasero
-      gimp
-      inkscape
       krita
       libratbag
       mpv

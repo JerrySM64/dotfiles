@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, outputs, ... }:
+{ pkgs, inputs, outputs, ... }:
 
 {
   imports = [
@@ -18,8 +18,8 @@
   ];
 
   boot = {
-    # Use Zen Kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    # Use Zen Kernel from small repo for faster updates
+    kernelPackages = inputs.nixpkgs-small.legacyPackages.x86_64-linux.linuxPackages_zen;
 
     # Add Green Demon's kernel parameters
     kernelParams = [

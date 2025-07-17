@@ -90,8 +90,6 @@
     ];
   };
 
-  # FIXME: Add the rest of your current configuration
-
   boot = {
     # Use systemd-boot as the bootloader
     loader = {

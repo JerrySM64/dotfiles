@@ -116,7 +116,7 @@
               };
               shortcut2 = {
                 command = "env DESKTOPINTEGRATION=1 /home/jerry/AppImages/cider.appimage %U";
-                icon = "<U+F001>";
+                icon = "";
                 tooltip = "Cider";
               };
               shortcut3.command = "flatpak run com.discordapp.Discord";
