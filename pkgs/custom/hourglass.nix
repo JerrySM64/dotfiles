@@ -1,25 +1,27 @@
-# https://gitlab.com/Alxhr0/hourglass/-/archive/1.2/hourglass-1.2.tar
-{ lib, rustPlatform, fetchFromGitLab }:
+{
+  lib,
+  rustPlatform,
+  fetchFromGitLab,
+}:
 
 rustPlatform.buildRustPackage rec {
   pname = "hourglass";
-  version = "1.2";
+  version = "1.3";
 
   src = fetchFromGitLab {
     owner = "alxhr0";
     repo = "hourglass";
-    rev = "${version}";
-    hash = "sha256-3LKCKQr7KwGS+HeOmmK3pbW0wYdDihnSAyi8IDANSxw=";
+    rev = version;
+    hash = "sha256-ZdafRzu3pOJr634GZPI+mlShvvkG0FOis0qncAjRzxw=";
   };
 
-  cargoHash = "sha256-igdwaGrYGLsarAdcvjBAPHt8saOx+BV/XM04nbnpp+I=";
+  cargoHash = "sha256-skXcHSqxWHiCOvvSrys3wjasKVMX/Zz5uxAJHs6dpDc=";
 
   meta = {
     description = "";
     homepage = "https://gitlab.com/alxhr0/hourglass";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [ alxhr0 ];
+    maintainers = with lib.maintainers; [ ];
     mainProgram = "hourglass";
   };
 }
-
