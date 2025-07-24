@@ -5,8 +5,9 @@
     ./davinci-resolve.nix
     ./hardware.nix
     ./openrgb.nix
-  # ../../wm/awesomewm.nix
-    ../../wm/hyprland.nix
+    ../../de/kde.nix
+  #  ../../wm/awesomewm.nix
+  #  ../../wm/hyprland.nix
   #  ../../wm/niri.nix
   #  ../../wm/qtile.nix
     ../../../pkgs/dev.nix
