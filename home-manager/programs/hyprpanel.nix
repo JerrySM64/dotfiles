@@ -6,7 +6,7 @@
     # See 'https://hyprpanel.com/configuration/settings.html'.
     settings = {
       scalingPriority = "both";
-      wallpaper.image = "/home/jerry/Pictures/wall.jpg";
+      wallpaper.image = "/home/jerry/Pictures/Kelp Dome.jpg";
       bar = {
         launcher.autoDetectIcon = true;
         workspaces.show_icons = true;

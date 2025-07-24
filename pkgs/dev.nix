@@ -25,6 +25,7 @@
       gitFull
       gnumake
       libtool
+      nix-init
       nix-prefetch-scripts
       pkg-config
       python311Full
