@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   gtk = {
@@ -20,6 +20,9 @@
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
     gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
   };
+
+  # Now shut up, Home Manager
+  home.file."${config.gtk.gtk2.configLocation}".force = lib.mkForce true;
 
   # qt = {
   #   enable = true;

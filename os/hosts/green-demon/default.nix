@@ -163,6 +163,7 @@
     packages = with pkgs; [
       element-desktop
       gearlever
+      onefetch
       vesktop
     ];
   };
