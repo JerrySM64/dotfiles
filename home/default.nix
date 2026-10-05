@@ -9,10 +9,6 @@
     username = "jerry";
     homeDirectory = "/home/jerry";
     backupFileExtension = "bak";
-    packages = with pkgs; [
-      bat
-    ];
-
     stateVersion = "26.11";
   };
 

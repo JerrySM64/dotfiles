@@ -1,8 +1,13 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs = {
     bat.enable = true;
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
     eza = {
       enable = true;
@@ -213,4 +218,8 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    pfetch-rs
+  ];
 }

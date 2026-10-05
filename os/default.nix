@@ -56,7 +56,7 @@
 
     nh = {
       enable = true;
-      flake = ".local/share/flake";
+      flake = "/home/$USER/.local/share/flake";
     };
   };
 
@@ -72,6 +72,10 @@
 
   # Enable experimental commands
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  environment.systemPackages = with pkgs; [
+    git
+  ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

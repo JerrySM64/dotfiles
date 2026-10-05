@@ -3,8 +3,7 @@
 {
   imports = [
     ./hardware.nix
-    ./nerd-fonts.nix
-    ./udev-rules.nix
+    ./modules.nix
   ];
 
   # Bootloader + Kernel
@@ -21,8 +20,18 @@
     };
   };
 
-  # Bluetooth
-  hardware.bluetooth.enable = true;
+  # Hardware-related
+  hardware = {
+    amdgpu.initrd.enable = true;
+    bluetooth.enable = true;
+
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+  };
+
+  nixpkgs.config.rocmSupport = true;
 
   # Networking
   networking = {
@@ -39,10 +48,6 @@
         variant = "";
       };
     };
-
-    # KDE Plasma + SDDM
-    displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
 
     # Sound
     pulseaudio.enable = false;
@@ -156,8 +161,8 @@
     shell = pkgs.zsh;
     extraGroups = [ "libvirtd" ];
     packages = with pkgs; [
+      element-desktop
       gearlever
-      kdePackages.kate
       vesktop
     ];
   };
