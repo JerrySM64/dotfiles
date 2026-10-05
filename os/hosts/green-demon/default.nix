@@ -70,6 +70,7 @@
         extraPkgs = pkgs: with pkgs; [
           gtk4
           libadwaita
+          qt6.qtbase
         ];
       };
     };
@@ -127,6 +128,22 @@
       libraries = with pkgs; [
         gtk4
         libadwaita
+        qt6.qtbase
+      ];
+    };
+
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        input-overlay
+        obs-gstreamer
+        obs-livesplit-one
+        obs-pipewire-audio-capture
+        obs-tuna
+        obs-vaapi
+        obs-vkcapture
+        obs-wayland-hotkeys
       ];
     };
 
@@ -139,6 +156,7 @@
     shell = pkgs.zsh;
     extraGroups = [ "libvirtd" ];
     packages = with pkgs; [
+      gearlever
       kdePackages.kate
       vesktop
     ];
