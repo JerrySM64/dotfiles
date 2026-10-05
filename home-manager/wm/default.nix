@@ -1,7 +1,0 @@
-{ config, ... }:
-
-{
-  imports = [
-    ./niri.nix
-  ];
-}
