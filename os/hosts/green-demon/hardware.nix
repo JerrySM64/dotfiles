@@ -9,24 +9,32 @@
     initrd = {
       availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
       kernelModules = [];
-      luks.devices."luks-0a68d24c-88eb-45f0-9797-ce3f5f904121".device = "/dev/disk/by-uuid/0a68d24c-88eb-45f0-9797-ce3f5f904121";
+      luks = {
+        devices = {
+          "luks-root".device = "/dev/disk/by-uuid/0a68d24c-88eb-45f0-9797-ce3f5f904121";
+          "luks-home" = {
+            device = "/dev/disk/by-uuid/eabc3544-5f32-459b-a275-a34d0c1ae8e7";
+            crypttabExtraOpts = [ "same-as-password" ];
+          };
+        };
+      };
     };
   };
 
   fileSystems = {
     "/" = {
-      device = "/dev/mapper/luks-0a68d24c-88eb-45f0-9797-ce3f5f904121";
+      device = "/dev/mapper/luks-root";
       fsType = "btrfs";
     };
 
     "/home" = {
-      device = "/dev/mapper/luks-0a68d24c-88eb-45f0-9797-ce3f5f904121";
+      device = "/dev/mapper/luks-home";
       fsType = "btrfs";
-      options = [ "subvol=home" ];
+      options = [ "subvol=home" "x-systemd.device-timeout=0" ];
     };
 
     "/nix" = {
-      device = "/dev/mapper/luks-0a68d24c-88eb-45f0-9797-ce3f5f904121";
+      device = "/dev/mapper/luks-root";
       fsType = "btrfs";
       options = [ "subvol=nix" ];
     };

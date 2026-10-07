@@ -1,10 +1,6 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
-  imports = [
-    ./shell.nix
-  ];
-
   xdg = {
     enable = true;
     userDirs.enable = true;

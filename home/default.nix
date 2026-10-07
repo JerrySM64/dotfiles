@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./theme.nix
+    ./modules/theme.nix
+    ./modules/shell.nix
   ];
 
   home = {
