@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   # Networking
@@ -47,10 +47,17 @@
   };
 
   # Podman
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    defaultNetwork.settings.dns_enabled = true;
+  virtualisation = {
+    containers = {
+      enable = true;
+      storage.settings.storage.driver = "btrfs";
+    };
+
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
 
   programs = {
@@ -72,10 +79,22 @@
     isNormalUser = true;
     description = "Jerry";
     extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      novafetch
+    ];
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+
+    overlays = [
+      (final: prev: {
+        novafetch = inputs.novafetch.packages.${prev.stdenv.hostPlatform.system}.default;
+        squidmod = inputs.squidmod.packages.${prev.stdenv.hostPlatform.system}.default;
+      })
+    ];
+  };
 
   # Enable experimental commands
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

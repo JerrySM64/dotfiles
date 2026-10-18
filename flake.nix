@@ -14,8 +14,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Novafetch
+    novafetch = {
+      url = "github:JerrySM64/novafetch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # SquidMod
+    squidmod = {
+      url = "github:JerrySM64/SquidMod";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

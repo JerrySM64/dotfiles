@@ -4,11 +4,6 @@
   programs = {
     bat.enable = true;
 
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
     eza = {
       enable = true;
       enableZshIntegration = true;
@@ -194,7 +189,7 @@
         bindkey '^[[H' beginning-of-line                # Key Home
         bindkey '^[[F' end-of-line                      # Key End
 
-        pfetch
+        novafetch
 
         if [ -f $HOME/.zshrc-personal ]; then
           source $HOME/.zshrc-personal
@@ -206,6 +201,7 @@
       shellAliases = {
         # General
         ls = "eza -lah";
+        cat = "bat";
         mkdir = "mkdir -p";
         ".." = "cd ..";
 
@@ -218,8 +214,4 @@
       };
     };
   };
-
-  home.packages = with pkgs; [
-    pfetch-rs
-  ];
 }

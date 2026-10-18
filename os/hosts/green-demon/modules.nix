@@ -5,6 +5,8 @@
     # General modules
     ../../modules/nerd-fonts.nix
     ../../modules/udev-rules.nix
+    ../../modules/wine.nix
+    ../../modules/dev.nix
 
     # Desktop Environments
     ../../modules/de/kde.nix

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -9,6 +9,10 @@
   # Bootloader + Kernel
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+
+    kernel.sysctl = {
+      "kernel.yama.ptrace_scope" = 0;
+    };
 
     extraModprobeConfig = ''
       options kvm_amd nested=1
@@ -29,13 +33,19 @@
       enable = true;
       enable32Bit = true;
     };
+    steam-hardware.enable = true;
+    uinput.enable = true;
   };
 
   nixpkgs.config.rocmSupport = true;
 
   # Networking
   networking = {
-    firewall.trustedInterfaces = [ "virbr0" ];
+    firewall = {
+      trustedInterfaces = [ "virbr0" ];
+      allowedUDPPorts = [ 58000 ];
+    };
+
     hostName = "Green-Demon";
   };
 
@@ -61,7 +71,16 @@
     };
   };
 
-  security.rtkit.enable = true;
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+    wrappers.pkexec = {
+      setuid = true;
+      owner = "root";
+      group = "root";
+      source = "${pkgs.polkit.out}/bin/pkexec";
+    };
+  };
 
   # QEMU/KVM
   virtualisation.libvirtd.enable = true;
@@ -131,6 +150,7 @@
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
+        glib
         gtk4
         libadwaita
         qt6.qtbase
@@ -162,9 +182,31 @@
     extraGroups = [ "libvirtd" ];
     packages = with pkgs; [
       element-desktop
+      endeavour
+      filezilla
       gearlever
+      ghidra-bin
+      kdePackages.kleopatra
+      nomacs
+      novafetch
       onefetch
+      squidmod
       vesktop
+
+      # Dev Stuff
+      jdk25
+
+      # Overrides
+      (cemu.overrideAttrs (oldAttrs: {
+        preFixup = (oldAttrs.preFixup or "") + ''
+          gappsWrapperArgs+=(
+            --set SDL_JOYSTICK_HIDAPI_SWITCH "1"
+          );
+        '';
+      }))
+
+      # Custom packages
+      (callPackage ../../pkgs/spoon-save-editor.nix { })
     ];
   };
 
