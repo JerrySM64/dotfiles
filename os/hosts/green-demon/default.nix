@@ -93,6 +93,7 @@
       package = pkgs.appimage-run.override {
         extraPkgs = pkgs: with pkgs; [
           gtk4
+          icu
           libadwaita
           qt6.qtbase
         ];
@@ -161,7 +162,6 @@
       enable = true;
       enableVirtualCamera = true;
       plugins = with pkgs.obs-studio-plugins; [
-        input-overlay
         obs-gstreamer
         obs-livesplit-one
         obs-pipewire-audio-capture
@@ -193,20 +193,9 @@
       squidmod
       vesktop
 
-      # Dev Stuff
-      jdk25
-
-      # Overrides
-      (cemu.overrideAttrs (oldAttrs: {
-        preFixup = (oldAttrs.preFixup or "") + ''
-          gappsWrapperArgs+=(
-            --set SDL_JOYSTICK_HIDAPI_SWITCH "1"
-          );
-        '';
-      }))
-
       # Custom packages
       (callPackage ../../pkgs/spoon-save-editor.nix { })
+      (callPackage ../../pkgs/cemu.nix { })
     ];
   };
 

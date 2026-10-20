@@ -6,4 +6,9 @@
     kdePackages.kate
     kdePackages.partitionmanager
   ];
+
+  # Workaround to not get spammed by baloo crashes
+  systemd.user.services.kde-baloo.environment = {
+    QT_QPA_PLATFORM = "offscreen";
+  };
 }

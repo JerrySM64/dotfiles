@@ -3,6 +3,12 @@
 {
   services.displayManager.sddm = {
     enable = true;
-    theme = "breeze";
+    wayland.enable = true;
+  };
+
+  programs.qylock = {
+    enable = true;
+    theme = "forest";
+    sddm.enable = true;
   };
 }

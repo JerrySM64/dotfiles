@@ -8,6 +8,12 @@
     # Nixpkgs Stable (Currently NixOS 26.05)
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
+    # SDDM Theme
+    qylock = {
+      url = "github:Darkkal44/qylock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Lanzaboote for Secure Boot support
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.2.0";
@@ -37,6 +43,7 @@
     self,
     nixpkgs,
     lanzaboote,
+    qylock,
     home-manager,
     ...
   } @ inputs: let
@@ -52,6 +59,7 @@
         modules = [
           # Secure Boot Support
           lanzaboote.nixosModules.lanzaboote
+          qylock.nixosModules.default
 
           ({ pkgs, lib, ... }: {
             environment.systemPackages = [
