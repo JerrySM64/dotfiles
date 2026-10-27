@@ -71,7 +71,7 @@
           inherit inputs outputs;
         };
         modules = [
-          comin.nixosModules.default
+          comin.nixosModules.comin
           lanzaboote.nixosModules.lanzaboote
           qylock.nixosModules.default
           squidmod.nixosModules.default
