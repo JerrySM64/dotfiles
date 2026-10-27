@@ -7,7 +7,6 @@
     ../../modules/udev-rules.nix
     ../../modules/wine.nix
     ../../modules/dev.nix
-    ../../modules/local-ai.nix
 
     # Desktop Environments
     ../../modules/de/kde.nix

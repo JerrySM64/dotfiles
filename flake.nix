@@ -44,8 +44,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Local AI
-    nix-amd-ai.url = "github:noamsto/nix-amd-ai";
+    # Comin GitOps
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -55,7 +58,7 @@
     qylock,
     squidmod,
     home-manager,
-    nix-amd-ai,
+    comin,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -68,10 +71,10 @@
           inherit inputs outputs;
         };
         modules = [
+          comin.nixosModules.default
           lanzaboote.nixosModules.lanzaboote
           qylock.nixosModules.default
           squidmod.nixosModules.default
-          nix-amd-ai.nixosModules.default
 
           ({ pkgs, lib, ... }: {
             environment.systemPackages = [

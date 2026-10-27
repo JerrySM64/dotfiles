@@ -38,6 +38,15 @@
       drivers = [ pkgs.epson-escpr ];
     };
 
+    # Comin Auto Update
+    comin = {
+      enable = true;
+      remotes = [{
+        name = "origin";
+        url = "https://github.com/JerrySM64/dotfiles.git";
+      }];
+    };
+
     # Automatic Network Printer Discovery
     avahi = {
       enable = true;
