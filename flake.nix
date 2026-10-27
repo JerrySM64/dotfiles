@@ -37,6 +37,15 @@
       url = "github:JerrySM64/SquidMod";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Spoon Save Editor
+    sse = {
+      url = "github:tvyrval/Spoon-Save-Editor";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Local AI
+    nix-amd-ai.url = "github:noamsto/nix-amd-ai";
   };
 
   outputs = {
@@ -44,7 +53,9 @@
     nixpkgs,
     lanzaboote,
     qylock,
+    squidmod,
     home-manager,
+    nix-amd-ai,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -57,9 +68,10 @@
           inherit inputs outputs;
         };
         modules = [
-          # Secure Boot Support
           lanzaboote.nixosModules.lanzaboote
           qylock.nixosModules.default
+          squidmod.nixosModules.default
+          nix-amd-ai.nixosModules.default
 
           ({ pkgs, lib, ... }: {
             environment.systemPackages = [

@@ -95,6 +95,7 @@
           gtk4
           icu
           libadwaita
+          libnghttp2
           qt6.qtbase
         ];
       };
@@ -160,7 +161,7 @@
 
     obs-studio = {
       enable = true;
-      enableVirtualCamera = true;
+      enableVirtualCamera = false;
       plugins = with pkgs.obs-studio-plugins; [
         obs-gstreamer
         obs-livesplit-one
@@ -172,6 +173,7 @@
       ];
     };
 
+    squidmod.enable = true;
     virt-manager.enable = true;
     zsh.enable = true;
   };
@@ -184,17 +186,16 @@
       element-desktop
       endeavour
       filezilla
-      gearlever
+      # gearlever
       ghidra-bin
       kdePackages.kleopatra
       nomacs
       novafetch
       onefetch
-      squidmod
+      spoon-save-editor
       vesktop
 
       # Custom packages
-      (callPackage ../../pkgs/spoon-save-editor.nix { })
       (callPackage ../../pkgs/cemu.nix { })
     ];
   };

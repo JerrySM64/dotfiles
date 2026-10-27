@@ -91,7 +91,7 @@
     overlays = [
       (final: prev: {
         novafetch = inputs.novafetch.packages.${prev.stdenv.hostPlatform.system}.default;
-        squidmod = inputs.squidmod.packages.${prev.stdenv.hostPlatform.system}.default;
+        spoon-save-editor = inputs.sse.packages.${prev.stdenv.hostPlatform.system}.default;
       })
     ];
   };

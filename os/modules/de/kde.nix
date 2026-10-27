@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     kdePackages.kate
     kdePackages.partitionmanager
+    mpv
   ];
 
   # Workaround to not get spammed by baloo crashes
