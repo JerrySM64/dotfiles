@@ -20,5 +20,8 @@
 
     # Pacman for devkitPro
     pacman
+
+    # VS Code
+    vscode
   ];
 }

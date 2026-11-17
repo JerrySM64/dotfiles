@@ -95,6 +95,7 @@
           gtk4
           icu
           libadwaita
+          libgpg-error
           libnghttp2
           qt6.qtbase
         ];

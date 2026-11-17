@@ -7,6 +7,7 @@
     ../../modules/udev-rules.nix
     ../../modules/wine.nix
     ../../modules/dev.nix
+    ../../modules/kdenlive.nix
 
     # Desktop Environments
     ../../modules/de/kde.nix
